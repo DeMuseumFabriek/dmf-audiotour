@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+  <link rel="icon" href="../static/favicon.ico">  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 25px;
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 800px; /* beperking voor grote schermen */
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    /* Zorg dat SVG altijd goed schaalt */
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Hotspot rechthoek stijl */
+    .hotspot rect {
+      
+      stroke:#ffffff;
+      stroke-width:0.0;
+      stroke-linecap:square;
+      paint-order:markers fill stroke
+    }
+    
+    .hotspot rect:hover {
+      transform: scale(1.0);
+      fill: orange;
+    }
+
+    /* Hotspot informatie tekst
+     Informatie over de  hotspot waarover de muis beweegt 
+     verschijnt in een tekst-box bovenaan de pagina */
+    .description-box {
+      position: absolute;
+      top: 0px;
+      left: 10%;
+      transform: translateX(0%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 40%;
+      display: none;
+      z-index: 1000;
+    }
+
+    /* Lijst met namen van expositieruimtes of exposities */   
+    .hotspot-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;  /* Increased font size for better readability */
+      fill: #000;
+      stroke: #af494900;
+      stroke-width: 0.6;
+      paint-order: stroke;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    
+    .hotspot-label:hover {
+      fill: orange;
+    }
+
+    /* New style for the text container */
+    .text-container {
+      position: absolute;
+      left: 10px;  /* Distance from left edge */
+      top: 50%;    /* Center vertically */
+      transform: translateY(-50%);
+      width: 150px;  /* Fixed width for text block */
+      text-align: left;
+      z-index: 100;
+    }
+
+    /* Dropdown styles */
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      color: black;
+      text-align: left;
+      font-size: 16px;
+      line-height: 25px;
+      min-width: 130px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 20px 16px;
+    }
+    
+    .controls {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      width: 80%;
+      height: 5rem;
+      margin: auto;
+      position: relative;
+    }
+
+
+    .dropbtn {
+      background-color: blue;
+      color: white;
+      padding: 5px 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+      border: 1px solid black;
+    }
+    
+    .dropdown a:hover {background-color: #ddd;}
+
+    .show {display: block;}
+</style>
+</head>
+
+<body>
+
+  <h1>Pakloods 3</h1>
+  <div style = "display: PIPO"class="dropdown">
+      <button onclick="myFunction2()" class="dropbtn">Wat is hier te zien</button>
+      <div id="myDropdown" class="dropdown-content">
+            nog niets ....
+      </div>
+
+<script>
+
+  function myFunction2() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+
+</div>
+
+  <div class="svg-wrapper">
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="320"
+   viewBox="0 0 300 320"
+   version="1.1"
+   id="svg1235"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="pakloods3.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1237"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d3"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.94681692"
+     inkscape:cx="79.21278"
+     inkscape:cy="325.30048"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer4"
+     borderlayer="true"
+     showborder="true" /><defs
+     id="defs1232"><rect
+       x="274.8317"
+       y="155.33966"
+       width="42.569038"
+       height="22.404758"
+       id="rect10189" /><rect
+       x="271.09756"
+       y="128.45395"
+       width="66.467445"
+       height="42.569038"
+       id="rect8993" /><rect
+       x="218.00443"
+       y="73.119499"
+       width="125.91233"
+       height="36.377514"
+       id="rect11394" /><rect
+       x="17.602842"
+       y="56.87072"
+       width="472.5686"
+       height="39.267879"
+       id="rect2615" /><rect
+       x="111.06633"
+       y="235.53722"
+       width="226.92001"
+       height="105.32152"
+       id="rect259" /><rect
+       x="133.56683"
+       y="237.93089"
+       width="122.07723"
+       height="52.182026"
+       id="rect56346-8" /><rect
+       x="133.56683"
+       y="237.93089"
+       width="122.07723"
+       height="52.182026"
+       id="rect61787" /><rect
+       x="133.56683"
+       y="237.93089"
+       width="122.07723"
+       height="52.182026"
+       id="rect63027" /><rect
+       x="133.56683"
+       y="237.93089"
+       width="122.07723"
+       height="52.182026"
+       id="rect56346-8-1" /><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter14270"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood14258" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage14260" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend14262" /><feMerge
+         result="fbSourceGraphic"
+         id="feMerge14268"><feMergeNode
+           in="result1"
+           id="feMergeNode14264" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode14266" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix19069" /><feFlood
+         id="feFlood19071"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage19073"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend19075"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge19077"
+         result="result3"><feMergeNode
+           id="feMergeNode19079"
+           in="result1" /><feMergeNode
+           id="feMergeNode19081"
+           in="fbSourceGraphic" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19095"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19083" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19085" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19087" /><feMerge
+         result="result3"
+         id="feMerge19093"><feMergeNode
+           in="result1"
+           id="feMergeNode19089" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19091" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19109"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19097" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19099" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19101" /><feMerge
+         result="result3"
+         id="feMerge19107"><feMergeNode
+           in="result1"
+           id="feMergeNode19103" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19105" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19123"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19111" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19113" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19115" /><feMerge
+         result="result3"
+         id="feMerge19121"><feMergeNode
+           in="result1"
+           id="feMergeNode19117" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19119" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19137"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19125" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19127" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19129" /><feMerge
+         result="result3"
+         id="feMerge19135"><feMergeNode
+           in="result1"
+           id="feMergeNode19131" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19133" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19151"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood19139" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19141" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19143" /><feMerge
+         result="result3"
+         id="feMerge19149"><feMergeNode
+           in="result1"
+           id="feMergeNode19145" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19147" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19165"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19153" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19155" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19157" /><feMerge
+         result="result3"
+         id="feMerge19163"><feMergeNode
+           in="result1"
+           id="feMergeNode19159" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19161" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19179"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19167" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19169" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19171" /><feMerge
+         result="result3"
+         id="feMerge19177"><feMergeNode
+           in="result1"
+           id="feMergeNode19173" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19175" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19193"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19181" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19183" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19185" /><feMerge
+         result="result3"
+         id="feMerge19191"><feMergeNode
+           in="result1"
+           id="feMergeNode19187" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19189" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19207"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19195" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19197" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19199" /><feMerge
+         result="result3"
+         id="feMerge19205"><feMergeNode
+           in="result1"
+           id="feMergeNode19201" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19203" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19221"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19209" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19211" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19213" /><feMerge
+         result="result3"
+         id="feMerge19219"><feMergeNode
+           in="result1"
+           id="feMergeNode19215" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19217" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19235"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19223" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19225" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19227" /><feMerge
+         result="result3"
+         id="feMerge19233"><feMergeNode
+           in="result1"
+           id="feMergeNode19229" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19231" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19109-7"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19097-0" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19099-9" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19101-7" /><feMerge
+         result="result3"
+         id="feMerge19107-3"><feMergeNode
+           in="result1"
+           id="feMergeNode19103-4" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19105-3" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19109-70"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19097-5" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19099-1" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19101-1" /><feMerge
+         result="result3"
+         id="feMerge19107-7"><feMergeNode
+           in="result1"
+           id="feMergeNode19103-9" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19105-7" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter19123-1"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(238,241,193)"
+         flood-opacity="1"
+         id="feFlood19111-0" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage19113-8" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend19115-8" /><feMerge
+         result="fbSourceGraphic"
+         id="feMerge19121-4"><feMergeNode
+           in="result1"
+           id="feMergeNode19117-6" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode19119-9" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix5800" /><feFlood
+         id="feFlood5802"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage5804"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend5806"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge5808"
+         result="fbSourceGraphic"><feMergeNode
+           id="feMergeNode5810"
+           in="result1" /><feMergeNode
+           id="feMergeNode5812"
+           in="fbSourceGraphic" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix5832" /><feFlood
+         id="feFlood5834"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage5836"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend5838"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge5840"
+         result="result3"><feMergeNode
+           id="feMergeNode5842"
+           in="result1" /><feMergeNode
+           id="feMergeNode5844"
+           in="fbSourceGraphic" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8266"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8254" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8256" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8258" /><feMerge
+         result="fbSourceGraphic"
+         id="feMerge8264"><feMergeNode
+           in="result1"
+           id="feMergeNode8260" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8262" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix8304" /><feFlood
+         id="feFlood8306"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage8308"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend8310"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge8312"
+         result="fbSourceGraphic"><feMergeNode
+           id="feMergeNode8314"
+           in="result1" /><feMergeNode
+           id="feMergeNode8316"
+           in="fbSourceGraphic" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix8550" /><feFlood
+         id="feFlood8552"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage8554"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend8556"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge8558"
+         result="result3"><feMergeNode
+           id="feMergeNode8560"
+           in="result1" /><feMergeNode
+           id="feMergeNode8562"
+           in="fbSourceGraphic" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8366"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8354" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8356" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8358" /><feMerge
+         result="result3"
+         id="feMerge8364"><feMergeNode
+           in="result1"
+           id="feMergeNode8360" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8362" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8380"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8368" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8370" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8372" /><feMerge
+         result="result3"
+         id="feMerge8378"><feMergeNode
+           in="result1"
+           id="feMergeNode8374" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8376" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8394"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8382" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8384" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8386" /><feMerge
+         result="result3"
+         id="feMerge8392"><feMergeNode
+           in="result1"
+           id="feMergeNode8388" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8390" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8408"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8396" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8398" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8400" /><feMerge
+         result="result3"
+         id="feMerge8406"><feMergeNode
+           in="result1"
+           id="feMergeNode8402" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8404" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8422"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8410" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8412" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8414" /><feMerge
+         result="fbSourceGraphic"
+         id="feMerge8420"><feMergeNode
+           in="result1"
+           id="feMergeNode8416" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8418" /></feMerge><feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix8834" /><feFlood
+         id="feFlood8836"
+         result="result1"
+         flood-color="rgb(200,55,55)"
+         flood-opacity="1"
+         in="fbSourceGraphic" /><feImage
+         id="feImage8838"
+         xlink:href=""
+         result="result2" /><feBlend
+         in2="result1"
+         id="feBlend8840"
+         result="result4"
+         mode="multiply" /><feMerge
+         id="feMerge8842"
+         result="result3"><feMergeNode
+           id="feMergeNode8844"
+           in="result1" /><feMergeNode
+           id="feMergeNode8846"
+           in="fbSourceGraphic" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8436"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8424" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8426" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8428" /><feMerge
+         result="result3"
+         id="feMerge8434"><feMergeNode
+           in="result1"
+           id="feMergeNode8430" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8432" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8450"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8438" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8440" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8442" /><feMerge
+         result="result3"
+         id="feMerge8448"><feMergeNode
+           in="result1"
+           id="feMergeNode8444" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8446" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8464"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8452" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8454" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8456" /><feMerge
+         result="result3"
+         id="feMerge8462"><feMergeNode
+           in="result1"
+           id="feMergeNode8458" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8460" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8478"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8466" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8468" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8470" /><feMerge
+         result="result3"
+         id="feMerge8476"><feMergeNode
+           in="result1"
+           id="feMergeNode8472" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8474" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8492"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8480" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8482" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8484" /><feMerge
+         result="result3"
+         id="feMerge8490"><feMergeNode
+           in="result1"
+           id="feMergeNode8486" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8488" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8506"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8494" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8496" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8498" /><feMerge
+         result="result3"
+         id="feMerge8504"><feMergeNode
+           in="result1"
+           id="feMergeNode8500" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8502" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8520"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8508" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8510" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8512" /><feMerge
+         result="result3"
+         id="feMerge8518"><feMergeNode
+           in="result1"
+           id="feMergeNode8514" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8516" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8534"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8522" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8524" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8526" /><feMerge
+         result="result3"
+         id="feMerge8532"><feMergeNode
+           in="result1"
+           id="feMergeNode8528" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8530" /></feMerge></filter><filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter8548"
+       x="0"
+       y="0"
+       width="1"
+       height="1"><feFlood
+         result="result1"
+         flood-color="rgb(255,255,255)"
+         flood-opacity="1"
+         id="feFlood8536" /><feImage
+         xlink:href=""
+         result="result2"
+         id="feImage8538" /><feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend8540" /><feMerge
+         result="result3"
+         id="feMerge8546"><feMergeNode
+           in="result1"
+           id="feMergeNode8542" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode8544" /></feMerge></filter></defs><g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Laag 1"
+     transform="translate(-66.591226,44.54721)"><g
+       id="g8561"
+       transform="matrix(2.4284679,0,0,2.4284679,-96.132915,251.98709)"><path
+         style="display:inline;fill:none;stroke:#f10000;stroke-width:0.437614;stroke-dasharray:none;stroke-opacity:1"
+         d="M 63.875506,4.084756 35.74184,31.0182"
+         id="path1112"
+         sodipodi:nodetypes="cc"
+         transform="translate(96.229894,-116.38482)" /><path
+         style="fill:none;stroke:#f70000;stroke-width:0.437614;stroke-dasharray:none;stroke-opacity:1"
+         d="M 35.298299,22.820084 56.969706,2.6731551"
+         id="path1114"
+         sodipodi:nodetypes="cc"
+         transform="translate(96.229894,-116.38482)" /><path
+         style="fill:#0000ff;fill-opacity:0;stroke:#ff0000;stroke-width:1.28832;stroke-linecap:square;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+         d="m 35.632299,30.851695 0.03002,6.492021 M 54.989445,37.613075 83.256297,37.867734 93.67405,110.57939 17.7733,117.17019 2.2529795,36.592089 0.55212218,6.1892714 35.207086,6.4018749 35.632299,22.772623"
+         id="path827"
+         sodipodi:nodetypes="cccccccccc"
+         transform="translate(96.229894,-116.38482)" /><path
+         style="fill:#0000ff;fill-opacity:0;stroke:#ff0000;stroke-width:1.28832;stroke-linecap:square;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+         d="M 21.812835,109.51635 7.7807643,37.229915 35.53189,37.127702"
+         id="path829"
+         sodipodi:nodetypes="ccc"
+         transform="translate(96.229894,-116.38482)" /><path
+         style="fill:#0000ff;fill-opacity:0;stroke:#ff0000;stroke-width:1.28825;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;paint-order:markers stroke fill"
+         d="M 83.0438,38.004447 82.48491,6.1477395"
+         id="path1314"
+         transform="translate(96.229894,-116.38482)" /><text
+         xml:space="preserve"
+         style="font-size:2.51654px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#6c0039;fill-opacity:1;stroke:#007777;stroke-width:0.105833;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;paint-order:markers stroke fill"
+         x="20.778284"
+         y="43.974461"
+         id="text10893-8-9-5"
+         transform="rotate(-41.482025,-105.55404,-185.2498)"><tspan
+           sodipodi:role="line"
+           id="tspan10891-3-2-93"
+           style="fill:#6c0039;fill-opacity:1;stroke-width:0.105833;stroke-dasharray:none"
+           x="20.778284"
+           y="43.974461">loopbrug</tspan></text><text
+         xml:space="preserve"
+         style="font-size:2.51654px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#6c0039;fill-opacity:1;stroke:#007777;stroke-width:0.105833;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;paint-order:markers stroke fill"
+         x="-81.014923"
+         y="-7.2161951"
+         id="text10893-8-9-7"
+         transform="rotate(-105.42371,3.8032356,-94.830447)"><tspan
+           sodipodi:role="line"
+           id="tspan10891-3-2-5"
+           style="fill:#6c0039;fill-opacity:1;stroke-width:0.105833;stroke-dasharray:none"
+           x="-81.014923"
+           y="-7.2161951">helling</tspan></text></g></g></svg>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      const svg = document.querySelector("svg"); // de SVG van expositieruimte.svg
+      let links = [""]
+      let coor_xs = []
+      let coor_ys = []
+      let exposities = [""]
+      const svgns = "http://www.w3.org/2000/svg";
+      const linkns = "http://www.w3.org/1999/xlink";
+      let len = coor_xs.length;      
+      for (let i=0; i<len; i++) {
+            const link = document.createElementNS(svgns, "a");
+            link.setAttribute("class", "hotspot");
+            link.setAttributeNS(linkns, "xlink:href", links[i] || "");              
+            const lx0 =  5; // lx0, ly0 is de plaats van de lijst met luisterpunten
+            const ly0 =  10;
+            const dy = 15; // dy is de afstand tussen de regels in deze lijst 
+            // Hotspot in de vorm van een rechthoek, w = breedte, h = hoogte, ry = hoekradius.
+            // x en y zijn de coordinaten van het luisterpunt
+            // Een cirkel ontstaat als w=h en ry=w/2
+            const w  =  20;
+            const h  =  20;
+            const ry =  10;
+            const x = coor_xs[i] || 50;
+            const y = coor_ys[i] || 50;
+            
+            const rect = document.createElementNS(svgns, "rect");
+            rect.setAttribute("ry", ry);
+            rect.setAttribute("x", x - w/2);
+            rect.setAttribute("y", y - h/2);
+            rect.setAttribute("width", w);
+            rect.setAttribute("height", h);
+            rect.setAttribute("fill",  "red");
+            rect.setAttribute("fill-opacity", 0.3);
+            const title_rect = document.createElementNS(svgns, "title");
+            title_rect.textContent =  exposities[i]; // tekst van de tooltip: naam van de expostie waarnaar verwezen wordt
+            rect.appendChild(title_rect);
+
+            // Tekst gecentreerd in de hotspot
+            const text = document.createElementNS(svgns, "text");
+            text.setAttribute("x", x); 
+            text.setAttribute("y", y);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("alignment-baseline", "middle");
+            text.setAttribute("fill",  "white");
+            text.setAttribute("pointer-events", "none"); 
+            text.setAttribute("font-size", (ry * 1.4).toString());
+            text.textContent = i;
+
+            // ---- Lijst met luisterpunten ----
+            const label = document.createElementNS(svgns, "text");
+            const lx = parseFloat(lx0); // x- positie van de lijst
+            const ly = parseFloat(ly0) + i * dy ; // Start y position + orde * lijnafstand
+            label.setAttribute("x", lx); 
+            label.setAttribute("y", ly);
+            label.setAttribute("text-anchor", "start"); // Left alignment
+            label.setAttribute("class", "hotspot-label");
+            label.textContent = i +'. ' + exposities[i];
+
+            
+            link.appendChild(rect);
+            link.appendChild(text);
+            link.appendChild(label);
+            svg.appendChild(link);
+      }
+   });
+
+    </script>
+  </div>
+  <div id="description-box" class="description-box"></div> 
+  </body>
+</html>

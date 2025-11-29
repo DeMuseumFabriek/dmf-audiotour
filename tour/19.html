@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+
+.tour-audio {
+    width:100%;
+    height: 70px;
+    padding: 0px;
+}
+
+/* Titelstijl */
+.tour-caption {
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Stijl voor de knoppen */
+.nav-links {
+    display: flex;
+    height:50px;
+    justify-content: space-between;
+    gap: 0px;
+    text-decoration: none;
+}
+
+.nav-links {
+
+    padding: 0px;
+    margin-top: 0px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 34px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navr-links {
+
+    padding: 0px;
+    margin-top: 0px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 34px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+.nav-links:hover {
+    background-color: #41a049;
+}
+
+/* Stijl voor de afbeelding */
+.image-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+
+
+/* Stijl voor de tekst */
+.text {
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Responsieve aanpassingen voor kleinere schermen */
+@media (max-width: 600px) {
+    .tour-header {
+      font-size: 40px;
+    }
+    .image {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      border-radius: 8px;
+    }
+}
+
+
+</style>
+
+
+<div class="tour-wrapper">
+      <div class="nav-links">
+        <a href="../tour/17.html" class="nav-links" >⬅️</a>
+        <a href="../index.html" class="nav-links" >&#127968;</a>
+        <a href="../tour/13.html" class="navr-links" >➡️</a>
+        
+      </div> 
+      
+       
+
+  
+  <audio id="mainAudio" class="tour-audio" controls preload="metadata">
+    
+      <source src="../static/audio/los/NL/los003.mp3"
+              type="audio/mpeg">
+      Je browser ondersteunt geen audio-element.
+    
+  </audio>
+  
+  
+  
+  <div class="tour-wrapper">
+    <div>
+      <h1 class="tour-title">Gevelteken</h1>
+
+    </div>
+  </div>
+
+
+
+
+      <div class="image-container" id="imageBox"> </div>
+      <div class="tour-caption" id="imageCaption"></div>
+      <div style="margin-top:12px; font-size:0.9rem; color:#666;"></div>
+      <div>
+        <p>
+          <div id = "imageContainer"></div>
+          <div id = "imageCaption"></div>
+        </p>
+        <script>
+            const audio = document.getElementById('mainAudio');
+            const curSecSpan = document.getElementById('curSec');
+              // Build beelden array (paths already resolved server-side)
+            const beelden = [
+              
+                {
+                  id: 11,
+                  sec: 0,
+                  naam: "../static/images/los/los003.jpg",
+                  caption: "gevelteken paardenhoofd"
+                }
+              
+            ];
+            const l = beelden.length;
+            const tijdstippen =[];
+            const fotos = [];
+            const foto_titels = [];
+            for (let i=0; i<l; i++){
+              tijdstippen[i]=beelden[i].sec;
+              fotos[i] = beelden[i].naam;
+              foto_titels[i] = beelden[i].caption;
+            }
+            let imgElement = document.createElement("img");  
+            imgElement.alt = "image";
+            imgElement.src = fotos[0];
+            let container = document.getElementById("imageBox");
+            container.appendChild(imgElement);
+            let p = document.getElementById("imageCaption");
+            p.innerHTML=foto_titels[0];
+            function myFunction() {
+              const time = document.getElementById("mainAudio").currentTime;
+              let i = 0;
+              tijdstippen.forEach( tijdstip => {
+                const duration = document.getElementById("mainAudio").duration;
+                tijdstippen[l] = duration;
+                if (time > tijdstippen[i] && time < tijdstippen[i+1] ) {
+                  console.log(time, i, tijdstip, tijdstippen[i], tijdstippen[i+1]);
+                  imgElement.src = fotos[i];
+                  p.innerHTML=foto_titels[i];
+                };
+                i=i+1;
+              }
+            );
+          };
+        </script>
+      </div>
+
+
+
+
+      <div class="text" id="paginaText">
+        Gevelteken
+Als je naar de punt van het dak kijkt, zie je een gevelteken.
+Geveltekens ontstonden oorspronkelijk door de kruisende windveren, de planken tussen gevel en het dak die de wind buiten moesten houden.
+De uiteinden werden vaak versierd met dierenkoppen, meestal paardenkoppen, omdat het paard het belangrijkste bezit van de boer was.
+Het paard werd in de volkscultuur ook gezien als symbool van vruchtbaarheid of als bescherming tegen onheil.
+Van oudsher hadden geveltekens vooral een onheil-afwerende functie.
+Boeren vroegen zoals het ware de hulp van bovennatuurlijke krachten om ongeluk en rampspoed te voorkomen.
+In Twente was het leven vaak hard.
+De bodem was meestal arme zandgrond, afgewisseld met kleine vruchtbare stukken in de beekdalen.
+Een slechte oogst door droogte, regen of ziektes kon al leiden tot honger.
+Ook natuurrampen, oorlogen of veeziektes konden grote problemen veroorzaken.
+Daarnaast geloofden mensen in witte wieven, hellehonden en boze geesten, die buiten de deur moesten blijven.
+Voor het voedsel was rogge het hoofdvoedsel, maar daarin kwam soms de moederkoren-schimmel voor.
+Wie dit at, kon hallucineren, wat misschien bijdroeg aan verhalen over rondwarende geesten.
+Geveltekens veranderden in de loop van de tijd.
+Wil je weten hoe ze veranderden, kijk dan in de Atlas van Ooit.
+Het volgende verhaal blijft nog voor het Los Hoes.
+Daar staat een kapelletje van gedroogd vlas, een belangrijk gewas voor de Twentse boeren.
+      </div>
+      <div class="controls">
+        <div class="small-muted">Beelden: 1</div>
+        <div style="flex:1"></div>
+        <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
+      </div>
+
+
+
+
+
+
+
+</div>
+
+<script>
+(function(){
+  const audio = document.getElementById('mainAudio');
+  const curSecSpan = document.getElementById('curSec');
+
+  // Build beelden array (paths already resolved server-side)
+  const beelden = [
+    
+      {
+        id: 11,
+        sec: 0,
+        naam: "../static/images/los/los003.jpg",
+        caption: "gevelteken paardenhoofd"
+      }
+    
+  ];
+ 
+  // Ensure sorted by sec numeric
+  beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
+ console.log(beelden.length)
+  const captionEl = document.getElementById('imageCaption');
+  const imageBox = document.getElementById('imageBox');
+
+  function getImageElement() {
+    return document.getElementById('currentImage');
+  }
+
+  function showBeeld(i){
+    if(!beelden.length) return;
+    const b = beelden[i];
+    const imgEl = getImageElement();
+    if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
+      imgEl.src = b.naam;
+      imgEl.alt = b.caption || ("Beeld " + b.id);
+    } else {
+      // if placeholder div present, replace with <img>
+      const newImg = document.createElement('img');
+      newImg.id = 'currentImage';
+      newImg.src = b.naam;
+      newImg.alt = b.caption || ("Beeld " + b.id);
+      newImg.style.width = '100%';
+      imageBox.innerHTML = '';
+      imageBox.appendChild(newImg);
+    }
+    // set caption text safely (textContent)
+    captionEl.textContent = "";
+    const strong = document.createElement('strong');
+    strong.textContent = "@" + b.sec + "s";
+    captionEl.appendChild(strong);
+    captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
+  }
+
+  let lastIndex = -1;
+
+  function findIndexForSecond(sec) {
+    // find the last beeld whose sec <= current second
+    let idx = -1;
+    for (let i = 0; i < beelden.length; i++) {
+      if ((beelden[i].sec || 0) <= sec) idx = i;
+      else break;
+    }
+    return idx;
+  }
+
+  function onTimeUpdate(){
+    const sec = Math.floor(audio.currentTime || 0);
+    curSecSpan.textContent = sec;
+    const idx = findIndexForSecond(sec);
+    if (idx !== lastIndex && idx !== -1) {
+      showBeeld(idx);
+      lastIndex = idx;
+    }
+  }
+
+  // Fallback polling for browsers where timeupdate is not frequent enough:
+  let pollInterval = null;
+  function startPolling() {
+    if (pollInterval) return;
+    pollInterval = setInterval(function(){
+      if (!audio.paused && !audio.ended) onTimeUpdate();
+    }, 250); // 250ms
+  }
+  function stopPolling() {
+    if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+  }
+
+  if (audio) {
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    audio.addEventListener('play', function(){
+      onTimeUpdate();
+      startPolling();
+    });
+    audio.addEventListener('pause', stopPolling);
+    audio.addEventListener('ended', stopPolling);
+    audio.addEventListener('seeked', onTimeUpdate);
+    // initial update (in case audio is already at >0)
+    setTimeout(onTimeUpdate, 200);
+  }
+
+  // Clicking image jumps to next beeld (convenience)
+  imageBox.addEventListener('click', function(){
+    if(!beelden.length || !audio) return;
+    let next = lastIndex + 1;
+    if (next >= beelden.length) next = 0;
+    const targetSec = beelden[next].sec || 0;
+    audio.currentTime = targetSec;
+    audio.play();
+    showBeeld(next);
+    lastIndex = next;
+  });
+
+})();
+</script>
+</body>
+</html>
