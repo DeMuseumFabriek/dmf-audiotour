@@ -110,11 +110,7 @@ body {
     text-align: left;
 }
 
-/* Responsieve aanpassingen voor kleinere schermen */
-@media (max-width: 600px) {
-    .tour-header {
-      font-size: 40px;
-    }
+
 
 
 .tour-title {
@@ -140,14 +136,20 @@ body {
 
 .dropdown-content {
   display: none;
-  position: relative;
+
+
+
   background-color: #f1f1f1;
   font-size: 16px;
   line-height: 25px;
-  width: 80%;
-  overflow: auto;
+  width: 100%;
+  max-width: 5000px;
+  max-height: 400px;
+  overflow-y: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 1000;
+  padding: 0px;
+  border-radius: 5px;
 }
 
 .dropdown a:hover {background-color: #ddd;}
@@ -187,16 +189,16 @@ body {
       <div class="image-container" id="imageBox"> </div>
 
 
-<!--
+
       <div style="margin-top:12px; font-size:0.9rem; color:#666;"></div>
 
 
 
 
-          <div id = "imageContainer"></div>
-          <div id = "imageCaption"></div>
+
+
     
--->
+
         <script>
             const audio = document.getElementById('mainAudio');
             const curSecSpan = document.getElementById('curSec');
@@ -244,9 +246,10 @@ body {
             );
           };
         </script>
-      </div>
+
       
-      
+      <div class="tour-caption" id="imageCaption"></div>      
+
   <audio id="mainAudio" class="tour-audio" controls preload="metadata">
     
       <source src="../static/audio/los/NL/los000.mp3"
@@ -255,9 +258,10 @@ body {
     
   </audio>
 
-      <div class="tour-caption" id="imageCaption"></div>
+
+
       <div class="dropdown">
-        <button onclick="myFunction2()" class="dropbtn">Laat audio tekst zien</button>
+        <button id="dropdownBtn" class="dropbtn">Laat audio tekst zien</button>
         <div id="myDropdown" class="dropdown-content">
 
           Welkom
@@ -272,24 +276,32 @@ Veel plezier!
         </div>
       </div>
       <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
-        function myFunction2() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
+        (function() {
+          /* When the user clicks on the button, 
+          toggle between hiding and showing the dropdown content */
+          const dropdownBtn = document.getElementById('dropdownBtn');
+          const dropdown = document.getElementById('myDropdown');
+          
+          dropdownBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdown.classList.toggle("show");
+            console.log('Dropdown toggled:', dropdown.classList.contains('show'));
+          });
+          
+          // Prevent dropdown from closing when clicking inside it
+          dropdown.addEventListener('click', function(event) {
+            event.stopPropagation();
+          });
+          
+          // Close the dropdown if the user clicks outside of it
+          document.addEventListener('click', function(event) {
+            if (dropdown.classList.contains('show') && 
+                !event.target.matches('.dropbtn') && 
+                !dropdown.contains(event.target)) {
+              dropdown.classList.remove('show');
             }
-          }
-        }
+          });
+        })();
       </script>
       
 <!--
@@ -311,7 +323,7 @@ Veel plezier!
         <div style="flex:1"></div>
         <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
       </div>
-</div>
+
 
 <script>
 (function(){
