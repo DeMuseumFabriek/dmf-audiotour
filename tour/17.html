@@ -5,18 +5,49 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style>
+body {
 
+      margin: 0;
+
+      background: #fff;
+
+      color: #333;
+
+      font-family: 'Open Sans', sans-serif;
+
+    }
+    
+    h1 {
+
+      font-family: 'Montserrat', sans-serif;
+
+      font-weight: 700;
+
+      font-size: 28px;
+
+      line-height: 1.2;
+
+      margin: 0 0 12px;
+
+      color: #000;
+
+    }
 .tour-audio {
     width:100%;
     height: 70px;
-    padding: 0px;
+    padding: 10px;
+
 }
 
-/* Titelstijl */
+/* titel onder de foto */
 .tour-caption {
-    text-align: center;
-    font-size: 24px;
-}
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      color: #555;
+      margin-top: 8px;
+      text-align: center;
+    }
 
 /* Stijl voor de knoppen */
 .nav-links {
@@ -29,10 +60,10 @@
 
 .nav-links {
 
-    padding: 0px;
+    padding: 5px;
     margin-top: 0px;
-    background-color: #4CAF50;
-    color: white;
+
+    color: black;
     border: none;
     border-radius: 20px;
     font-size: 34px;
@@ -43,10 +74,10 @@
 
 .navr-links {
 
-    padding: 0px;
+    padding: 5px;
     margin-top: 0px;
-    background-color: #4CAF50;
-    color: white;
+
+    color: black;
     border: none;
     border-radius: 25px;
     font-size: 34px;
@@ -57,15 +88,14 @@
 
 
 .nav-links:hover {
-    background-color: #41a049;
+
 }
 
 /* Stijl voor de afbeelding */
 .image-container {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    text-align: center;
+    max-width: 80%;
+    max-height: 50%;
+    margin: auto;
 
 }
 
@@ -73,6 +103,8 @@
 
 /* Stijl voor de tekst */
 .text {
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     line-height: 1.2;
     text-align: left;
@@ -83,58 +115,88 @@
     .tour-header {
       font-size: 40px;
     }
-    .image {
-      max-width: 100%;
-      width: 100%;
-      height: auto;
-      max-width: 300px;
-      border-radius: 8px;
-    }
+
+
+.tour-title {
+  padding: 8px;
+      text-align: center;
 }
 
+.dropbtn {
+  background-color: blue;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  line-height: 25px;
+  width: 80%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
 
 </style>
 
 
 <div class="tour-wrapper">
       <div class="nav-links">
-        <a href="../tour/16.html" class="nav-links" >⬅️</a>
-        <a href="../index.html" class="nav-links" >&#127968;</a>
-        <a href="../tour/19.html" class="navr-links" >➡️</a>
-        
-      </div> 
-      
-       
+        <a style='font-size:60px;' href="../tour/16.html" class="nav-links" >&#8592;</a>
+        <a style='font-size:60px;' href="../index.html" class="nav-links" >&#8962</a>
+        <a style='font-size:60px;' href="../tour/19.html" class="navr-links" >&#8594;</a>
 
-  
-  <audio id="mainAudio" class="tour-audio" controls preload="metadata">
-    
-      <source src="../static/audio/los/NL/los002.mp3"
-              type="audio/mpeg">
-      Je browser ondersteunt geen audio-element.
-    
-  </audio>
-  
-  
-  
-  <div class="tour-wrapper">
+      </div> 
+</div> 
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+
+     
+        <p>
+
     <div>
       <h1 class="tour-title">Naam Los Hoes</h1>
 
     </div>
-  </div>
 
 
+          </p>
 
 
       <div class="image-container" id="imageBox"> </div>
-      <div class="tour-caption" id="imageCaption"></div>
+
+
+<!--
       <div style="margin-top:12px; font-size:0.9rem; color:#666;"></div>
-      <div>
-        <p>
+
+
+
+
           <div id = "imageContainer"></div>
           <div id = "imageCaption"></div>
-        </p>
+    
+-->
         <script>
             const audio = document.getElementById('mainAudio');
             const curSecSpan = document.getElementById('curSec');
@@ -190,10 +252,59 @@
           };
         </script>
       </div>
+      
+      
+  <audio id="mainAudio" class="tour-audio" controls preload="metadata">
+    
+      <source src="../static/audio/los/NL/los002.mp3"
+              type="audio/mpeg">
+      Je browser ondersteunt geen audio-element.
+    
+  </audio>
 
+      <div class="tour-caption" id="imageCaption"></div>
+      <div class="dropdown">
+        <button onclick="myFunction2()" class="dropbtn">Laat audio tekst zien</button>
+        <div id="myDropdown" class="dropdown-content">
 
-
-
+          Naam Los Hoes
+De naam Los Hoes komt van het Nedersaksische lös hoes (meervoud: lösse huze).
+Waarschijnlijk betekent het “open huis”, omdat er vroeger maar één grote ruimte was waar mens en dier samen onder één dak sliepen.
+In de winter was dat lekker warm.
+Het achterste gedeelte van het huis bij de grote deuren, heette de deel en was voor de dieren en het werk.
+Het voorste deel was de woonruimte.
+Soms wordt gedacht dat de naam ook verwijst naar het bouwpakket-karakter van het huis (los = niet vast).
+De houten balken waren vaak genummerd en met pen-en gatverbindingen verbonden.
+Dat betekent dat het gebouw soms werd afgebroken en elders weer opgebouwd, bijvoorbeeld als de grond uitgeput was en de boer een beter stuk land vond.
+Als het gezin groter werd of het bedrijf goed ging, konden er extra ankergebinten bijgekocht worden.
+Zo werd de boerderij langer gemaakt.
+Er was daar een levendige handel in.
+Voor het volgende verhaal gaan we het Los Hoes nog steeds niet in.
+We bekijken nu eerst het gevelteken op de punt van het dak.
+        </div>
+      </div>
+      <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction2() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+      </script>
+      
+<!--
       <div class="text" id="paginaText">
         Naam Los Hoes
 De naam Los Hoes komt van het Nedersaksische lös hoes (meervoud: lösse huze).
@@ -210,18 +321,13 @@ Er was daar een levendige handel in.
 Voor het volgende verhaal gaan we het Los Hoes nog steeds niet in.
 We bekijken nu eerst het gevelteken op de punt van het dak.
       </div>
+-->
+
       <div class="controls">
         <div class="small-muted">Beelden: 2</div>
         <div style="flex:1"></div>
         <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
       </div>
-
-
-
-
-
-
-
 </div>
 
 <script>
@@ -278,9 +384,10 @@ We bekijken nu eerst het gevelteken op de punt van het dak.
     // set caption text safely (textContent)
     captionEl.textContent = "";
     const strong = document.createElement('strong');
-    strong.textContent = "@" + b.sec + "s";
+    // strong.textContent = "@" + b.sec + "s";
     captionEl.appendChild(strong);
-    captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
+    // captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
+    captionEl.appendChild(document.createTextNode((b.caption || b.naam)));
   }
 
   let lastIndex = -1;
