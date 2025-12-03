@@ -1,269 +1,177 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<style>
-body {
-
-      margin: 0;
-
-      background: #fff;
-
-      color: #333;
-
-      font-family: 'Open Sans', sans-serif;
-
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     
-    h1 {
+    <style>
+        body {
+              margin: 0px;
+              background: #fff;
+              color: #333;
+              font-family: 'Open Sans', sans-serif;
+            }
+            
+            h1 {
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 700;
+              font-size: 28px;
+              line-height: 3.5;
+              margin: 0 0 2px;
+              color: #000;
+            }
+            
+        .tour-audio {
+            width:100%;
+            height: 70px;
+            padding: 10px;
+        }
 
-      font-family: 'Montserrat', sans-serif;
+        /* titel onder de foto */
+        .tour-caption {
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 600;
+              font-size: 18px;
+              color: #555;
+              margin-top: 0px;
+              text-align: center;
+            }
 
-      font-weight: 700;
+        /* Stijl voor de knoppen */
+        .nav-links {
+            display: flex;
+            height:25px;
+            justify-content: space-between;
+            gap: 10px;
+            text-decoration: none;
+        }
 
-      font-size: 28px;
+        .nav-links {
+            position: relative;
+            padding: 0px;
+            margin-top: 0px;
 
-      line-height: 1.2;
-
-      margin: 0 0 12px;
-
-      color: #000;
-
-    }
-.tour-audio {
-    width:100%;
-    height: 70px;
-    padding: 10px;
-
-}
-
-/* titel onder de foto */
-.tour-caption {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 24px;
-      color: #555;
-      margin-top: 8px;
-      text-align: center;
-    }
-
-/* Stijl voor de knoppen */
-.nav-links {
-    display: flex;
-    height:50px;
-    justify-content: space-between;
-    gap: 0px;
-    text-decoration: none;
-}
-
-.nav-links {
-
-    padding: 5px;
-    margin-top: 0px;
-
-    color: black;
-    border: none;
-    border-radius: 20px;
-    font-size: 34px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.navr-links {
-
-    padding: 5px;
-    margin-top: 0px;
-
-    color: black;
-    border: none;
-    border-radius: 25px;
-    font-size: 34px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
+            color: black;
+            border: none;
 
 
-.nav-links:hover {
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
 
-}
+        .nav-links:hover {
 
-/* Stijl voor de afbeelding */
-.image-container {
-    max-width: 80%;
-    max-height: 50%;
-    margin: auto;
+        }
 
-}
+        /* Stijl voor de afbeelding */
+        .image-container img {
+            padding: 0%;
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0px;
+        }
 
+        /* Stijl voor de tekst */
+        .text {
+            margin: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            line-height: 1.2;
+            text-align: left;
+        }
 
+        .tour-title {
+          padding: 0px;
+              text-align: center;
+        }
+        
+        .AVObtn {
+          background-color: blue;
+          color: white;
+          padding: 5px 10px;
+          font-size: 12px;
+          cursor: pointer;
+          border-radius: 20px;
+          border: 1px solid black;
+          display: inline-block;
+          height: 32px;
+          line-height: 22px;
+          box-sizing: border-box;
+        }
+        
+        .AVObtn a {
+          color: white !important;
+          text-decoration: none;
+        }
+        
+        .dropbtn {
+          background-color: blue;
+          color: white;
+          padding: 5px 10px;
+          font-size: 12px;
+          cursor: pointer;
+          border-radius: 20px;
+          border: 1px solid black;
+          height: 32px;
+          line-height: 22px;
+          box-sizing: border-box;
+        }
 
-/* Stijl voor de tekst */
-.text {
-    margin: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    line-height: 1.2;
-    text-align: left;
-}
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
 
+        .dropdown-content {
+          display: none;
+          background-color: #f1f1f1;
+          font-size: 16px;
+          line-height: 25px;
+          width: 100%;
+          max-width: 5000px;
+          max-height: 400px;
+          overflow-y: auto;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1000;
+          padding: 0px;
+          border-radius: 5px;
+        }
 
+        .dropdown a:hover {background-color: #ddd;}
 
+        .show {display: block;}
 
-.tour-title {
-  padding: 8px;
-      text-align: center;
-}
-
-.dropbtn {
-  background-color: blue;
-  color: white;
-  padding: 5px 10px;
-  font-size: 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  border: 1px solid black;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-
-
-
-  background-color: #f1f1f1;
-  font-size: 16px;
-  line-height: 25px;
-  width: 100%;
-  max-width: 5000px;
-  max-height: 400px;
-  overflow-y: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
-  padding: 0px;
-  border-radius: 5px;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-
-</style>
-
-
-<div class="tour-wrapper">
-      <div class="nav-links">
-        <a style='font-size:60px;' href="../tour/19.html" class="nav-links" >&#8592;</a>
-        <a style='font-size:60px;' href="../index.html" class="nav-links" >&#8962</a>
-        <a style='font-size:60px;' href="../tour/14.html" class="navr-links" >&#8594;</a>
-
-      </div> 
-</div> 
-
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-
-     
-        <p>
+    </style>
+  <body>
+    <div class="tour-wrapper">
+          <div class="nav-links">
+            <a style='font-size:60px;' href="../tour/19.html" class="nav-links" >&#8592;</a>
+            <a style='font-size:60px;' href="../index.html" class="nav-links" >&#8962</a>
+            <a style='font-size:60px;' href="../tour/14.html" class="nav-links" >&#8594;</a>
+          </div> 
+    </div> 
 
     <div>
       <h1 class="tour-title">Schoof vlas</h1>
-
     </div>
 
+    <div class="image-container" id="imageBox"> </div>
 
-          </p>
+    <div class="tour-caption" id="imageCaption"></div>      
 
-
-      <div class="image-container" id="imageBox"> </div>
-
-
-
-      <div style="margin-top:12px; font-size:0.9rem; color:#666;"></div>
-
-
-
-
-
-
-    
-
-        <script>
-            const audio = document.getElementById('mainAudio');
-            const curSecSpan = document.getElementById('curSec');
-              // Build beelden array (paths already resolved server-side)
-            const beelden = [
-              
-                {
-                  id: 24,
-                  sec: 0,
-                  naam: "../static/images/los/los004.jpg",
-                  caption: "kappeltje vlas"
-                }
-              
-            ];
-            const l = beelden.length;
-            const tijdstippen =[];
-            const fotos = [];
-            const foto_titels = [];
-            for (let i=0; i<l; i++){
-              tijdstippen[i]=beelden[i].sec;
-              fotos[i] = beelden[i].naam;
-              foto_titels[i] = beelden[i].caption;
-              console.log(fotos[i]);
-            }
-            let imgElement = document.createElement("img");  
-            imgElement.alt = "image";
-            imgElement.src = fotos[0];
-            let container = document.getElementById("imageBox");
-            container.appendChild(imgElement);
-            let p = document.getElementById("imageCaption");
-            p.innerHTML=foto_titels[0];
-            function myFunction() {
-              const time = document.getElementById("mainAudio").currentTime;
-              let i = 0;
-              tijdstippen.forEach( tijdstip => {
-                const duration = document.getElementById("mainAudio").duration;
-                tijdstippen[l] = duration;
-                if (time > tijdstippen[i] && time < tijdstippen[i+1] ) {
-                  console.log(time, i, tijdstip, tijdstippen[i], tijdstippen[i+1]);
-                  imgElement.src = fotos[i];
-                  p.innerHTML=foto_titels[i];
-                };
-                i=i+1;
-              }
-            );
-          };
-        </script>
-
+    <audio id="mainAudio" class="tour-audio" controls preload="metadata">
       
-      <div class="tour-caption" id="imageCaption"></div>      
-
-  <audio id="mainAudio" class="tour-audio" controls preload="metadata">
+        <source src="../static/audio/los/NL/los004.mp3"
+                type="audio/mpeg">
+        Je browser ondersteunt geen audio-element.
+      
+    </audio>
     
-      <source src="../static/audio/los/NL/los004.mp3"
-              type="audio/mpeg">
-      Je browser ondersteunt geen audio-element.
-    
-  </audio>
-
-
-
+    <div style="text-align: center; margin: 10px 0;">
       <div class="dropdown">
         <button id="dropdownBtn" class="dropbtn">Laat audio tekst zien</button>
         <div id="myDropdown" class="dropdown-content">
-
           Je ziet hier een vlaskapelletje.
 Voor het drogen van vlas werd het meestal rechtop gezet, dan heet het een kapelletje.
 Vlas groeit bijna overal, dus op de arme Twentse grond was het een makkelijk gewas.
@@ -289,183 +197,211 @@ Wil je meer weten over vezelvlas? Kijk dan in de Atlas van Ooit
 
         </div>
       </div>
-      <script>
-        (function() {
-          /* When the user clicks on the button, 
-          toggle between hiding and showing the dropdown content */
-          const dropdownBtn = document.getElementById('dropdownBtn');
-          const dropdown = document.getElementById('myDropdown');
-          
-          dropdownBtn.addEventListener('click', function(event) {
-            event.stopPropagation();
-            dropdown.classList.toggle("show");
-            console.log('Dropdown toggled:', dropdown.classList.contains('show'));
-          });
-          
-          // Prevent dropdown from closing when clicking inside it
-          dropdown.addEventListener('click', function(event) {
-            event.stopPropagation();
-          });
-          
-          // Close the dropdown if the user clicks outside of it
-          document.addEventListener('click', function(event) {
-            if (dropdown.classList.contains('show') && 
-                !event.target.matches('.dropbtn') && 
-                !dropdown.contains(event.target)) {
-              dropdown.classList.remove('show');
+      
+      <div class="AVObtn">
+        <a  href=https://www.atlasvanooit.nl/kaart/vlashekel-287934982 class="nav-links" >Atlas van Ooit</a>
+      </div>
+      
+      
+    </div>
+    
+    <script>
+      (function() {
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdown = document.getElementById('myDropdown');
+        
+        dropdownBtn.addEventListener('click', function(event) {
+          event.stopPropagation();
+          dropdown.classList.toggle("show");
+          console.log('Dropdown toggled:', dropdown.classList.contains('show'));
+        });
+        
+        // Prevent dropdown from closing when clicking inside it
+        dropdown.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+        
+        // Close the dropdown if the user clicks outside of it
+        document.addEventListener('click', function(event) {
+          if (dropdown.classList.contains('show') && 
+              !event.target.matches('.dropbtn') && 
+              !dropdown.contains(event.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      })();
+    </script>
+            
+    <div class="controls">
+
+        <div class="small-muted">Beelden: 1</div>
+        <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
+
+        <div style="flex:1"></div>
+    </div>
+    
+    <script>
+          const audio = document.getElementById('mainAudio');
+          const curSecSpan = document.getElementById('curSec');
+            // Build beelden array (paths already resolved server-side)
+          const beelden = [
+            
+              {
+                id: 24,
+                sec: 0,
+                naam: "../static/images/los/los004.jpg",
+                caption: "kappeltje vlas"
+              }
+            
+          ];
+          const l = beelden.length;
+          const tijdstippen =[];
+          const fotos = [];
+          const foto_titels = [];
+          for (let i=0; i<l; i++){
+            tijdstippen[i]=beelden[i].sec;
+            fotos[i] = beelden[i].naam;
+            foto_titels[i] = beelden[i].caption;
+            console.log(fotos[i]);
+          }
+          let imgElement = document.createElement("img");  
+          imgElement.alt = "image";
+          imgElement.src = fotos[0];
+          let container = document.getElementById("imageBox");
+          container.appendChild(imgElement);
+          let p = document.getElementById("imageCaption");
+          p.innerHTML=foto_titels[0];
+          function myFunction() {
+            const time = document.getElementById("mainAudio").currentTime;
+            let i = 0;
+            tijdstippen.forEach( tijdstip => {
+              const duration = document.getElementById("mainAudio").duration;
+              tijdstippen[l] = duration;
+              if (time > tijdstippen[i] && time < tijdstippen[i+1] ) {
+                console.log(time, i, tijdstip, tijdstippen[i], tijdstippen[i+1]);
+                imgElement.src = fotos[i];
+                p.innerHTML=foto_titels[i];
+              };
+              i=i+1;
             }
+          );
+        };
+      
+        (function(){
+          const audio = document.getElementById('mainAudio');
+          const curSecSpan = document.getElementById('curSec');
+
+          // Build beelden array (paths already resolved server-side)
+          const beelden = [
+            
+              {
+                id: 24,
+                sec: 0,
+                naam: "../static/images/los/los004.jpg",
+                caption: "kappeltje vlas"
+              }
+            
+          ];
+         
+          // Ensure sorted by sec numeric
+          beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
+         console.log(beelden.length)
+          const captionEl = document.getElementById('imageCaption');
+          const imageBox = document.getElementById('imageBox');
+
+          function getImageElement() {
+            return document.getElementById('currentImage');
+          }
+
+          function showBeeld(i){
+            if(!beelden.length) return;
+            const b = beelden[i];
+            const imgEl = getImageElement();
+            if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
+              imgEl.src = b.naam;
+              imgEl.alt = b.caption || ("Beeld " + b.id);
+            } else {
+              // if placeholder div present, replace with <img>
+              const newImg = document.createElement('img');
+              newImg.id = 'currentImage';
+              newImg.src = b.naam;
+              newImg.alt = b.caption || ("Beeld " + b.id);
+              newImg.style.width = '100%';
+              imageBox.innerHTML = '';
+              imageBox.appendChild(newImg);
+            }
+            // set caption text safely (textContent)
+            captionEl.textContent = "";
+            const strong = document.createElement('strong');
+            // strong.textContent = "@" + b.sec + "s";
+            captionEl.appendChild(strong);
+            // captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
+            captionEl.appendChild(document.createTextNode((b.caption || b.naam)));
+          }
+
+          let lastIndex = -1;
+
+          function findIndexForSecond(sec) {
+            // find the last beeld whose sec <= current second
+            let idx = -1;
+            for (let i = 0; i < beelden.length; i++) {
+              if ((beelden[i].sec || 0) <= sec) idx = i;
+              else break;
+            }
+            return idx;
+          }
+
+          function onTimeUpdate(){
+            const sec = Math.floor(audio.currentTime || 0);
+            curSecSpan.textContent = sec;
+            const idx = findIndexForSecond(sec);
+            if (idx !== lastIndex && idx !== -1) {
+              showBeeld(idx);
+              lastIndex = idx;
+            }
+          }
+
+          // Fallback polling for browsers where timeupdate is not frequent enough:
+          let pollInterval = null;
+          function startPolling() {
+            if (pollInterval) return;
+            pollInterval = setInterval(function(){
+              if (!audio.paused && !audio.ended) onTimeUpdate();
+            }, 250); // 250ms
+          }
+          function stopPolling() {
+            if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+          }
+
+          if (audio) {
+            audio.addEventListener('timeupdate', onTimeUpdate);
+            audio.addEventListener('play', function(){
+              onTimeUpdate();
+              startPolling();
+            });
+            audio.addEventListener('pause', stopPolling);
+            audio.addEventListener('ended', stopPolling);
+            audio.addEventListener('seeked', onTimeUpdate);
+            // initial update (in case audio is already at >0)
+            setTimeout(onTimeUpdate, 200);
+          }
+
+          // Clicking image jumps to next beeld (convenience)
+          imageBox.addEventListener('click', function(){
+            if(!beelden.length || !audio) return;
+            let next = lastIndex + 1;
+            if (next >= beelden.length) next = 0;
+            const targetSec = beelden[next].sec || 0;
+            audio.currentTime = targetSec;
+            audio.play();
+            showBeeld(next);
+            lastIndex = next;
           });
         })();
-      </script>
-      
-<!--
-      <div class="text" id="paginaText">
-        Je ziet hier een vlaskapelletje.
-Voor het drogen van vlas werd het meestal rechtop gezet, dan heet het een kapelletje.
-Vlas groeit bijna overal, dus op de arme Twentse grond was het een makkelijk gewas.
-Het werd vooral verbouwd voor linnen, voor lakens, kleren en andere stoffen.
-Uit de stengels werden de vezels gehaald.
-In de kist naast het vlaskapelletje kun je de vezels zien liggen; ze voelen een beetje als haar.
-In de vlaszaadbol zitten de lichtbruine zaadjes.
-Daar maakte men lijnzaadolie van, dat werd gebruikt om hout te beschermen tegen weer en wind.
-Maar lijnzaad en koudgeperste olie werden ook gegeten, bijvoorbeeld in de vastentijd als vervanger van vlees.
-Er bestaan twee soorten vlas: vezelvlas voor linnen en het kortere olievlas voor olie.
-Vezelvlas kan ook voor olie gebruikt worden, maar geeft veel minder dan olievlas.
-Het getal 100 speelt een belangrijke rol bij vlas.
-Het zaaien gebeurde rond de honderdste dag van het jaar.
-In juni bloeide het met kleine blauwe bloempjes.
-Honderd dagen na het zaaien kon het vlas worden geoogst.
-De hele plant werd met wortel uit de grond gehaald, omdat de vezel tot in de wortels doorloopt.
-Zo kreeg men lange vezels om textiel van te maken.
-Leuk weetje: in de eerste versies van Doornroosje prikte ze zich niet aan een spinnenwiel, maar aan een strootje.
-Vlasstrootjes zijn harde stukjes van de stengel.
-In het volgende verhaal lopen we het Los Hoes in.
-Rechts boven op de plank, onder de zolder, zie je vijf werktuigen die gebruikt werden om vlas tot garen te maken.
-Wil je meer weten over vezelvlas? Kijk dan in de Atlas van Ooit
+    </script>
 
-      </div>
--->
-
-      <div class="controls">
-        <div class="small-muted">Beelden: 1</div>
-        <div style="flex:1"></div>
-        <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
-      </div>
-
-
-<script>
-(function(){
-  const audio = document.getElementById('mainAudio');
-  const curSecSpan = document.getElementById('curSec');
-
-  // Build beelden array (paths already resolved server-side)
-  const beelden = [
-    
-      {
-        id: 24,
-        sec: 0,
-        naam: "../static/images/los/los004.jpg",
-        caption: "kappeltje vlas"
-      }
-    
-  ];
- 
-  // Ensure sorted by sec numeric
-  beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
- console.log(beelden.length)
-  const captionEl = document.getElementById('imageCaption');
-  const imageBox = document.getElementById('imageBox');
-
-  function getImageElement() {
-    return document.getElementById('currentImage');
-  }
-
-  function showBeeld(i){
-    if(!beelden.length) return;
-    const b = beelden[i];
-    const imgEl = getImageElement();
-    if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
-      imgEl.src = b.naam;
-      imgEl.alt = b.caption || ("Beeld " + b.id);
-    } else {
-      // if placeholder div present, replace with <img>
-      const newImg = document.createElement('img');
-      newImg.id = 'currentImage';
-      newImg.src = b.naam;
-      newImg.alt = b.caption || ("Beeld " + b.id);
-      newImg.style.width = '100%';
-      imageBox.innerHTML = '';
-      imageBox.appendChild(newImg);
-    }
-    // set caption text safely (textContent)
-    captionEl.textContent = "";
-    const strong = document.createElement('strong');
-    // strong.textContent = "@" + b.sec + "s";
-    captionEl.appendChild(strong);
-    // captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
-    captionEl.appendChild(document.createTextNode((b.caption || b.naam)));
-  }
-
-  let lastIndex = -1;
-
-  function findIndexForSecond(sec) {
-    // find the last beeld whose sec <= current second
-    let idx = -1;
-    for (let i = 0; i < beelden.length; i++) {
-      if ((beelden[i].sec || 0) <= sec) idx = i;
-      else break;
-    }
-    return idx;
-  }
-
-  function onTimeUpdate(){
-    const sec = Math.floor(audio.currentTime || 0);
-    curSecSpan.textContent = sec;
-    const idx = findIndexForSecond(sec);
-    if (idx !== lastIndex && idx !== -1) {
-      showBeeld(idx);
-      lastIndex = idx;
-    }
-  }
-
-  // Fallback polling for browsers where timeupdate is not frequent enough:
-  let pollInterval = null;
-  function startPolling() {
-    if (pollInterval) return;
-    pollInterval = setInterval(function(){
-      if (!audio.paused && !audio.ended) onTimeUpdate();
-    }, 250); // 250ms
-  }
-  function stopPolling() {
-    if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
-  }
-
-  if (audio) {
-    audio.addEventListener('timeupdate', onTimeUpdate);
-    audio.addEventListener('play', function(){
-      onTimeUpdate();
-      startPolling();
-    });
-    audio.addEventListener('pause', stopPolling);
-    audio.addEventListener('ended', stopPolling);
-    audio.addEventListener('seeked', onTimeUpdate);
-    // initial update (in case audio is already at >0)
-    setTimeout(onTimeUpdate, 200);
-  }
-
-  // Clicking image jumps to next beeld (convenience)
-  imageBox.addEventListener('click', function(){
-    if(!beelden.length || !audio) return;
-    let next = lastIndex + 1;
-    if (next >= beelden.length) next = 0;
-    const targetSec = beelden[next].sec || 0;
-    audio.currentTime = targetSec;
-    audio.play();
-    showBeeld(next);
-    lastIndex = next;
-  });
-
-})();
-</script>
-</body>
+  </body>
 </html>
+    
