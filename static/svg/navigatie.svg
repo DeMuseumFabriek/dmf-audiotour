@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="600"
-   height="50"
-   viewBox="0 0 158.75 13.229166"
+   width="350"
+   height="30"
+   viewBox="0 0 350 30"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
@@ -22,11 +22,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
+     inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="1.4770343"
-     inkscape:cx="274.19811"
-     inkscape:cy="33.174586"
+     inkscape:cx="311.7734"
+     inkscape:cy="33.174585"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -66,42 +66,43 @@
      id="layer1">
     <g
        id="g2625"
-       transform="translate(7.1437889)">
+       transform="matrix(2.3413382,0,0,2.3413382,5.8823062,-0.47067505)"
+       style="stroke-width:0.661458;stroke-dasharray:none">
       <g
          id="g319"
-         style="stroke-width:0.266151;stroke-dasharray:none"
+         style="stroke-width:0.332689;stroke-dasharray:none"
          transform="matrix(1.9466053,0,0,2.03072,-12.890445,1.2406658)">
         <path
-           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            d="m 50.24894,1.3415087 6.675491,0.022391"
            id="path13062"
            sodipodi:nodetypes="cc" />
         <ellipse
-           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            id="ellipse13064"
            cx="49.166874"
            cy="1.2857575"
            rx="0.39201295"
            ry="0.39201307" />
         <path
-           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            d="m 50.226549,2.7073862 6.675491,0.022391"
            id="path298"
            sodipodi:nodetypes="cc" />
         <ellipse
-           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            id="ellipse300"
            cx="49.144482"
            cy="2.6516349"
            rx="0.39201295"
            ry="0.39201307" />
         <path
-           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            d="m 50.204157,4.0732638 6.675491,0.022391"
            id="path304"
            sodipodi:nodetypes="cc" />
         <ellipse
-           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.266151;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+           style="fill:#000000;fill-opacity:0.878431;stroke:#000000;stroke-width:0.332689;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
            id="ellipse306"
            cx="49.122089"
            cy="4.0175128"
@@ -109,16 +110,16 @@
            ry="0.39201307" />
       </g>
       <path
-         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.529166;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.661458;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
          d="M 46.54813,5.0185007 V 10.32369 h 2.588954 l -0.0308,-2.7329766 h 1.602683 V 10.32369 h 2.558134 V 4.9863479 l -3.403866,-2.037881 z"
          id="path375"
          sodipodi:nodetypes="cccccccccc" />
       <path
-         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.529166;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;marker-start:url(#Arrow4);paint-order:markers fill stroke"
+         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.661458;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;marker-start:url(#Arrow4);paint-order:markers fill stroke"
          d="M 1.9761422,6.6253942 H 17.841914"
          id="path1081" />
       <path
-         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.529166;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;marker-start:url(#Arrow4);paint-order:markers fill stroke"
+         style="fill:none;fill-opacity:0.878431;stroke:#000000;stroke-width:0.661458;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;marker-start:url(#Arrow4);paint-order:markers fill stroke"
          d="M 142.48628,6.6253942 H 126.6205"
          id="path1294" />
     </g>

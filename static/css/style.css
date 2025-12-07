@@ -1,49 +1,13 @@
-body {
-      margin: 0;
-      background: #fff;
-      color: #333;
-      font-family: 'Open Sans', sans-serif;
-    }
-    .container {
-      max-width: 420px; /* mobiel-breedte */
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 28px;
-      line-height: 1.2;
-      margin: 0 0 12px;
-      color: #000;
-    }
-
- 
-
-    .photo {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-    }
-
-    .caption {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 16px;
-      color: #555;
-      margin-top: 8px;
-    }
-
-    .body-text {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-top: 16px;
-    }
 /* -----------------------------------------
    GENERAL LAYOUT
 ----------------------------------------- */
-
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
 header,
 footer {
