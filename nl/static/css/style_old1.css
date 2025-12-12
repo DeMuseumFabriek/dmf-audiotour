@@ -1,0 +1,187 @@
+/* === GLOBAL RESETS === */
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background-color: #f9fafb;
+    color: #333;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: #222;
+}
+
+/* === CONTAINERS === */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* === BEHEER TABLES === */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    /* ✅ horizontal scrolling */
+    margin-top: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 900px;
+    /* ✅ ensures wider layout */
+    white-space: nowrap;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* === BUTTONS === */
+.btn {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-small {
+    padding: 0.25rem 0.7rem;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+.btn-edit {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #059669;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c;
+}
+
+/* === FORMS === */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+select,
+textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fff;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+/* === HEADER & NAVBAR (optional if you have one) === */
+header {
+    background-color: #2563eb;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    color: #6b7280;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+}
