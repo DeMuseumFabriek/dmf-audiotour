@@ -270,23 +270,28 @@
     }
     
     function startTour() {
-      if (geselecteerdeTaal) {
-        // Store language preference in localStorage
-        localStorage.setItem('selectedLanguage', geselecteerdeTaal);
-        
-        // Check if we're running as Flask app (has /rondleidingen route)
-        // For static sites (GitHub Pages, file://), use language subdirectories
-        const isFlaskApp = window.location.pathname.includes('rondleidingen') || 
-                          (window.location.pathname === '/' && window.location.search.includes('taal='));
-        
-        if (isFlaskApp) {
-          // Flask app: use root route (rondleidingen is now index)
-          window.location.href = '/?taal=' + geselecteerdeTaal;
-        } else {
-          // Static site: go to language subdirectory
-          const taalDir = geselecteerdeTaal.toLowerCase();
-          window.location.href = `${taalDir}/index.html`;
-        }
+      if (!geselecteerdeTaal) {
+        alert('Selecteer eerst een taal / Please select a language');
+        return;
+      }
+      
+      // Store language preference in localStorage
+      localStorage.setItem('selectedLanguage', geselecteerdeTaal);
+      
+      const taalDir = geselecteerdeTaal.toLowerCase();
+      
+      // Check if we're running as Flask app by looking for Flask-specific indicators
+      // If the page has Flask template variables or was served from Flask routes
+      const isFlaskApp = document.body.getAttribute('data-flask-app') === 'true' ||
+                        window.location.pathname.includes('/rondleidingen');
+      
+      if (isFlaskApp) {
+        // Flask app: use Flask route
+        window.location.href = '/?taal=' + geselecteerdeTaal;
+      } else {
+        // Static site (GitHub Pages, file://): use relative path to language directory
+        // Using relative path will work regardless of base URL
+        window.location.href = taalDir + '/index.html';
       }
     }
     
