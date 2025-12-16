@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="2.0888419"
-     inkscape:cx="195.32354"
-     inkscape:cy="17.23443"
+     inkscape:cx="105.56089"
+     inkscape:cy="17.713164"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -130,13 +130,26 @@
        id="path1294" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
-       x="140.42046"
-       y="22.615988"
-       id="text1480"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:0.985075;paint-order:markers fill stroke"
+       x="141.15668"
+       y="16.615988"
+       id="text1480"
+       inkscape:label="text1480"><tspan
          sodipodi:role="line"
          id="tspan1484"
-         x="140.42046"
-         y="22.615988">DMF</tspan></text>
+         x="141.15668"
+         y="16.615988">DMF</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.82284px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:0.982906;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       x="121.31343"
+       y="26.333277"
+       id="text926"
+       transform="scale(1.108993,0.90171895)"><tspan
+         sodipodi:role="line"
+         id="tspan924"
+         x="121.31343"
+         y="26.333277"
+         style="stroke-width:0">plattegrond</tspan></text>
   </g>
 </svg>
