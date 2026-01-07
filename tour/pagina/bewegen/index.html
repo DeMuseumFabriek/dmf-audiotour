@@ -160,7 +160,7 @@
 .small-muted { color:#666; font-size:0.9rem; }
 .nav-links { margin-top:12px; display:flex; gap:8px; }
 .nav-links-top { display:none; margin-bottom:12px; gap:8px; }
-.btn { padding:8px 10px; border-radius:6px; background:#0b63b7; color:white; text-decoration:none; display:inline-block; }
+.btn { padding:8px 10px; border-radius:6px; background:white; color:#333; text-decoration:none; display:inline-block; }
 .btn:disabled { background:#ccc; color:#666; pointer-events:none; }
 
 /* fullscreen image mode */
@@ -321,7 +321,14 @@ Daar begint het volgende verhaal!</p>
         
         
       </div>
-
+      <div class="caption" id="imageCaption">
+        
+          
+<!--
+          <strong>@0s</strong> — Skelet van een mammoet
+-->
+        
+      </div>
       
       
         <audio id="mainAudioMobile" class="tour-audio tour-audio-mobile" controls preload="auto">
@@ -331,12 +338,7 @@ Daar begint het volgende verhaal!</p>
         </audio>
       
 
-      <div class="caption" id="imageCaption">
-        
-          
-          <strong>@0s</strong> — Skelet van een mammoet
-        
-      </div>
+
       <div class="tip-text" style="margin-top:12px; font-size:0.9rem; color:#666;">
         Tip: 'rechts-klik' (PC) of 'long-touch' (mobiel, tablet) op de afbeelding voor volledig scherm.
       </div>
@@ -422,8 +424,8 @@ Daar begint het volgende verhaal!</p>
     captionEl.textContent = "";
     const strong = document.createElement('strong');
     strong.textContent = "@" + b.sec + "s";
-    captionEl.appendChild(strong);
-    captionEl.appendChild(document.createTextNode(" — " + (b.caption || b.naam)));
+    // captionEl.appendChild(strong);
+    captionEl.appendChild(document.createTextNode( (b.caption || b.naam)));
   }
 
   let lastIndex = -1;
