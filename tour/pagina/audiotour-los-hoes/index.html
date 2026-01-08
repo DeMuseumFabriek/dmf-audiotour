@@ -153,7 +153,7 @@
   user-select: none;
   pointer-events: auto;
 }
-.caption { margin-top:8px; font-size:0.95rem; color:#333; min-height:3em; }
+.caption { position: relative; margin-top:8px; font-size:0.95rem; color:#333; min-height:3em; }
 .tip-text { margin-top:12px; font-size:0.9rem; color:#666; }
 .pagina-text { background:#fbfbfc; padding:12px; border-radius:6px; border:1px solid #eee; max-height:360px; overflow:auto; }
 .controls { margin-top:8px; display:flex; gap:8px; align-items:center; }
@@ -184,6 +184,76 @@
   cursor: pointer;
   image-rendering: auto;
 }
+
+/* Popup container - can be anything you want */
+.popup {
+  z-index: 1000;
+  position: relative;
+  top: 0px;
+  left: 10;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0%;
+  margin-left: 0px;
+  
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+,popup_btn {
+  padding:8px 10px; border-radius:6px; background:blue; color:red; text-decoration:none; display:inline-block;
+  
+  
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 
 /* responsive */
 @media (max-width:760px) {
@@ -252,6 +322,7 @@
 
   <div class="tour-content">
     <div class="tour-left">
+           
       <div class="pagina-text" id="paginaText">
         
         <p>Welcome to the audio tour "Los Hoes: Farm Life in Twente" from the Museumfabriek! In this tour, we'll tell you about farm life in Twente from around 1100 AD. You'll hear how people lived, what they ate and drank, what their main activities were, and much more. You can explore Los Hoes via a QR code and your mobile phone. Use earphones or read the text on your screen at your leisure. On your mobile phone, you can control how much you want to hear. A button takes you to the next story. The entire story lasts about 30 minutes. If you'd like to know more, you can read or view additional information, such as photos or videos. Sometimes there's additional background information available via the "The Atlas of Once" button. We'll start with Los Hoes, its origins and construction. Later, we'll explain, among other things, the origins of the name Los Hoes. Enjoy!</p>
@@ -273,16 +344,13 @@
         <a href="../../../index.html" class="btn">
           <img class="icon" src="../../../static/images/icons/home.svg" alt="Home" />
         </a>
-        
         <a href="../../../engels/index.html" class="btn">
           <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
         </a>
         
-        
           <a href="https://www.atlasvanooit.nl/kaart/ansichtkaart-ootmarsum-t-los-hoes-7002942" class="btn">
             <img class="icon" src="../../../static/images/icons/avo.svg" alt="Atalas van Ooit" />
           </a>
-        
         
         
           <a href="../../../tour/pagina/origin-and-construction/index.html" class="btn">
@@ -293,14 +361,15 @@
     </div>
 
     <div class="tour-right">
+      
       <div class="image-placeholder" id="imageBox">
         
           <img id="currentImage"
                src="../../../static/images/los/los000.jpg"
                alt="Beeld 1">
         
-        
       </div>
+           
       <div class="caption" id="imageCaption">
         
           
@@ -316,9 +385,40 @@
                   type="audio/mpeg">
           Je browser ondersteunt geen audio-element.
         </audio>
+
+<!--
+        Popup venster met lijst van luisterpunten in deze rondleiding
+-->
+        <div class="popup" onclick="myFunction()">
+          <button class="popup_btn">
+            Lijst met luisterpunten
+          </button>
+  <!--
+          <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+  -->
+          <span class="popuptext" id="myPopup">
+            
+                <a href="../../../tour/pagina/audiotour-los-hoes/index.html" >
+                  Audiotour &#34;Los Hoes &#34;
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/origin-and-construction/index.html" >
+                  Origin and construction
+                </a>
+                    &ensp;
+            
+          </span>
+        </div>
+        <script>
+          // When the user clicks on div, open the popup
+          function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+          }
+        </script>
       
-
-
+      
       <div class="tip-text" style="margin-top:12px; font-size:0.9rem; color:#666;">
         Tip: 'rechts-klik' (PC) of 'long-touch' (mobiel, tablet) op de afbeelding voor volledig scherm.
       </div>
@@ -537,7 +637,6 @@
   });
 })();
 </script>
-
 
 </main>
 

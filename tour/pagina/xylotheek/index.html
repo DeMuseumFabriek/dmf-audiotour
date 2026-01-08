@@ -153,7 +153,7 @@
   user-select: none;
   pointer-events: auto;
 }
-.caption { margin-top:8px; font-size:0.95rem; color:#333; min-height:3em; }
+.caption { position: relative; margin-top:8px; font-size:0.95rem; color:#333; min-height:3em; }
 .tip-text { margin-top:12px; font-size:0.9rem; color:#666; }
 .pagina-text { background:#fbfbfc; padding:12px; border-radius:6px; border:1px solid #eee; max-height:360px; overflow:auto; }
 .controls { margin-top:8px; display:flex; gap:8px; align-items:center; }
@@ -184,6 +184,76 @@
   cursor: pointer;
   image-rendering: auto;
 }
+
+/* Popup container - can be anything you want */
+.popup {
+  z-index: 1000;
+  position: relative;
+  top: 0px;
+  left: 10;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0%;
+  margin-left: 0px;
+  
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+,popup_btn {
+  padding:8px 10px; border-radius:6px; background:blue; color:red; text-decoration:none; display:inline-block;
+  
+  
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 
 /* responsive */
 @media (max-width:760px) {
@@ -248,6 +318,7 @@
 
   <div class="tour-content">
     <div class="tour-left">
+           
       <div class="pagina-text" id="paginaText">
         
         <p>Heb je wel eens van een xylotheek gehoord?
@@ -316,12 +387,9 @@ Hij bedacht een systeem om planten en dieren een naam te geven.</p>
         <a href="../../../index.html" class="btn">
           <img class="icon" src="../../../static/images/icons/home.svg" alt="Home" />
         </a>
-        
         <a href="../../../nederlands/index.html" class="btn">
           <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
         </a>
-        
-        
         
         
           <a href="../../../tour/pagina/vuurwerkramp/index.html" class="btn">
@@ -332,14 +400,15 @@ Hij bedacht een systeem om planten en dieren een naam te geven.</p>
     </div>
 
     <div class="tour-right">
+      
       <div class="image-placeholder" id="imageBox">
         
           <img id="currentImage"
                src="../../../static/images/exp/img8_1.png"
                alt="Beeld 1">
         
-        
       </div>
+           
       <div class="caption" id="imageCaption">
         
           
@@ -355,9 +424,150 @@ Hij bedacht een systeem om planten en dieren een naam te geven.</p>
                   type="audio/mpeg">
           Je browser ondersteunt geen audio-element.
         </audio>
+
+<!--
+        Popup venster met lijst van luisterpunten in deze rondleiding
+-->
+        <div class="popup" onclick="myFunction()">
+          <button class="popup_btn">
+            Lijst met luisterpunten
+          </button>
+  <!--
+          <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+  -->
+          <span class="popuptext" id="myPopup">
+            
+                <a href="../../../tour/pagina/plattegrond-dmf/index.html" >
+                  Plattegrond DMF
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/welkom/index.html" >
+                  Welkom
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/plattegrond-auditorium/index.html" >
+                  Plattegrond Auditorium
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/auditorium/index.html" >
+                  Auditorium
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/de-eerste-fabrikeurs/index.html" >
+                  De eerste fabrikeurs
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/de-industriele-ontwikkeling-in-twente/index.html" >
+                  De industriele ontwikkeling in Twente
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/de-invloed-van-de-industrie-op-het-twentse-landsch/index.html" >
+                  De invloed van de industrie op het Twentse landschap
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/kinderen-kinderarbeid-en-onderwijs-in-de-19e-eeuw/index.html" >
+                  Kinderen, kinderarbeid en onderwijs in de 19e eeuw
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/schilderijenwand/index.html" >
+                  Schilderijenwand
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/plattegrond-hal-1/index.html" >
+                  Plattegrond hal 1
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/bewegen/index.html" >
+                  Bewegen
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/evolutie/index.html" >
+                  Evolutie
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/fossielenpreparatie/index.html" >
+                  Fossielenpreparatie
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/prehistorie/index.html" >
+                  Prehistorie
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/los-hoes/index.html" >
+                  Los Hoes
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/altaarstenen/index.html" >
+                  Altaarstenen
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/xylotheek/index.html" >
+                  Xylotheek
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/vuurwerkramp/index.html" >
+                  Vuurwerkramp
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/maquette-jannink/index.html" >
+                  Maquette Jannink
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/stoomkelder/index.html" >
+                  Stoomkelder
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/spinmachines/index.html" >
+                  Spinmachines
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/weefgetouwen/index.html" >
+                  Weefgetouwen
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/twente-lab/index.html" >
+                  Twente Lab
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/tenslotte/index.html" >
+                  Tenslotte
+                </a>
+                    &ensp;
+            
+          </span>
+        </div>
+        <script>
+          // When the user clicks on div, open the popup
+          function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+          }
+        </script>
       
-
-
+      
       <div class="tip-text" style="margin-top:12px; font-size:0.9rem; color:#666;">
         Tip: 'rechts-klik' (PC) of 'long-touch' (mobiel, tablet) op de afbeelding voor volledig scherm.
       </div>
@@ -597,7 +807,6 @@ Hij bedacht een systeem om planten en dieren een naam te geven.</p>
   });
 })();
 </script>
-
 
 </main>
 
