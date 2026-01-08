@@ -1,0 +1,335 @@
+/* ============================================================
+   GLOBAL LAYOUT
+============================================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    background-color: #004d80;
+    color: white;
+    padding: 16px 22px;
+}
+
+header h1,
+footer p {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    width: 100%;
+}
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+.page-title {
+    font-size: 1.8rem;
+    color: #004d80;
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   FULL-WIDTH CONTENT WRAPPER
+   (Removes the narrow-card issue)
+============================================================ */
+.full-width-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   FILTER BAR
+============================================================ */
+.filter-bar {
+    width: 100%;
+    background: #ffffff;
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.filter-bar select {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* ============================================================
+   TABLE CONTAINER — FULL WIDTH + SCROLLABLE
+============================================================ */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 6px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Wider tables like Pagina / BeeldAudio */
+.table-wide {
+    min-width: 1400px;
+    /* Adjust if needed */
+}
+
+/* ============================================================
+   BASE TABLE STYLES
+============================================================ */
+.beheer-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    table-layout: auto;
+}
+
+.beheer-table th,
+.beheer-table td {
+    border: 1px solid #ccc;
+    padding: 4px 7px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.beheer-table th {
+    background-color: #e3f2fd;
+    font-weight: 600;
+    color: #004d80;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.beheer-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.beheer-table tr:hover {
+    background-color: #e8f4ff;
+}
+
+/* Clip long text in table cells */
+.truncated-text {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #004d80;
+}
+
+/* ============================================================
+   ACTION BUTTONS (Edit/Delete)
+============================================================ */
+.actie-buttons {
+    min-width: 110px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.actie-buttons form {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+/* ============================================================
+   BOOLEANS (green check / grey cross)
+============================================================ */
+.boolean-check {
+    color: green;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.boolean-cross {
+    color: #bbb;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* ============================================================
+   FORMS (Add/Edit)
+============================================================ */
+.form-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.beheer-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.form-group {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group--small {
+    flex: 0 1 120px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #004d80;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 6px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: #198754;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.add-btn {
+    color: #004d80;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* ============================================================
+   MODAL (for long text preview)
+============================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+}
+
+.modal-window {
+    background: #fff;
+    padding: 20px;
+    width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+============================================================ */
+@media (max-width: 1024px) {
+    .truncated-text {
+        max-width: 110px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .beheer-table th,
+    .beheer-table td {
+        font-size: 0.8rem;
+        padding: 5px 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .beheer-table {
+        min-width: 600px;
+    }
+
+    .truncated-text {
+        max-width: 80px;
+    }
+}

@@ -1,0 +1,298 @@
+/* components.css */
+/* Navigation bar (minimal, mobile-first) */
+.nav {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600
+}
+
+.nav .icons {
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.nav img.icon {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    filter: brightness(0) invert(1)
+}
+
+
+/* Beheer content card */
+.beheer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px
+}
+
+
+/* Beheer tables should use full viewport width */
+.beheer-container.has-table {
+    max-width: none;
+}
+
+.beheer-form .form-group {
+    margin-bottom: 12px
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px
+}
+
+
+/* Table wrapper */
+.table-responsive {
+    overflow: auto
+}
+
+.beheer-table th,
+.beheer-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee
+}
+
+.beheer-table th {
+    white-space: nowrap;
+    text-align: left;
+}
+
+.beheer-table td {
+    vertical-align: top;
+}
+
+/* Tables: keep desktop width, scroll on smaller screens */
+.beheer-table {
+    width: 100%;
+    min-width: 1100px;
+    /* adjust if needed */
+    border-collapse: collapse;
+}
+
+/* Sticky table header */
+.beheer-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #f8f9fa;
+    /* match your theme */
+    border-bottom: 2px solid #ccc;
+}
+
+/* Pinned first column (ID) */
+.beheer-table th:first-child,
+.beheer-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+    background: white;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Pinned last column (Actions) */
+.beheer-table th:last-child,
+.beheer-table td:last-child {
+    position: sticky;
+    right: 0;
+    z-index: 4;
+    background: white;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Ensure header stays above pinned cells */
+.beheer-table thead th:first-child,
+.beheer-table thead th:last-child {
+    z-index: 5;
+}
+
+/* Make Acties column compact */
+.beheer-table th:last-child,
+.beheer-table td:last-child {
+    min-width: 90px;
+    text-align: center;
+}
+
+/* Make Acties column compact */
+.beheer-table tbody tr:hover td {
+    background-color: #f5f7fa;
+}
+
+/* Audio player (simple) */
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.audio-player audio {
+    width: 100%
+}
+
+
+/* Start button (big fixed at bottom on mobile optional) */
+.start-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #0b5fa5;
+    color: white;
+    font-weight: 700;
+    text-decoration: none
+}
+
+
+/* Small utility */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px
+}
+
+.btn-success {
+    background: #198754;
+    color: white
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white
+}
+
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45)
+}
+
+.modal-window {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow: auto
+}
+
+
+/* Accessibility focus */
+:focus {
+    outline: 3px solid rgba(10, 100, 200, 0.15);
+    outline-offset: 2px
+}
+
+/* Index page styles */
+.index-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center
+}
+
+.index-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 24px
+}
+
+.index-description {
+    color: #666;
+    margin-bottom: 32px;
+    font-size: 1.1rem
+}
+
+.index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px
+}
+
+.index-card {
+    display: block;
+    color: white;
+    padding: 32px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+}
+
+.index-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+}
+
+.index-card-primary {
+    background-color: #0066cc
+}
+
+.index-card-primary:hover {
+    background-color: #0052a3
+}
+
+.index-card-success {
+    background-color: #28a745
+}
+
+.index-card-success:hover {
+    background-color: #218838
+}
+
+.index-card-secondary {
+    background-color: #6f42c1
+}
+
+.index-card-secondary:hover {
+    background-color: #5a32a3
+}
+
+.index-card-neutral {
+    background-color: #6c757d
+}
+
+.index-card-neutral:hover {
+    background-color: #5a6268
+}
+
+.index-footer {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 48px
+}
+
+@media (min-width: 768px) {
+    .index-title {
+        font-size: 2.5rem
+    }
+    
+    .index-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}

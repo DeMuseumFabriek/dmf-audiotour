@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Museumfabriek Audiotour</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Base CSS (mobile-first audiotour styles) -->
+  <link rel="stylesheet" href="../../../static/css/reset.css" />
+  <link rel="stylesheet" href="../../../static/css/typography.css" />
+  <link rel="stylesheet" href="../../../static/css/layout.css" />
+  <link rel="stylesheet" href="../../../static/css/components.css" />
+
+  <!-- Manager-only styles can still live here -->
+  <style>
+    body {
+      margin: 0;
+      background: #f7f7f9;
+      color: #333;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* === Audiotour header (mobile-first) === */
+    .site-header {
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #333;
+      }
+
+    .nav .icons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav .icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* === Manager navigation (desktop / beheer) === */
+    .manager-nav {
+      background: #2c3e50;
+      padding: 0.75rem 1rem;
+    }
+
+    .manager-nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+
+    .manager-nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      background: #fff;
+      padding: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     Audiotour minimal header (used by visitor-facing pages)
+     ===================================================== 
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">De Museumfabriek</div>
+    <nav class="nav">
+      <div class="icons">
+        <img class="icon" src="../../../static/images/icons/back.svg" alt="Terug" />
+        <img class="icon" src="../../../static/images/icons/home.svg" alt="Home" />
+        <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+      </div>
+    </nav>
+  </div>
+</header>
+-->
+
+<!-- =====================================================
+     Manager navigation (only visible on beheer pages)
+     ===================================================== -->
+
+
+<main>
+  
+    
+  
+
+  
+<style>
+/* minimal inline styling for the mini-tour page */
+.tour-wrapper {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  font-family: system-ui, sans-serif;
+}
+.tour-header { display:flex; align-items:center; gap:12px; }
+.tour-logo { height:48px; }
+.tour-title { font-size:1.4rem; margin:0; }
+.tour-audio { margin: 1rem 0; width:100%; }
+.tour-content { display:flex; gap:16px; flex-wrap:wrap; }
+.tour-left { flex: 1 1 320px; min-width: 300px; }
+.tour-right { width: 320px; }
+.image-placeholder {
+  width:100%;
+  height:220px;
+  background:#f4f6f8;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.image-placeholder img { 
+  width:100%; 
+  height:100%; 
+  object-fit:cover;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+}
+.caption { position: relative; margin-top:8px; font-size:0.95rem; color:#333; min-height:3em; }
+.tip-text { margin-top:12px; font-size:0.9rem; color:#666; }
+.pagina-text { background:#fbfbfc; padding:12px; border-radius:6px; border:1px solid #eee; max-height:360px; overflow:auto; }
+.controls { margin-top:8px; display:flex; gap:8px; align-items:center; }
+.small-muted { color:#666; font-size:0.9rem; }
+.nav-links { margin-top:12px; display:flex; gap:8px; }
+.nav-links-top { display:none; margin-bottom:12px; gap:8px; }
+.btn { padding:8px 10px; border-radius:6px; background:white; color:#333; text-decoration:none; display:inline-block; }
+.btn:disabled { background:#ccc; color:#666; pointer-events:none; }
+
+/* fullscreen image mode */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.fullscreen-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  image-rendering: auto;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+  z-index: 1000;
+  position: relative;
+  top: 0px;
+  left: 10;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0%;
+  margin-left: 0px;
+  
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+,popup_btn {
+  padding:8px 10px; border-radius:6px; background:blue; color:red; text-decoration:none; display:inline-block;
+  
+  
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+/* responsive */
+@media (max-width:760px) {
+  .tour-right { width: 100%; }
+  .tour-content { flex-direction:column; }
+
+  /* Mobile reflow: show top nav, hide left nav; reorder image/audio/text */
+  .nav-links-top { display:flex; justify-content:center; }
+  .tour-wrapper { display:flex; flex-direction:column; margin:0; max-width:100%; border-radius:0; padding-top:8px; }
+  .tour-header { order: 2; }
+  /* hide logo/title/language on small screens */
+  .tour-header { display: none; }
+  .nav-links-top { order: 1; }
+  .tour-content { order: 3; display:flex; flex-direction:column; }
+  .tour-right { order: 1; width:100%; }
+  .tour-left { order: 3; width:100%; }
+  /* hide original nav inside left column on mobile */
+  .tour-left .nav-links { display:none; }
+  /* swap audio display: hide desktop audio, show mobile audio */
+  audio.tour-audio { display:none; }
+  audio.tour-audio-mobile { display:block; width:100%; margin-top:10px; }
+  /* hide the small tip text on mobile */
+  .tip-text { display: none; }
+}
+</style>
+
+<div class="tour-wrapper">
+  <div class="nav-links nav-links-top" aria-hidden="false">
+    
+      <a class="btn" disabled>
+        <img class="icon" src="../../../static/images/icons/back.svg" alt="Terug" />
+      </a>
+    
+
+    <a href="../../../index.html" class="btn">
+      <img class="icon" src="../../../static/images/icons/home.svg" alt="Home" />
+    </a>
+    
+    <a href="../../../duits/index.html" class="btn">
+      <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+    </a>
+    
+    
+    
+    
+      <a href="../../../tour/pagina/herkunft-und-konstruktion/index.html" class="btn">
+        <img class="icon" src="../../../static/images/icons/next.svg" alt="Volgende" />
+      </a>
+    
+  </div>
+
+  <div class="tour-header">
+    <img src="../../../static/images/DMFlogo.png" alt="Logo" class="tour-logo" />
+    <div>
+      <h1 class="tour-title">Audiotour &#34;Los Hoes &#34;</h1>
+      <div class="small-muted">
+        Rondleiding: Los Hoes                        
+        — Taal: DE
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-content">
+    <div class="tour-left">
+           
+      <div class="pagina-text" id="paginaText">
+        
+        <h6>Willkommen</h6>
+<p>Willkommen zur Audiotour „Los Hoes: Bauernleben in Twente“ aus der Museumsfabrik!</p>
+<p>In dieser Tour sprechen wir über das Bauernleben in Twente ab etwa 1100 n. Chr.</p>
+<p>Sie erfahren, wie die Menschen lebten, was sie aßen und tranken, was ihre Haupttätigkeiten waren und vieles mehr.</p>
+<p>Sie können Los Hoes über einen QR-Code und Ihr Mobiltelefon erkunden. Benutzen Sie Kopfhörer oder lesen Sie den Text leise auf Ihrem Bildschirm.</p>
+<p>Auf Ihrem Handy entscheiden Sie, wie viel Sie hören möchten. Über einen Button gelangen Sie zur nächsten Story. </p>
+<p>Die ganze Geschichte dauert etwa 30 Minuten. Wenn Sie mehr wissen möchten, können Sie zusätzliche Informationen wie Fotos oder Videos lesen oder ansehen. Manchmal gibt es über den Button „Der Atlas von einst“ zusätzliche Hintergrundinformationen.</p>
+<p>Wir beginnen mit Los Hoes bei seinem <strong>Ursprung und Bau</strong>. Später verraten wir Ihnen unter anderem, woher der Name Los Hoes kommt.</p>
+<p>Viel Spaß!</p>
+      </div>
+
+      <div class="controls">
+        <div class="small-muted">Beelden: 1</div>
+        <div style="flex:1"></div>
+        <div class="small-muted">Huidige seconde: <span id="curSec">0</span></div>
+      </div>
+
+      <div class="nav-links">
+        
+          <a class="btn" disabled>
+            <img class="icon" src="../../../static/images/icons/back.svg" alt="Terug" />
+          </a>
+        
+
+        <a href="../../../index.html" class="btn">
+          <img class="icon" src="../../../static/images/icons/home.svg" alt="Home" />
+        </a>
+        <a href="../../../duits/index.html" class="btn">
+          <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+        </a>
+        
+        
+          <a href="../../../tour/pagina/herkunft-und-konstruktion/index.html" class="btn">
+            <img class="icon" src="../../../static/images/icons/next.svg" alt="Volgende" />
+          </a>
+        
+      </div>
+    </div>
+
+    <div class="tour-right">
+      
+      <div class="image-placeholder" id="imageBox">
+        
+          <img id="currentImage"
+               src="../../../static/images/los/los000.jpg"
+               alt="Beeld 1">
+        
+      </div>
+           
+      <div class="caption" id="imageCaption">
+        
+          
+<!--
+          <strong>@0s</strong> — Audiotour Los Hoes
+-->
+        
+      </div>
+      
+      
+        <audio id="mainAudioMobile" class="tour-audio tour-audio-mobile" controls preload="auto">
+          <source src="../../../static/audio/los/DE/los000.mp3"
+                  type="audio/mpeg">
+          Je browser ondersteunt geen audio-element.
+        </audio>
+      
+<!--
+        Popup venster met lijst van luisterpunten in deze rondleiding
+-->
+        <div class="popup" onclick="myFunction()">
+          <button class="popup_btn">
+            Lijst met luisterpunten
+          </button>
+  <!--
+          <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
+  -->
+          <span class="popuptext" id="myPopup">
+            
+                <a href="../../../tour/pagina/audiotour-los-hoes-1/index.html" >
+                  Audiotour &#34;Los Hoes &#34;
+                </a>
+                    &ensp;
+            
+                <a href="../../../tour/pagina/herkunft-und-konstruktion/index.html" >
+                  Herkunft und Konstruktion
+                </a>
+                    &ensp;
+            
+          </span>
+        </div>
+        <script>
+          // When the user clicks on div, open the popup
+          function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+          }
+        </script>
+      
+      
+      <div class="tip-text" style="margin-top:12px; font-size:0.9rem; color:#666;">
+        Tip: 'rechts-klik' (PC) of 'long-touch' (mobiel, tablet) op de afbeelding voor volledig scherm.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const curSecSpan = document.getElementById('curSec');
+
+  // Build beelden array (paths already resolved server-side)
+  const beelden = [
+    
+      {
+        id: 103,
+        sec: 0,
+        naam: "../../..//static/images/los/los000.jpg",
+        caption: "Audiotour Los Hoes"
+      }
+    
+  ];
+  
+  // Ensure sorted by sec numeric
+  beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
+
+  const captionEl = document.getElementById('imageCaption');
+  const imageBox = document.getElementById('imageBox');
+
+  // collect both audio elements (desktop + mobile). The CSS will show only one.
+  const audios = Array.from(document.querySelectorAll('audio.tour-audio'));
+
+  function getImageElement() {
+    return document.getElementById('currentImage');
+  }
+
+  function showBeeld(i){
+    if(!beelden.length) return;
+    const b = beelden[i];
+    const imgEl = getImageElement();
+    if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
+      imgEl.src = b.naam;
+      imgEl.alt = b.caption || ("Beeld " + b.id);
+    } else {
+      // if placeholder div present, replace with <img>
+      const newImg = document.createElement('img');
+      newImg.id = 'currentImage';
+      newImg.src = b.naam;
+      newImg.alt = b.caption || ("Beeld " + b.id);
+      newImg.style.width = '100%';
+      imageBox.innerHTML = '';
+      imageBox.appendChild(newImg);
+    }
+    // set caption text safely (textContent)
+    captionEl.textContent = "";
+    const strong = document.createElement('strong');
+    strong.textContent = "@" + b.sec + "s";
+    // captionEl.appendChild(strong);
+    captionEl.appendChild(document.createTextNode( (b.caption || b.naam)));
+  }
+
+  let lastIndex = -1;
+
+  function findIndexForSecond(sec) {
+    // find the last beeld whose sec <= current second
+    let idx = -1;
+    for (let i = 0; i < beelden.length; i++) {
+      if ((beelden[i].sec || 0) <= sec) idx = i;
+      else break;
+    }
+    return idx;
+  }
+
+  function onTimeUpdateFor(a){
+    if (!a) return;
+    const sec = Math.floor(a.currentTime || 0);
+    curSecSpan.textContent = sec;
+    const idx = findIndexForSecond(sec);
+    if (idx !== lastIndex && idx !== -1) {
+      showBeeld(idx);
+      lastIndex = idx;
+    }
+  }
+
+  // Fallback polling for browsers where timeupdate is not frequent enough. Poll the visible audio.
+  let pollInterval = null;
+  function startPollingFor(a) {
+    if (pollInterval) return;
+    pollInterval = setInterval(function(){
+      const vis = getVisibleAudio();
+      if (vis && !vis.paused && !vis.ended) onTimeUpdateFor(vis);
+    }, 250);
+  }
+  function stopPolling() {
+    if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+  }
+
+  function getVisibleAudio(){
+    return audios.find(x => getComputedStyle(x).display !== 'none') || audios[0] || null;
+  }
+
+  // Attach listeners to all audio elements so handlers run regardless which one is visible.
+  audios.forEach(function(a){
+    a.addEventListener('timeupdate', function(){ onTimeUpdateFor(a); });
+    a.addEventListener('play', function(){ onTimeUpdateFor(a); startPollingFor(a);
+      // pause other audio elements
+      audios.forEach(other => { if (other !== a) try{ other.pause(); }catch(e){} });
+    });
+    a.addEventListener('pause', function(){ stopPolling(); });
+    a.addEventListener('ended', function(){ stopPolling(); });
+    a.addEventListener('seeked', function(){ onTimeUpdateFor(a); });
+  });
+
+  // initial update (in case audio is already at >0)
+  setTimeout(function(){ const vis = getVisibleAudio(); if (vis) onTimeUpdateFor(vis); }, 200);
+
+  // Clicking image jumps to next beeld (convenience)
+  let touchStartTime = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  
+  imageBox.addEventListener('pointerdown', function(e){
+    touchStartTime = Date.now();
+    touchStartX = e.clientX;
+    touchStartY = e.clientY;
+  });
+
+  imageBox.addEventListener('pointerup', function(e){
+    const touchDuration = Date.now() - touchStartTime;
+    const moveDistance = Math.sqrt(
+      Math.pow(e.clientX - touchStartX, 2) + 
+      Math.pow(e.clientY - touchStartY, 2)
+    );
+    // Long press (> 500ms) and minimal movement triggers fullscreen
+    if (touchDuration > 500 && moveDistance < 20) {
+      e.preventDefault();
+      triggerFullscreen();
+    }
+  });
+
+  imageBox.addEventListener('click', function(){
+    const vis = getVisibleAudio();
+    if(!beelden.length || !vis) return;
+    let next = lastIndex + 1;
+    if (next >= beelden.length) next = 0;
+    const targetSec = beelden[next].sec || 0;
+    try{ vis.currentTime = targetSec; vis.play(); }catch(e){}
+    showBeeld(next);
+    lastIndex = next;
+  });
+
+  // Right-click to toggle fullscreen
+  let isFullscreen = false;
+  let fullscreenOverlay = null;
+
+  function triggerFullscreen(){
+    if (isFullscreen) return;
+    
+    // Enter fullscreen
+    const imgEl = getImageElement();
+    if (!imgEl) return;
+
+    fullscreenOverlay = document.createElement('div');
+    fullscreenOverlay.className = 'fullscreen-overlay';
+    
+    // Use white background for SVG, black for other images
+    if (imgEl.src && imgEl.src.toLowerCase().endsWith('.svg')) {
+      fullscreenOverlay.style.background = '#fff';
+    } else {
+      fullscreenOverlay.style.background = '#000';
+    }
+    
+    const img = document.createElement('img');
+    img.src = imgEl.src;
+    img.alt = imgEl.alt;
+    img.style.cursor = 'pointer';
+    
+    fullscreenOverlay.appendChild(img);
+    document.body.appendChild(fullscreenOverlay);
+    
+    isFullscreen = true;
+
+    // Exit fullscreen on click
+    img.addEventListener('click', function(){
+      fullscreenOverlay.remove();
+      fullscreenOverlay = null;
+      isFullscreen = false;
+    });
+
+    // Also exit on right-click
+    img.addEventListener('contextmenu', function(e){
+      e.preventDefault();
+      fullscreenOverlay.remove();
+      fullscreenOverlay = null;
+      isFullscreen = false;
+    });
+
+    // Exit on touch (for mobile)
+    img.addEventListener('touchend', function(){
+      fullscreenOverlay.remove();
+      fullscreenOverlay = null;
+      isFullscreen = false;
+    });
+  }
+
+  imageBox.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+    triggerFullscreen();
+  });
+})();
+</script>
+
+</main>
+
+<footer>
+  &copy; 2026 De Museumfabriek
+</footer>
+
+</body>
+</html>
