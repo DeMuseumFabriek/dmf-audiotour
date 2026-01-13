@@ -204,7 +204,7 @@
 .popup .popuptext {
   visibility: hidden;
   width: 100%;
-  background-color: #555;
+  background-color: #33f;
   color: #fff;
   text-align: left;
   border-radius: 6px;
@@ -215,18 +215,6 @@
   left: 0%;
   margin-left: 0px;
   
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 5%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -281,6 +269,7 @@
 </style>
 
 <div class="tour-wrapper">
+<!--------------------------- Navigatie knoppen top mobiel scherm ----------------------->
   <div class="nav-links nav-links-top" aria-hidden="false">
          
       <a href="../../../tour/pagina/fossielenpreparatie/index.html" class="btn">
@@ -378,23 +367,260 @@ Voor het volgende luisterpunt ga je naar de ingang van de boerderij.</p>
         
       </div>
       
+<!---------------------- begin audio code ----------------------------------
+-- Wanneer er een audio bestand bestaat zal er een audio object verschijnen
+-- waarna het audiobestand kan worden afgespeeld als de gebruiker hem start.
+-- M.b.v. het bijbehorende script verschijnen er foto's op de tijdstippen die in
+-- de database staan (in "BeeldAudio" staan de tijdstippen en de foto's,
+-- in "Paginas" staan de audiobestanden).
+--------------------------------------------------------------------------->
+      
       
         <audio id="mainAudioMobile" class="tour-audio tour-audio-mobile" controls preload="auto">
           <source src="../../../static/audio/exp/NL/exp5.mp3"
                   type="audio/mpeg">
           Je browser ondersteunt geen audio-element.
         </audio>
+      
+      <script>
+        (function(){
+          const curSecSpan = document.getElementById('curSec');
 
-<!--
-        Popup venster met lijst van luisterpunten in deze rondleiding
--->
-        <div class="popup" onclick="myFunction()">
+          // Build beelden array (paths already resolved server-side)
+          const beelden = [
+            
+              {
+                id: 15,
+                sec: 0,
+                naam: "../../..//static/images/exp/img5_1.jpg",
+                caption: "Prehistorische boerderij  \r\n    \r\n  \r\n"
+              },
+            
+              {
+                id: 16,
+                sec: 60,
+                naam: "../../..//static/images/exp/img5_2.jpg",
+                caption: "Weefgewichten"
+              },
+            
+              {
+                id: 17,
+                sec: 68,
+                naam: "../../..//static/images/exp/img5_3.jpg",
+                caption: "Spinsteentjes  \r\n    \r\n  \r\n"
+              },
+            
+              {
+                id: 18,
+                sec: 101,
+                naam: "../../..//static/images/exp/img6_1.jpg",
+                caption: "  \r\n    Los Hoes  \r\n    \r\n  \r\n\r\n  \r\n"
+              }
+            
+          ];
+          
+          // Ensure sorted by sec numeric
+          beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
+
+          const captionEl = document.getElementById('imageCaption');
+          const imageBox = document.getElementById('imageBox');
+
+          // collect both audio elements (desktop + mobile). The CSS will show only one.
+          const audios = Array.from(document.querySelectorAll('audio.tour-audio'));
+
+          function getImageElement() {
+            return document.getElementById('currentImage');
+          }
+
+          function showBeeld(i){
+            if(!beelden.length) return;
+            const b = beelden[i];
+            const imgEl = getImageElement();
+            if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
+              imgEl.src = b.naam;
+              imgEl.alt = b.caption || ("Beeld " + b.id);
+            } else {
+              // if placeholder div present, replace with <img>
+              const newImg = document.createElement('img');
+              newImg.id = 'currentImage';
+              newImg.src = b.naam;
+              newImg.alt = b.caption || ("Beeld " + b.id);
+              newImg.style.width = '100%';
+              imageBox.innerHTML = '';
+              imageBox.appendChild(newImg);
+            }
+            // set caption text safely (textContent)
+            captionEl.textContent = "";
+            const strong = document.createElement('strong');
+            strong.textContent = "@" + b.sec + "s";
+            // captionEl.appendChild(strong);
+            captionEl.appendChild(document.createTextNode( (b.caption || b.naam)));
+          }
+
+          let lastIndex = -1;
+
+          function findIndexForSecond(sec) {
+            // find the last beeld whose sec <= current second
+            let idx = -1;
+            for (let i = 0; i < beelden.length; i++) {
+              if ((beelden[i].sec || 0) <= sec) idx = i;
+              else break;
+            }
+            return idx;
+          }
+
+          function onTimeUpdateFor(a){
+            if (!a) return;
+            const sec = Math.floor(a.currentTime || 0);
+            curSecSpan.textContent = sec;
+            const idx = findIndexForSecond(sec);
+            if (idx !== lastIndex && idx !== -1) {
+              showBeeld(idx);
+              lastIndex = idx;
+            }
+          }
+
+          // Fallback polling for browsers where timeupdate is not frequent enough. Poll the visible audio.
+          let pollInterval = null;
+          function startPollingFor(a) {
+            if (pollInterval) return;
+            pollInterval = setInterval(function(){
+              const vis = getVisibleAudio();
+              if (vis && !vis.paused && !vis.ended) onTimeUpdateFor(vis);
+            }, 250);
+          }
+          function stopPolling() {
+            if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+          }
+
+          function getVisibleAudio(){
+            return audios.find(x => getComputedStyle(x).display !== 'none') || audios[0] || null;
+          }
+
+          // Attach listeners to all audio elements so handlers run regardless which one is visible.
+          audios.forEach(function(a){
+            a.addEventListener('timeupdate', function(){ onTimeUpdateFor(a); });
+            a.addEventListener('play', function(){ onTimeUpdateFor(a); startPollingFor(a);
+              // pause other audio elements
+              audios.forEach(other => { if (other !== a) try{ other.pause(); }catch(e){} });
+            });
+            a.addEventListener('pause', function(){ stopPolling(); });
+            a.addEventListener('ended', function(){ stopPolling(); });
+            a.addEventListener('seeked', function(){ onTimeUpdateFor(a); });
+          });
+
+          // initial update (in case audio is already at >0)
+          setTimeout(function(){ const vis = getVisibleAudio(); if (vis) onTimeUpdateFor(vis); }, 200);
+
+          // Clicking image jumps to next beeld (convenience)
+          let touchStartTime = 0;
+          let touchStartX = 0;
+          let touchStartY = 0;
+          
+          imageBox.addEventListener('pointerdown', function(e){
+            touchStartTime = Date.now();
+            touchStartX = e.clientX;
+            touchStartY = e.clientY;
+          });
+
+          imageBox.addEventListener('pointerup', function(e){
+            const touchDuration = Date.now() - touchStartTime;
+            const moveDistance = Math.sqrt(
+              Math.pow(e.clientX - touchStartX, 2) + 
+              Math.pow(e.clientY - touchStartY, 2)
+            );
+            // Long press (> 500ms) and minimal movement triggers fullscreen
+            if (touchDuration > 500 && moveDistance < 20) {
+              e.preventDefault();
+              triggerFullscreen();
+            }
+          });
+
+          imageBox.addEventListener('click', function(){
+            const vis = getVisibleAudio();
+            if(!beelden.length || !vis) return;
+            let next = lastIndex + 1;
+            if (next >= beelden.length) next = 0;
+            const targetSec = beelden[next].sec || 0;
+            try{ vis.currentTime = targetSec; vis.play(); }catch(e){}
+            showBeeld(next);
+            lastIndex = next;
+          });
+
+          // Right-click to toggle fullscreen
+          let isFullscreen = false;
+          let fullscreenOverlay = null;
+
+          function triggerFullscreen(){
+            if (isFullscreen) return;
+            
+            // Enter fullscreen
+            const imgEl = getImageElement();
+            if (!imgEl) return;
+
+            fullscreenOverlay = document.createElement('div');
+            fullscreenOverlay.className = 'fullscreen-overlay';
+            
+            // Use white background for SVG, black for other images
+            if (imgEl.src && imgEl.src.toLowerCase().endsWith('.svg')) {
+              fullscreenOverlay.style.background = '#fff';
+            } else {
+              fullscreenOverlay.style.background = '#000';
+            }
+            
+            const img = document.createElement('img');
+            img.src = imgEl.src;
+            img.alt = imgEl.alt;
+            img.style.cursor = 'pointer';
+            
+            fullscreenOverlay.appendChild(img);
+            document.body.appendChild(fullscreenOverlay);
+            
+            isFullscreen = true;
+
+            // Exit fullscreen on click
+            img.addEventListener('click', function(){
+              fullscreenOverlay.remove();
+              fullscreenOverlay = null;
+              isFullscreen = false;
+            });
+
+            // Also exit on right-click
+            img.addEventListener('contextmenu', function(e){
+              e.preventDefault();
+              fullscreenOverlay.remove();
+              fullscreenOverlay = null;
+              isFullscreen = false;
+            });
+
+            // Exit on touch (for mobile)
+            img.addEventListener('touchend', function(){
+              fullscreenOverlay.remove();
+              fullscreenOverlay = null;
+              isFullscreen = false;
+            });
+          }
+
+          imageBox.addEventListener('contextmenu', function(e){
+            e.preventDefault();
+            triggerFullscreen();
+          });
+        })();
+      </script>
+<!---------------------- einde audio code -----------------------------
+      
+---------------------- begin popup code -----------------------------
+-- Popup venster met lijst van luisterpunten in deze rondleiding
+-- opent wanneer de gebruiker op de popup knop klikt.
+-- Wanneer er nogmaals op geklikt wordt, sluit het venster         
+--------------------------------------------------------------------->
+        <div class="popup" onclick="popup_toggle()">
           <button class="popup_btn">
             Lijst met luisterpunten
           </button>
-  <!--
-          <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" />
-  -->
+<!---------------- Alternatief voor de knop is een icon: --------------
+--  <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" /> ---->
+
           <span class="popuptext" id="myPopup">
             
                 <a href="../../../tour/pagina/plattegrond-dmf/index.html" >
@@ -520,13 +746,13 @@ Voor het volgende luisterpunt ga je naar de ingang van de boerderij.</p>
           </span>
         </div>
         <script>
-          // When the user clicks on div, open the popup
-          function myFunction() {
+          // When the user clicks on the popup button, open the popup. Click again to close it.
+          function popup_toggle() {
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
           }
         </script>
-      
+<!---------------------- einde popup code ----------------------------->      
       
       <div class="tip-text" style="margin-top:12px; font-size:0.9rem; color:#666;">
         Tip: 'rechts-klik' (PC) of 'long-touch' (mobiel, tablet) op de afbeelding voor volledig scherm.
@@ -534,232 +760,6 @@ Voor het volgende luisterpunt ga je naar de ingang van de boerderij.</p>
     </div>
   </div>
 </div>
-
-<script>
-(function(){
-  const curSecSpan = document.getElementById('curSec');
-
-  // Build beelden array (paths already resolved server-side)
-  const beelden = [
-    
-      {
-        id: 15,
-        sec: 0,
-        naam: "../../..//static/images/exp/img5_1.jpg",
-        caption: "Prehistorische boerderij  \r\n    \r\n  \r\n"
-      },
-    
-      {
-        id: 16,
-        sec: 60,
-        naam: "../../..//static/images/exp/img5_2.jpg",
-        caption: "Weefgewichten"
-      },
-    
-      {
-        id: 17,
-        sec: 68,
-        naam: "../../..//static/images/exp/img5_3.jpg",
-        caption: "Spinsteentjes  \r\n    \r\n  \r\n"
-      },
-    
-      {
-        id: 18,
-        sec: 101,
-        naam: "../../..//static/images/exp/img6_1.jpg",
-        caption: "  \r\n    Los Hoes  \r\n    \r\n  \r\n\r\n  \r\n"
-      }
-    
-  ];
-  
-  // Ensure sorted by sec numeric
-  beelden.sort((a,b) => (a.sec||0) - (b.sec||0));
-
-  const captionEl = document.getElementById('imageCaption');
-  const imageBox = document.getElementById('imageBox');
-
-  // collect both audio elements (desktop + mobile). The CSS will show only one.
-  const audios = Array.from(document.querySelectorAll('audio.tour-audio'));
-
-  function getImageElement() {
-    return document.getElementById('currentImage');
-  }
-
-  function showBeeld(i){
-    if(!beelden.length) return;
-    const b = beelden[i];
-    const imgEl = getImageElement();
-    if (imgEl && imgEl.tagName && imgEl.tagName.toLowerCase() === 'img') {
-      imgEl.src = b.naam;
-      imgEl.alt = b.caption || ("Beeld " + b.id);
-    } else {
-      // if placeholder div present, replace with <img>
-      const newImg = document.createElement('img');
-      newImg.id = 'currentImage';
-      newImg.src = b.naam;
-      newImg.alt = b.caption || ("Beeld " + b.id);
-      newImg.style.width = '100%';
-      imageBox.innerHTML = '';
-      imageBox.appendChild(newImg);
-    }
-    // set caption text safely (textContent)
-    captionEl.textContent = "";
-    const strong = document.createElement('strong');
-    strong.textContent = "@" + b.sec + "s";
-    // captionEl.appendChild(strong);
-    captionEl.appendChild(document.createTextNode( (b.caption || b.naam)));
-  }
-
-  let lastIndex = -1;
-
-  function findIndexForSecond(sec) {
-    // find the last beeld whose sec <= current second
-    let idx = -1;
-    for (let i = 0; i < beelden.length; i++) {
-      if ((beelden[i].sec || 0) <= sec) idx = i;
-      else break;
-    }
-    return idx;
-  }
-
-  function onTimeUpdateFor(a){
-    if (!a) return;
-    const sec = Math.floor(a.currentTime || 0);
-    curSecSpan.textContent = sec;
-    const idx = findIndexForSecond(sec);
-    if (idx !== lastIndex && idx !== -1) {
-      showBeeld(idx);
-      lastIndex = idx;
-    }
-  }
-
-  // Fallback polling for browsers where timeupdate is not frequent enough. Poll the visible audio.
-  let pollInterval = null;
-  function startPollingFor(a) {
-    if (pollInterval) return;
-    pollInterval = setInterval(function(){
-      const vis = getVisibleAudio();
-      if (vis && !vis.paused && !vis.ended) onTimeUpdateFor(vis);
-    }, 250);
-  }
-  function stopPolling() {
-    if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
-  }
-
-  function getVisibleAudio(){
-    return audios.find(x => getComputedStyle(x).display !== 'none') || audios[0] || null;
-  }
-
-  // Attach listeners to all audio elements so handlers run regardless which one is visible.
-  audios.forEach(function(a){
-    a.addEventListener('timeupdate', function(){ onTimeUpdateFor(a); });
-    a.addEventListener('play', function(){ onTimeUpdateFor(a); startPollingFor(a);
-      // pause other audio elements
-      audios.forEach(other => { if (other !== a) try{ other.pause(); }catch(e){} });
-    });
-    a.addEventListener('pause', function(){ stopPolling(); });
-    a.addEventListener('ended', function(){ stopPolling(); });
-    a.addEventListener('seeked', function(){ onTimeUpdateFor(a); });
-  });
-
-  // initial update (in case audio is already at >0)
-  setTimeout(function(){ const vis = getVisibleAudio(); if (vis) onTimeUpdateFor(vis); }, 200);
-
-  // Clicking image jumps to next beeld (convenience)
-  let touchStartTime = 0;
-  let touchStartX = 0;
-  let touchStartY = 0;
-  
-  imageBox.addEventListener('pointerdown', function(e){
-    touchStartTime = Date.now();
-    touchStartX = e.clientX;
-    touchStartY = e.clientY;
-  });
-
-  imageBox.addEventListener('pointerup', function(e){
-    const touchDuration = Date.now() - touchStartTime;
-    const moveDistance = Math.sqrt(
-      Math.pow(e.clientX - touchStartX, 2) + 
-      Math.pow(e.clientY - touchStartY, 2)
-    );
-    // Long press (> 500ms) and minimal movement triggers fullscreen
-    if (touchDuration > 500 && moveDistance < 20) {
-      e.preventDefault();
-      triggerFullscreen();
-    }
-  });
-
-  imageBox.addEventListener('click', function(){
-    const vis = getVisibleAudio();
-    if(!beelden.length || !vis) return;
-    let next = lastIndex + 1;
-    if (next >= beelden.length) next = 0;
-    const targetSec = beelden[next].sec || 0;
-    try{ vis.currentTime = targetSec; vis.play(); }catch(e){}
-    showBeeld(next);
-    lastIndex = next;
-  });
-
-  // Right-click to toggle fullscreen
-  let isFullscreen = false;
-  let fullscreenOverlay = null;
-
-  function triggerFullscreen(){
-    if (isFullscreen) return;
-    
-    // Enter fullscreen
-    const imgEl = getImageElement();
-    if (!imgEl) return;
-
-    fullscreenOverlay = document.createElement('div');
-    fullscreenOverlay.className = 'fullscreen-overlay';
-    
-    // Use white background for SVG, black for other images
-    if (imgEl.src && imgEl.src.toLowerCase().endsWith('.svg')) {
-      fullscreenOverlay.style.background = '#fff';
-    } else {
-      fullscreenOverlay.style.background = '#000';
-    }
-    
-    const img = document.createElement('img');
-    img.src = imgEl.src;
-    img.alt = imgEl.alt;
-    img.style.cursor = 'pointer';
-    
-    fullscreenOverlay.appendChild(img);
-    document.body.appendChild(fullscreenOverlay);
-    
-    isFullscreen = true;
-
-    // Exit fullscreen on click
-    img.addEventListener('click', function(){
-      fullscreenOverlay.remove();
-      fullscreenOverlay = null;
-      isFullscreen = false;
-    });
-
-    // Also exit on right-click
-    img.addEventListener('contextmenu', function(e){
-      e.preventDefault();
-      fullscreenOverlay.remove();
-      fullscreenOverlay = null;
-      isFullscreen = false;
-    });
-
-    // Exit on touch (for mobile)
-    img.addEventListener('touchend', function(){
-      fullscreenOverlay.remove();
-      fullscreenOverlay = null;
-      isFullscreen = false;
-    });
-  }
-
-  imageBox.addEventListener('contextmenu', function(e){
-    e.preventDefault();
-    triggerFullscreen();
-  });
-})();
-</script>
 
 </main>
 
