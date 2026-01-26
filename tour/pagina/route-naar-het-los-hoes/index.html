@@ -189,7 +189,6 @@
 .popup {
   z-index: 1000;
   position: relative;
-  top: 0px;
   left: 10;
   width: 100%;
   display: inline-block;
@@ -199,6 +198,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+table, tr, td {
+  /*border-bottom: 1px solid red;*/
+  /*border-left: 1px solid red;*/
+}
+
+
 
 /* The actual popup */
 .popup .popuptext {
@@ -210,11 +217,14 @@
   border-radius: 6px;
   padding: 8px 0;
   position: absolute;
-  z-index: 1;
+  
+  z-index: 1000;
   bottom: 125%;
   left: 0%;
   margin-left: 0px;
-  
+
+  column-count:2;
+  column-fill: balance;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -311,8 +321,13 @@
       <div class="pagina-text" id="paginaText">
         
         <h3>Route naar het los hoes</h3>
-<p>Volg op de plattegrond van het museum de blauwe stippellijn. links-klik (PC) of long-touch (mobiel) op de plattegrond voor volledig scherm.</p>
-<p>Ga door de schuifdeuren door de ruimte met de bol en loop door de ruimte met de bruine bank naar de trap naar beneden. Na de tunnel sla rechtaf de helling op. Aan het einde kom je in hal 1. Het los hoes bevindt zich aan het einde van hal 1.</p>
+<p>Volg op de plattegrond van het museum de blauwe stippellijn. Rechts-klik (PC) of long-touch (mobiel) op de plattegrond voor volledig scherm.</p>
+<p>Ga door de schuifdeuren door de ruimte met de bol en loop door de ruimte met de bruine bank naar de trap naar beneden. Na de tunnel sla rechts af de helling op. Aan het einde van de helling kom je in hal 1. Het los hoes bevindt zich aan het einde van hal 1.</p>
+<p>Om  naar het vorige luisterpunt in deze rondleiding te gaan klik op:  <img alt="" src="../../static/images/icons/back.svg" />
+Om naar de beginpagina voor de taalkeuze te gaan, klik op: <img alt="" src="../../static/images/icons/home.svg" />
+Voor een lijst met alle rondleidingen klik op: <img alt="" src="../../static/images/icons/menu.svg" />
+Om  naar het volgende luisterpunt in deze rondleiding te gaan klik op:  <img alt="" src="../../static/images/icons/next.svg" /></p>
+<p><strong>Klik op  <img alt="" src="../../static/images/icons/next.svg" /></strong></p>
       </div>
 
       <div class="controls">
@@ -572,7 +587,7 @@
 -- opent wanneer de gebruiker op de popup knop klikt.
 -- Wanneer er nogmaals op geklikt wordt, sluit het venster         
 --------------------------------------------------------------------->
-        <div class="popup" onclick="popup_toggle()">
+        <div  class="popup" onclick="popup_toggle()">
           <button class="popup_btn">
             Lijst met luisterpunten
           </button>
@@ -580,82 +595,129 @@
 --  <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" /> ---->
 
           <span class="popuptext" id="myPopup">
+            <table>         
             
-                <a href="../../../tour/pagina/route-naar-het-los-hoes/index.html" >
-                  Route naar het Los Hoes
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/route-naar-het-los-hoes/index.html" >
+                      Route naar het Los Hoes
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/audiotour-los-hoes-2/index.html" >
-                  Audiotour &#34;Los Hoes&#34;
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/audiotour-los-hoes-2/index.html" >
+                      Audiotour &#34;Los Hoes&#34;
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/ontstaan-en-bouw-van-het-los-hoes/index.html" >
-                  Ontstaan en bouw van het Los Hoes
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/ontstaan-en-bouw-van-het-los-hoes/index.html" >
+                      Ontstaan en bouw van het Los Hoes
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/naam-los-hoes/index.html" >
-                  Naam Los Hoes
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/naam-los-hoes/index.html" >
+                      Naam Los Hoes
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/gevelteken/index.html" >
-                  Gevelteken
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/gevelteken/index.html" >
+                      Gevelteken
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/vlaskapelletje/index.html" >
-                  Vlaskapelletje
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/vlaskapelletje/index.html" >
+                      Vlaskapelletje
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/werktuigen-van-vlas-naar-garen/index.html" >
-                  Werktuigen van vlas naar garen
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/werktuigen-van-vlas-naar-garen/index.html" >
+                      Werktuigen van vlas naar garen
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/koeien-en-potstal/index.html" >
-                  Koeien en potstal
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/koeien-en-potstal/index.html" >
+                      Koeien en potstal
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/varkens-paarden-en-kippen/index.html" >
-                  Varkens, paarden en kippen
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/varkens-paarden-en-kippen/index.html" >
+                      Varkens, paarden en kippen
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/vloer/index.html" >
-                  Vloer
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/vloer/index.html" >
+                      Vloer
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/weefgetouw/index.html" >
-                  Weefgetouw
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/weefgetouw/index.html" >
+                      Weefgetouw
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/werken-in-weefkamertje/index.html" >
-                  Werken in weefkamertje
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/werken-in-weefkamertje/index.html" >
+                      Werken in weefkamertje
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/slapen-wassen-en-toilet/index.html" >
-                  Slapen, wassen en toilet
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/slapen-wassen-en-toilet/index.html" >
+                      Slapen, wassen en toilet
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/eten-en-drinken/index.html" >
-                  Eten en drinken
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/eten-en-drinken/index.html" >
+                      Eten en drinken
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/tortelduif/index.html" >
-                  Tortelduif
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/tortelduif/index.html" >
+                      Tortelduif
+                    </a>
+                </td>
+            </tr>
             
+            </table>            
           </span>
         </div>
         <script>

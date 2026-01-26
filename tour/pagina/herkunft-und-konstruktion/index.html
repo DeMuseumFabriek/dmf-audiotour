@@ -189,7 +189,6 @@
 .popup {
   z-index: 1000;
   position: relative;
-  top: 0px;
   left: 10;
   width: 100%;
   display: inline-block;
@@ -199,6 +198,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+table, tr, td {
+  /*border-bottom: 1px solid red;*/
+  /*border-left: 1px solid red;*/
+}
+
+
 
 /* The actual popup */
 .popup .popuptext {
@@ -210,11 +217,14 @@
   border-radius: 6px;
   padding: 8px 0;
   position: absolute;
-  z-index: 1;
+  
+  z-index: 1000;
   bottom: 125%;
   left: 0%;
   margin-left: 0px;
-  
+
+  column-count:2;
+  column-fill: balance;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -616,7 +626,7 @@
 -- opent wanneer de gebruiker op de popup knop klikt.
 -- Wanneer er nogmaals op geklikt wordt, sluit het venster         
 --------------------------------------------------------------------->
-        <div class="popup" onclick="popup_toggle()">
+        <div  class="popup" onclick="popup_toggle()">
           <button class="popup_btn">
             Lijst met luisterpunten
           </button>
@@ -624,17 +634,25 @@
 --  <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" /> ---->
 
           <span class="popuptext" id="myPopup">
+            <table>         
             
-                <a href="../../../tour/pagina/audiotour-los-hoes-1/index.html" >
-                  Audiotour &#34;Los Hoes &#34;
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/audiotour-los-hoes-1/index.html" >
+                      Audiotour &#34;Los Hoes &#34;
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/herkunft-und-konstruktion/index.html" >
-                  Herkunft und Konstruktion
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/herkunft-und-konstruktion/index.html" >
+                      Herkunft und Konstruktion
+                    </a>
+                </td>
+            </tr>
             
+            </table>            
           </span>
         </div>
         <script>

@@ -17,7 +17,7 @@
      transform="translate(0,0.81659365)"
      style="stroke:#000000;stroke-opacity:1;fill:none;fill-opacity:1"><text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
        x="5.8546681"
        y="6.7145295"
        id="text7635"><tspan
@@ -26,7 +26,7 @@
          y="6.7145295"
          id="tspan7639">Atlas</tspan></text><text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
        x="7.8200021"
        y="12.642072"
        id="text8060"><tspan
@@ -35,7 +35,7 @@
          x="7.8200021"
          y="12.642072">van</tspan></text><text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;paint-order:markers fill stroke;stroke-opacity:1;fill-opacity:1"
        x="6.6866717"
        y="19.652281"
        id="text8064"><tspan
@@ -53,16 +53,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="12.212323"
-     inkscape:cx="-0.65507602"
-     inkscape:cy="11.545715"
+     inkscape:zoom="17.270833"
+     inkscape:cx="6.3691196"
+     inkscape:cy="6.7165261"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4987" /><rect
-     style="fill:none;stroke:#000000;stroke-width:0.7;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;fill-opacity:1"
+     style="fill:#bf6603;stroke:#000000;stroke-width:0.7;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;fill-opacity:1;opacity:0.55267423"
      id="rect8126"
      width="24.376356"
      height="23.044632"

@@ -189,7 +189,6 @@
 .popup {
   z-index: 1000;
   position: relative;
-  top: 0px;
   left: 10;
   width: 100%;
   display: inline-block;
@@ -199,6 +198,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+table, tr, td {
+  /*border-bottom: 1px solid red;*/
+  /*border-left: 1px solid red;*/
+}
+
+
 
 /* The actual popup */
 .popup .popuptext {
@@ -210,11 +217,14 @@
   border-radius: 6px;
   padding: 8px 0;
   position: absolute;
-  z-index: 1;
+  
+  z-index: 1000;
   bottom: 125%;
   left: 0%;
   margin-left: 0px;
-  
+
+  column-count:2;
+  column-fill: balance;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -664,7 +674,7 @@ Ga naar rechts op de wand bij schilderij 8.</p>
 -- opent wanneer de gebruiker op de popup knop klikt.
 -- Wanneer er nogmaals op geklikt wordt, sluit het venster         
 --------------------------------------------------------------------->
-        <div class="popup" onclick="popup_toggle()">
+        <div  class="popup" onclick="popup_toggle()">
           <button class="popup_btn">
             Lijst met luisterpunten
           </button>
@@ -672,127 +682,201 @@ Ga naar rechts op de wand bij schilderij 8.</p>
 --  <img class="icon" src="../../../static/images/icons/menu.svg" alt="Menu" /> ---->
 
           <span class="popuptext" id="myPopup">
+            <table>         
             
-                <a href="../../../tour/pagina/plattegrond-dmf/index.html" >
-                  Plattegrond DMF
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/plattegrond-dmf/index.html" >
+                      Plattegrond DMF
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/welkom/index.html" >
-                  Welkom
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/welkom/index.html" >
+                      Welkom
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/plattegrond-auditorium/index.html" >
-                  Plattegrond Auditorium
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/plattegrond-auditorium/index.html" >
+                      Plattegrond Auditorium
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/auditorium/index.html" >
-                  Auditorium
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/auditorium/index.html" >
+                      Auditorium
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/de-eerste-fabrikeurs/index.html" >
-                  De eerste fabrikeurs
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/de-eerste-fabrikeurs/index.html" >
+                      De eerste fabrikeurs
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/de-industriele-ontwikkeling-in-twente/index.html" >
-                  De industriele ontwikkeling in Twente
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/de-industriele-ontwikkeling-in-twente/index.html" >
+                      De industriele ontwikkeling in Twente
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/de-invloed-van-de-industrie-op-het-twentse-landsch/index.html" >
-                  De invloed van de industrie op het Twentse landschap
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/de-invloed-van-de-industrie-op-het-twentse-landsch/index.html" >
+                      De invloed van de industrie op het Twentse landschap
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/kinderen-kinderarbeid-en-onderwijs-in-de-19e-eeuw/index.html" >
-                  Kinderen, kinderarbeid en onderwijs in de 19e eeuw
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/kinderen-kinderarbeid-en-onderwijs-in-de-19e-eeuw/index.html" >
+                      Kinderen, kinderarbeid en onderwijs in de 19e eeuw
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/schilderijenwand/index.html" >
-                  Schilderijenwand
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/schilderijenwand/index.html" >
+                      Schilderijenwand
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/plattegrond-hal-1/index.html" >
-                  Plattegrond hal 1
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/plattegrond-hal-1/index.html" >
+                      Plattegrond hal 1
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/bewegen/index.html" >
-                  Bewegen
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/bewegen/index.html" >
+                      Bewegen
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/evolutie/index.html" >
-                  Evolutie
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/evolutie/index.html" >
+                      Evolutie
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/fossielenpreparatie/index.html" >
-                  Fossielenpreparatie
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/fossielenpreparatie/index.html" >
+                      Fossielenpreparatie
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/prehistorie/index.html" >
-                  Prehistorie
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/prehistorie/index.html" >
+                      Prehistorie
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/los-hoes/index.html" >
-                  Los Hoes
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/los-hoes/index.html" >
+                      Los Hoes
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/altaarstenen/index.html" >
-                  Altaarstenen
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/altaarstenen/index.html" >
+                      Altaarstenen
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/xylotheek/index.html" >
-                  Xylotheek
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/xylotheek/index.html" >
+                      Xylotheek
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/vuurwerkramp/index.html" >
-                  Vuurwerkramp
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/vuurwerkramp/index.html" >
+                      Vuurwerkramp
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/maquette-jannink/index.html" >
-                  Maquette Jannink
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/maquette-jannink/index.html" >
+                      Maquette Jannink
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/stoomkelder/index.html" >
-                  Stoomkelder
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/stoomkelder/index.html" >
+                      Stoomkelder
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/spinmachines/index.html" >
-                  Spinmachines
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/spinmachines/index.html" >
+                      Spinmachines
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/weefgetouwen/index.html" >
-                  Weefgetouwen
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/weefgetouwen/index.html" >
+                      Weefgetouwen
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/twente-lab/index.html" >
-                  Twente Lab
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/twente-lab/index.html" >
+                      Twente Lab
+                    </a>
+                </td>
+            </tr>
             
-                <a href="../../../tour/pagina/tenslotte/index.html" >
-                  Tenslotte
-                </a>
-                    &ensp;
+              <tr>
+                <td>
+                    <a href="../../../tour/pagina/tenslotte/index.html" >
+                      Tenslotte
+                    </a>
+                </td>
+            </tr>
             
+            </table>            
           </span>
         </div>
         <script>
