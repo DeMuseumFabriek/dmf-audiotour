@@ -1,175 +1,54 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>De Museumfabriek Audiotour</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-
-  <!-- Base CSS (mobile-first audiotour styles) -->
-  <link rel="stylesheet" href="./static/css/reset.css" />
-  <link rel="stylesheet" href="./static/css/typography.css" />
-  <link rel="stylesheet" href="./static/css/layout.css" />
-  <link rel="stylesheet" href="./static/css/components.css" />
-
-  <!-- Manager-only styles can still live here -->
-  <style>
-    body {
-      margin: 0;
-      background: #f7f7f9;
-      color: #333;
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    /* === Audiotour header (mobile-first) === */
-    .site-header {
-      border-bottom: 1px solid #ddd;
-      background: #fff;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1rem;
-    }
-
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #333;
-      }
-
-    .nav .icons {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .nav .icon {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* === Manager navigation (desktop / beheer) === */
-    .manager-nav {
-      background: #2c3e50;
-      padding: 0.75rem 1rem;
-    }
-
-    .manager-nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 1rem;
-      font-weight: 500;
-    }
-
-    .manager-nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      background: #fff;
-      padding: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #666;
-      padding: 1rem 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welkom bij De Museumfabriek Audiotours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            max-width: 650px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.logo {
+            max-width: 260px;
+            margin-bottom: 30px;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 24px;
+            background: #0078d4;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+        a.button:hover {
+            background: #005fa3;
+        }
+    </style>
 </head>
 <body>
 
-<!-- =====================================================
-     Audiotour minimal header (used by visitor-facing pages)
-     ===================================================== 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="logo">De Museumfabriek</div>
-    <nav class="nav">
-      <div class="icons">
-        <img class="icon" src="./static/images/icons/back.svg" alt="Terug" />
-        <img class="icon" src="./static/images/icons/home.svg" alt="Home" />
-        <img class="icon" src="./static/images/icons/menu.svg" alt="Menu" />
-      </div>
-    </nav>
-  </div>
-</header>
--->
+<div class="container">
+    <img class="logo" src="./media/images/DMFlogo.png" alt="Logo De Museumfabriek">
 
-<!-- =====================================================
-     Manager navigation (only visible on beheer pages)
-     ===================================================== -->
+    <h1>Welkom bij de Audiotours van De MuseumFabriek</h1>
+    <p>Ontdek de verhalen, objecten en geschiedenis.</p>
 
-
-<main>
-  
-    
-  
-
-  
-
-<div class="full-width-container">
-    <!-- Museum Logo -->
-    <div class="logo-container">
-        <img src="./static/images/museum_logo.png" alt="Museum Logo" class="logo">
-    </div>
-
-    <!-- General Museum Image -->
-    <div class="header-image">
-        <img src="./static/images/museum_general.jpg" alt="Museum Overview">
-    </div>
-
-    <h2>Kies een taal</h2>
-
-    <div class="flag-container">
-        
-        Nederlands&nbsp;
-        <a href="./nederlands/index.html">
-            
-            <img src="./static/Nederlands.svg" 
-                 alt="Nederlands" class="flag-icon">
-            
-        </a>
-        
-        Engels&nbsp;
-        <a href="./engels/index.html">
-            
-            <img src="./static/Engels.svg" 
-                 alt="Engels" class="flag-icon">
-            
-        </a>
-        
-        Duits&nbsp;
-        <a href="./duits/index.html">
-            
-            <img src="./static/Duits.svg" 
-                 alt="Duits" class="flag-icon">
-            
-        </a>
-        
-        Twents&nbsp;
-        <a href="./twents/index.html">
-            
-            <img src="./static/Twents.svg" 
-                 alt="Twents" class="flag-icon">
-            
-        </a>
-        
-    </div>
+    <a class="button" href="./audiotours/index.html">Start de audiotours</a>
 </div>
-
-
-</main>
-
-<footer>
-  &copy; 2026 De Museumfabriek
-</footer>
 
 </body>
 </html>

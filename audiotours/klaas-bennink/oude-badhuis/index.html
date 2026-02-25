@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            
+            9. Oude badhuis
+            
+            
+            
+            
+            
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        
+        
+
+        
+        <link rel="stylesheet" type="text/css" href="../../../static/tours/css/dmf.css">
+
+        
+        
+        
+    </head>
+
+    <body class="">
+        
+
+        
+
+
+
+
+<article class="audio-stop">
+
+    <div class="sticky-wrapper">        
+        <nav class="stop-navigation">
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../klaas-bennink/oude-gasfabriek/index.html">
+                        <img src="../../../static/tours/icons/back.svg" alt="Vorige"  title="Vorige stop" style="display: block;">
+                    </a>
+                
+            </div>
+
+            <div class="nav-slot">
+                <a class="nav-button" href="../../klaas-bennink/index.html">
+                    <img src="../../../static/tours/icons/home.svg" alt="Terug naar lijst met stops" title="Terug naar lijst met stops">
+                </a>
+            </div>
+            
+            <div class="nav-slot">
+                <a class="nav-button" href="../../index.html">
+                    <img src="../../../static/tours/icons/menu.svg" alt="Terug naar menu" title="Lijst met audiotours">
+                </a>
+            </div>
+            
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../klaas-bennink/muziekschool/index.html">
+                        <img src="../../../static/tours/icons/next.svg" alt="Volgende" title="Volgende stop">
+                    </a>
+                
+            </div>
+        </nav>
+
+        <h1>9. Oude badhuis</h1>
+
+        <div class="timed-images">
+            
+                
+                <img src="../../../media/images/oude_badhuis.original.jpg"
+                     data-timestamp="0.0"
+                     class="timed-image"
+                     data-focal-x="50%"
+                     data-focal-y="50%">
+            
+        </div>
+
+        <audio id="audio-player" controls>
+            <source src="../../../documents/30/oude_begraafplaats_espoortstraat.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="description" role="button" tabindex="0"><h2 data-block-key="y4wgh">Zwem- en Badinrichting Van Heek – Van Heekplein, Enschede</h2><p data-block-key="3jojj">Geopend in 1892 op initiatief van G.J. van Heek* In 1892 opende textielfabrikant Gerrit Jan van Heek een moderne zwem- en badinrichting op het huidige Van Heekplein. Hij vond dat goede hygiëne belangrijk was voor de gezondheid van arbeiders. Hoewel andere fabrikanten zijn idee eerst belachelijk maakten, hield Van Heek vol en zette hij zijn plan door. Werknemers van Van Heek &amp; Co. konden hier gratis gebruikmaken van kuipbaden en stortbaden. In de zomer was er ook een overdekt zwembad van negen bij vijftien meter. Mensen van buiten het bedrijf waren welkom tegen een kleine vergoeding. Het gebouw had aparte ingangen voor mannen en vrouwen, veel douches en kleedhokjes, en zelfs een ruimte om kleding te wassen en te drogen. De badinrichting werd een groot succes, met elk jaar tienduizenden bezoekers. Het was een van de eerste plekken in Nederland waar hygiëne en ontspanning samenkwamen. Bernink schilderde het gebouw als een symbool van vooruitgang: een plek waar zorg voor gezondheid, sociale betrokkenheid en vernieuwing in de stad samenkwamen.</p></div>
+</article>
+
+<!--------------------- help popup -------------------------------------
+
+    Een popup voor hulp verschijnt als de gebruiker
+    op het vraagteken icoon klikt in de rechter bovenhoek
+    van deze pagina.
+
+----------------------------------------------------------------------->
+<div class="help-widget">
+    <button class="help-button">?</button>
+
+    <div class="help-popup hidden">
+        
+        <div class="help-content">
+            <ul>
+                <li>Om de audio te starten, klik op het pijltje in de audio control.</li>
+                <li>Dubbel-klik op de pagina om het tekstvenster naar de voorgrond te brengen.
+                Klik éénmalig op de tekst om de tekst weer naar de achtergrond te verplaatsen.</li>        
+                <li><img src="../../../static/tours/icons/back.svg" alt="Vorige" title="Vorige pagina" style="vertical-align:middle"/>&emsp;Vorige stop (luisterpunt).</li>
+                <li><img src="../../../static/tours/icons/home.svg" alt="Lijst stops" title="Lijst met stops" style="vertical-align:middle"/>&emsp;Lijst met stops (luisterpunten).</li>
+                <li><img src="../../../static/tours/icons/menu.svg" alt="Lijst audiotours" title="Lijst met audiotours" style="vertical-align:middle"/>&emsp;Lijst met audiotours</li>
+                <li><img src="../../../static/tours/icons/next.svg" alt="Volgende" title="Volgende pagina" style="vertical-align:middle"/>&emsp;Volgende stop (luisterpunt).</li>
+            </ul>
+            <p>Bij gebruik van een touch-screen (mobiel, tablet) is het ook mogelijk om te navigeren door te 'swipen'</p>
+            <button class="close-help">Sluiten</button>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const helpBtn = document.querySelector(".help-button");
+    const popup = document.querySelector(".help-popup");
+    const closeBtn = document.querySelector(".close-help");
+
+    helpBtn.addEventListener("click", () => {
+        popup.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        popup.classList.add("hidden");
+    });
+});
+</script>
+<!------------------------- end help popup ---------------------------->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("audio-player");
+  audio.pause();
+  audio.currentTime = 0;
+
+  
+  const images = Array.from(document.querySelectorAll(".timed-image"));
+
+  if (!audio || images.length === 0) return;
+
+  // Apply focal point positioning
+  images.forEach(img => {
+    const focalX = img.dataset.focalX || "50%";
+    const focalY = img.dataset.focalY || "50%";
+    img.style.objectPosition = `${focalX} ${focalY}`;
+    img.style.objectFit = "cover";
+    img.style.display = "none";
+  });
+
+
+  // Eerste afbeelding tonen
+  let first = images[0];
+  first.style.display = "block";
+
+  audio.addEventListener("timeupdate", function () {
+    const current = audio.currentTime;
+
+    let active = null;
+    images.forEach(img => {
+      const ts = parseFloat(img.dataset.timestamp);
+      if (current >= ts) {
+        active = img;
+      }
+    });
+
+    images.forEach(img => img.style.display = "none");
+
+    if (active) {
+      active.style.display = "block";
+    }
+  });
+
+  audio.addEventListener("ended", function () {
+    images.forEach(img => img.style.display = "none");
+    first.style.display = "block";
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let startX = 0;
+    let endX = 0;
+    let startTime = 0;
+
+    document.addEventListener("touchstart", (e) => {
+        // Only track swipe on single touch
+        if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
+            startTime = Date.now();
+        } else {
+            // Reset on multi-touch (pinch)
+            startX = 0;
+            startTime = 0;
+        }
+    });
+
+    document.addEventListener("touchend", (e) => {
+        // Only handle swipe if:
+        // - All fingers lifted (e.touches.length === 0)
+        // - Single touch was recorded (startX > 0)
+        // - Lasted less than 500ms (not a long hold/pinch)
+        if (e.touches.length === 0 && startX > 0) {
+            const elapsed = Date.now() - startTime;
+            if (elapsed < 500) {
+                endX = e.changedTouches[e.changedTouches.length - 1].clientX;
+                handleSwipe();
+            }
+            startX = 0;
+            startTime = 0;
+        }
+    });
+
+    function handleSwipe() {
+        const distance = endX - startX;
+
+        // minimale swipe-afstand
+        if (Math.abs(distance) < 50) return;
+
+        const buttons = document.querySelectorAll(".nav-button");
+        const prevBtn = buttons[0];      // links
+        const nextBtn = buttons[buttons.length - 1]; // rechts
+
+        if (distance > 0) {
+            // swipe naar rechts → terug
+            prevBtn?.click();
+        } else {
+            // swipe naar links → volgende
+            nextBtn?.click();
+        }
+    }
+
+    // Description expand/collapse
+    const description = document.querySelector(".description");
+    
+    // Double-click anywhere on page to expand description
+    document.addEventListener("dblclick", (e) => {
+        if (description && !description.classList.contains("expanded")) {
+            description.classList.add("expanded");
+            // Clear text selection
+            window.getSelection().removeAllRanges();
+            // Scroll to description
+            setTimeout(() => {
+                description.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 0);
+        }
+    });
+
+    // Single click on description to close it
+    if (description) {
+        description.addEventListener("click", (e) => {
+            if (description.classList.contains("expanded")) {
+                e.stopPropagation();
+                description.classList.remove("expanded");
+            }
+        });
+
+        // Keyboard support: Enter/Space to close
+        description.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                if (description.classList.contains("expanded")) {
+                    description.classList.remove("expanded");
+                }
+            }
+        });
+    }
+});
+</script>
+
+
+
+<style>
+  
+/* Sticky container */
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding: 0;
+    margin: 0;
+    contain: layout style paint;
+    overflow: hidden;
+}
+
+.sticky-wrapper h1 {
+    margin: 0;
+    padding: 0.25rem 0;
+    line-height: 1.2;
+}
+
+
+.timed-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+/* Container voor alle content */
+.audio-stop {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+/* Audio player */ 
+#audio-player {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    margin: 0.25rem auto;
+    display: block;
+}
+
+/* Navigatie staat binnen dezelfde containerbreedte */
+.stop-navigation {
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* links – home - menu – rechts */
+    align-items: left;
+    width: 100%; /* neemt de breedte van .audio-stop over */
+    height: 44px;
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+/* Slots houden de knoppen op hun plek */
+.nav-slot {
+    display: flex;
+    align-items: center;
+}
+
+/* Prev links */
+.nav-slot:first-child {
+    justify-content: flex-start;
+}
+
+/* Home in het midden */
+.nav-slot:nth-child(2) {
+    justify-content: center;
+}
+
+/* Menu in het midden */
+.nav-slot:nth-child(3) {
+    justify-content: center;
+}
+
+/* Next rechts */
+.nav-slot:last-child {
+    justify-content: flex-end;
+}
+
+/* Knoppen zelf */
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+/* Iconen */
+.nav-button img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.nav-button img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Description toggle */
+.description {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: z-index 0.1s, background 0.2s;
+}
+
+.description.expanded {
+    position: relative;
+    z-index: 101;
+    background: white;
+    padding: 1rem;
+    margin: -0.5rem -0.5rem 0 -0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.help-widget {
+    position: fixed;
+    top: 120px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.help-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.close-help {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-popup {
+    position: fixed;
+    top: 80px; /* iets onder het icoon */
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    max-width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    /* Container blijft netjes */
+    .audio-stop {
+        padding: 0.5rem;
+    }
+    /* Audio player */ 
+    #audio-player {
+        width: 100%;
+        max-width: 800px;
+        margin: 1rem auto;
+        display: block;
+    }
+    
+    /* Afbeeldingen worden schermbreed */
+    .timed-images img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Navigatie blijft in één rij */
+    .stop-navigation {
+        grid-template-columns: 1fr auto auto 1fr; /* zelfde als desktop */
+        column-gap: 1rem;
+    }
+
+    /* Knoppen worden iets groter voor touch */
+    .nav-button {
+        width: 48px;
+        height: 48px;
+    }
+
+
+}
+
+</style>
+
+
+        
+        <script type="text/javascript" src="../../../static/tours/js/dmf.js"></script>
+
+        
+        
+        
+    </body>
+</html>

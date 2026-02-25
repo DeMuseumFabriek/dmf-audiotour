@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            
+            De MuseumFabriek audiotours
+            
+            
+            
+            
+            
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        
+        
+
+        
+        <link rel="stylesheet" type="text/css" href="../static/tours/css/dmf.css">
+
+        
+        
+        
+    </head>
+
+    <body class="">
+        
+
+        
+
+<!---------------- audio_tour_index_page.html --------------------------
+
+  Dit is de Home pagina van de audiotours van DeMuseumFabriek.
+  Een gebruiker kan hier een keuze maken uit de beschikbare  audiotours.
+  
+  Fred van Goor, Februari 2026
+  
+----------------------------------------------------------------------->
+
+  <h1>De MuseumFabriek audiotours</h1>
+  
+  <!-------------------- help popup ------------------------------------
+  
+    Een popup voor hulp verschijnt als de gebruiker
+    op het vraagteken icoon klikt in de rechter bovenhoek
+    van deze pagina.
+
+  --------------------------------------------------------------------->
+  <div class="help-widget">
+    <button class="help-button">?</button>
+
+    <div class="help-popup hidden">
+        <div class="help-content">
+            <ul>
+                <li>
+                  Dit is de lijst met beschikbare audiotours van de 
+                  MuseumFabriek.
+                  Hier kun je een audiotour uitkiezen.
+                  Klik op één van de onderwerpen.
+                </li>
+                <li>
+                  De eerste stop van de audiotour toont de route door
+                  het museum die je moet volgen om bij de 
+                  gekozen expositie te komen.
+                </li>
+                <li>
+                  Klik op het symbool,
+                  <img src="../static/tours/icons/menu.svg"
+                    alt="Terug naar menu" title="Lijst met audiotours" 
+                    style="vertical-align:middle"
+                  />, 
+                  om naar deze pagina terug te keren.
+                </li>
+            </ul>
+            <button class="close-help">Sluiten</button>
+        </div>
+    </div>
+  </div>
+  <!------------------------- end help popup -------------------------->
+
+  <div class="cover-images">
+    
+  </div>
+
+  
+    <div class="intro"><h2 data-block-key="bh4mp">Kies uit onderstaande lijst één van de audiotours.</h2></div>
+  
+
+  <ul class="tour-list">
+    
+      <li class="tour-item">
+        <a href="./los-hoes/index.html" class="tour-link">
+          
+            <div class="tour-thumbnail">
+              <img alt="los000" height="158" src="../media/images/los000.max-200x200.jpg" width="200">
+            </div>
+          
+          
+          <div class="tour-content">
+            <h2>Los Hoes</h2>
+            
+              <p class="tour-description"><p data-block-key="4ihl4">Hoe boerenfamilies leefden in een Twents Los Hoes.</p></p>
+            
+          </div>
+        </a>
+      </li>
+    
+      <li class="tour-item">
+        <a href="./klaas-bennink/index.html" class="tour-link">
+          
+            <div class="tour-thumbnail">
+              <img alt="foto_klaas_bernink" height="200" src="../media/images/foto_klaas_bernink.max-200x200.jpg" width="151">
+            </div>
+          
+          
+          <div class="tour-content">
+            <h2>Klaas Bernink</h2>
+            
+              <p class="tour-description"><p data-block-key="kuab8">Audiotour bij een selectie uit het werk van de Enschedese schilder Klaas Bernink</p></p>
+            
+          </div>
+        </a>
+      </li>
+    
+      <li class="tour-item">
+        <a href="./offers/index.html" class="tour-link">
+          
+          
+          <div class="tour-content">
+            <h2>Offers</h2>
+            
+          </div>
+        </a>
+      </li>
+    
+  </ul>
+  
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const helpBtn = document.querySelector(".help-button");
+    const popup = document.querySelector(".help-popup");
+    const closeBtn = document.querySelector(".close-help");
+
+    helpBtn.addEventListener("click", () => {
+        popup.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        popup.classList.add("hidden");
+    });
+});
+</script>
+  
+
+<style>
+.cover-images img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10 auto;
+  }
+
+.help-widget {
+    position: fixed;
+    top: 120px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.close-help {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-popup {
+    position: fixed;
+    top: 80px; /* iets onder het icoon */
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    max-width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+</style>  
+
+
+
+        
+        <script type="text/javascript" src="../static/tours/js/dmf.js"></script>
+
+        
+        
+        
+    </body>
+</html>
