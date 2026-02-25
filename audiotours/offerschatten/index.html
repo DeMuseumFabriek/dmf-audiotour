@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            
+            Offerschatten
+            
+            
+            
+            
+            
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        
+        
+
+        
+        <link rel="stylesheet" type="text/css" href="../../static/tours/css/dmf.css">
+
+        
+        
+        
+    </head>
+
+    <body class="">
+        
+
+        
+
+
+
+<article class="audio-tour">
+    
+    <a class="sticky-menu-button" href="../index.html" title="Lijst met audiotours">
+        <img src="../../static/tours/icons/menu.svg" alt="Terug naar menu">
+    </a>
+        
+    <header class="tour-header">
+        <h1>Offerschatten</h1>
+        <!--------------------- help popup -------------------------------------
+
+            Een popup voor hulp verschijnt als de gebruiker
+            op het vraagteken icoon klikt in de rechter bovenhoek
+            van deze pagina.
+
+        ----------------------------------------------------------------------->
+        <div class="help-widget">
+            <button class="help-button">?</button>
+
+            <div class="help-popup hidden">
+                
+                <div class="help-content">
+                    <ul>
+                        <li>Klik op één van de stops (luisterpunten) van deze audiotour om deze te openen.</li>        
+                        <li><img src="../../static/tours/icons/menu.svg" alt="Lijst audiotours" title="Lijst met audiotours" style="vertical-align:middle"/>&emsp;Ga naar de lijst met audiotours om een andere audiotour te kiezen.</li>
+                    </ul>
+                    <button class="close-help">Sluiten</button>
+                </div>
+            </div>
+        </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const helpBtn = document.querySelector(".help-button");
+            const popup = document.querySelector(".help-popup");
+            const closeBtn = document.querySelector(".close-help");
+
+            helpBtn.addEventListener("click", () => {
+                popup.classList.remove("hidden");
+            });
+
+            closeBtn.addEventListener("click", () => {
+                popup.classList.add("hidden");
+            });
+        });
+        </script>
+        <!------------------------- end help popup ---------------------------->
+        
+            <div class="tour-intro">
+                <p data-block-key="sd1wy">Offerschatten in de museumfabriek</p>
+            </div>
+        
+    </header>
+
+    <section class="tour-stops">
+        <h2>Stops in deze tour</h2>
+
+        <ul class="stop-list">
+            
+                <li class="stop-item">
+                    <a href="../offerschatten/schat-1/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                
+                                    
+                                    
+                                        <img src="../../media/images/los013.2e16d0ba.fill-300x200_NMgTK6W.jpg" alt="schat 1" class="stop-thumb-img" data-focal-x="50%" data-focal-y="50%">
+                                    
+                                
+                            
+                        </div>
+
+                        <div class="stop-info">
+                            <span class="stop-number">Stop 1</span>
+                            <span class="stop-title">schat 1</span>
+                        </div>
+
+                    </a>
+                </li>
+            
+        </ul>
+    </section>
+
+</article>
+
+<style>
+    
+.sticky-menu-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.2s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.sticky-menu-button img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+}
+
+.sticky-menu-button:hover {
+    transform: scale(1.1);
+}
+
+.sticky-menu-button:hover img {
+    opacity: 1;
+}
+
+.audio-tour {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.tour-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tour-intro {
+    margin-bottom: 2rem;
+}
+
+.tour-stops h2 {
+    margin-bottom: 1rem;
+}
+
+.stop-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stop-item {
+    margin-bottom: 1rem;
+}
+
+.stop-link {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #fafafa;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.stop-link:hover {
+    background: #f0f0f0;
+    border-color: #bbb;
+}
+
+.stop-thumb img {
+    width: 140px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.stop-thumb-img {
+    width: 140px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.thumb-placeholder {
+    width: 140px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.stop-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stop-number {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stop-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.stop-header-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.help-widget {
+    position: fixed;
+    top: 120px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.close-help {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-popup {
+    position: fixed;
+    top: 80px; /* iets onder het icoon */
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    max-width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+</style>
+
+<script>
+// Apply focal point positioning to thumbnail images
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll(".stop-thumb-img");
+  images.forEach(img => {
+    const focalX = img.dataset.focalX || "50%";
+    const focalY = img.dataset.focalY || "50%";
+    img.style.objectPosition = `${focalX} ${focalY}`;
+  });
+});
+</script>
+
+
+
+        
+        <script type="text/javascript" src="../../static/tours/js/dmf.js"></script>
+
+        
+        
+        
+    </body>
+</html>
