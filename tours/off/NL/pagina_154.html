@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="nl">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>Keltische munt en 2 beeldjes</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_151.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_157.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Keltische munt en 2 beeldjes</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/keltische_munt.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><p>Nog geen info!</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

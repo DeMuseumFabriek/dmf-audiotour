@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="nl">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>Het Paar van Weerdinge</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_136.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_142.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Het Paar van Weerdinge</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/paar_van_weerdinge.jpg"
+            alt="Veenlijken uit Weerdinge"
+          />
+          
+          <figcaption class="beeld-tekst">Veenlijken uit Weerdinge</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/paar_van_weerdinge.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Het Paar van Weerdinge</strong>.  Het Paar van Weerdinge zijn twee veenlijken uit de late ijzertijd. Ze werden in 1904 gevonden door een veenarbeider in het Weerdingerveen in Drenthe. De lichamen waren goed bewaard door het zure veen.</h2>
+<p>Men dacht eerst dat het een man en een vrouw waren. DNA-onderzoek liet later zien dat het om twee mannen gaat, met verschillende moeders. Ze leefden rond het begin van onze jaartelling.
+Eén van hen heeft mogelijk een messteek in de borst. Ze werden naakt in het moeras gelegd. Zulke vondsten wijzen op geweld en mogelijk op straffen vanwege misdaad of rituele offers, zoals ook Romeinse schrijvers beschrijven.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

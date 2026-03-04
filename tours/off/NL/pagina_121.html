@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="nl">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>Tempeltje Barger-Oosterveld</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_118.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_124.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Tempeltje Barger-Oosterveld</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/tempel_barger.JPG"
+            alt="Tempeltje BargerOosterveld"
+          />
+          
+          <figcaption class="beeld-tekst">Tempeltje BargerOosterveld</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/tempel_barger.pm3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Het tempeltje van Barger-Oosterveld.</strong></h2>
+<p>Hier zie je een replica van het tempeltje van Barger-Oosterveld. Het stond hier rond 1250 voor Christus, midden in het hoogveen. Zulke gebouwtjes zijn zeldzaam in Europa.
+Het tempeltje was twee bij twee meter groot. Het bestond uit acht eikenhouten palen op brede planken. Bovenop lagen balken met hoornvormige uiteinden. Hoorns waren een belangrijk symbool. Ze werden verbonden met vruchtbaarheid, maar kunnen ook verwijzen naar koeien, die in het veen werden geofferd.
+In het midden lag waarschijnlijk een plank voor offers. Het tempeltje is later bewust afgebroken en een stuk is teruggevonden in het veen. Dat wijst op een belangrijke rituele functie.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

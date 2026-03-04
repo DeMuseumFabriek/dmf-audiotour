@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>The Dalfsen cauldron</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_164.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>The Dalfsen cauldron</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/bolletje_wol.jpg"
+            alt="Cauldron from Dalfsen"
+          />
+          
+          <figcaption class="beeld-tekst">Cauldron from Dalfsen</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/grape_dalfsen.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>The Dalfsen cauldron.</strong></h2>
+<p>This bronze cauldron was found in 2005 near the Gerner Marke district in Dalfsen. The pot dates from the 15th century. A cauldron is a cooking pot on three legs. This allowed it to stand securely in the fire. It was hung over the hearth with its handle.
+This example is large: almost 30 centimeters high. Bronze was precious and often reused. The cauldron was found in pieces and later restored.
+Sometimes cauldrons are found in rivers or wetlands. In such cases, it may have been deliberately abandoned. Whether this is also the case here is uncertain. The discovery demonstrates the importance of cooking utensils in everyday life.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

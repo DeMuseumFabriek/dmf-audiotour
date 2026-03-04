@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>The Weerdinge Pair</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_137.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_143.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>The Weerdinge Pair</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/paar_van_weerdinge.jpg"
+            alt="The Weerdinge Pair"
+          />
+          
+          <figcaption class="beeld-tekst">The Weerdinge Pair</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/paar_van_weerdinge.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>The Weerdinge Pair.</strong> The Weerdinge Pair are two bog bodies from the late Iron Age. They were found in 1904 by a peat worker in the Weerdingerveen in Drenthe. The bodies were well preserved by the acidic peat.</h2>
+<p>It was initially thought they were a man and a woman. DNA research later revealed that they were two men, with different mothers. They lived around the beginning of the Common Era.
+One of them may have been stabbed in the chest. They were placed naked in the bog. Such finds point to violence and possibly punishment for crimes or ritual sacrifices, as also described by Roman authors.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

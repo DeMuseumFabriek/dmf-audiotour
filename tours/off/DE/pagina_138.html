@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>Germanische Goldketten aus Olst</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_135.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_141.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Germanische Goldketten aus Olst</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/halssieraden_olst.jpg"
+            alt="Germanische Goldketten"
+          />
+          
+          <figcaption class="beeld-tekst">Germanische Goldketten</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/halssieraden_olst.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Germanische Goldketten aus Olst</strong></h2>
+<p>Diese vier Goldketten wurden 1952 an der IJssel bei Olst gefunden. Sie stammen aus der Zeit um 400 n. Chr. Die Ringe sind aus eingeschmolzenen römischen Goldmünzen, sogenannten Solidi, gefertigt. Das Gold hat einen Feingehalt von 22 Karat. Die Ringe sind in der Mitte verdickt und mit Punkten und Kreisen verziert. Solche Motive symbolisieren in der germanischen Tradition die Ewigkeit. Diese Art von Schmuck war ein Zeichen von Macht und wurde von einflussreichen Persönlichkeiten getragen.
+Warum die Ringe im Boden landeten, ist unklar. Vielleicht wurden sie in einer Zeit der Unruhe versteckt. Es könnte sich aber auch um ein Opfer handeln, um Schutz zu erbitten.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

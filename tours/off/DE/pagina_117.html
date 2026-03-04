@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>Einführung – Opfergaben</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_174.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_120.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Einführung – Opfergaben</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/zwaard_ommerschans_2.jpg"
+            alt="Das Schwert von Ommerschan"
+          />
+          
+          <figcaption class="beeld-tekst">Das Schwert von Ommerschan</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/inleiding_offerschatten.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Einführung – Opfergaben</strong></h2>
+<p>Willkommen zur Ausstellung „Opfergaben: Rituale in der Landschaft von Twente“ der Museumfabriek. Lange vor dem Christentum gab es in Twente heilige Naturstätten. Die Menschen glaubten, dass Moore, Flüsse, Bäume und Hügel von Leben erfüllt waren. An diesen Orten brachten sie Göttern und Geistern Opfer dar, um Hilfe zu bitten oder ihnen zu danken. Moore spielten eine besonders wichtige Rolle. Sie galten als gefährlich und geheimnisvoll und wurden als Tore zu einer anderen Welt angesehen. Daher wurden sie über Jahrhunderte hinweg aufgesucht. In dieser Ausstellung erfahren Sie, warum Archäologen diese Funde als Opfergaben einstufen und wie sich antike Rituale später mit dem Christentum verbanden.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

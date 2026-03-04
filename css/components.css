@@ -1,0 +1,747 @@
+/* =========================================================
+   BASIS & TOEGANKELIJKHEID
+   ========================================================= */
+
+:focus {
+  outline: 3px solid rgba(10, 100, 200, 0.2);
+  outline-offset: 2px;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* =========================================================
+   NAVIGATIE – TOUR (ALLE PAGINA'S)
+   ========================================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 52px;
+  padding: 0 0.5rem;
+
+  background: #f6f5f3;
+  /* zacht beige/grijs */
+  border-bottom: 1px solid #e2e2e2;
+}
+
+/* Links & knoppen */
+.nav a,
+.nav span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* Iconen */
+.nav img {
+  width: 26px;
+  height: 26px;
+  display: block;
+  opacity: 0.95;
+  transition:
+    transform 0.1s ease,
+    opacity 0.1s ease;
+}
+
+.nav a {
+  padding: 10px;
+}
+
+/* Pressed / touch feedback */
+.nav a:active img {
+  transform: scale(0.92);
+  opacity: 0.75;
+}
+
+/* Hover / active feedback */
+.nav a:hover,
+.nav a:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Actieve pagina (menu op LP bijvoorbeeld) */
+.nav .active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Ruimte onder nav zodat content niet plakt */
+body {
+  padding-top: 52px;
+}
+
+/* =========================================================
+   BUTTONS – waarschuwingen
+   ========================================================= */
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #b02a37;
+}
+
+.btn-icon.btn-danger img {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   FOOTER – consistent met navigatie
+   ========================================================= */
+
+.footer {
+  background: #f3f4f2;
+  /* zelfde familie als nav */
+  border-top: 1px solid #e0e0dc;
+  padding: 0.75rem 1rem;
+
+  font-size: 0.8rem;
+  color: #666;
+
+  text-align: center;
+}
+
+/* Iets meer lucht op grotere schermen */
+@media (min-width: 768px) {
+  .footer {
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* =========================================================
+   PAGE HEADER (LP / DP / SP / HP / EP)
+   ========================================================= */
+.page-header {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  padding: 1rem 1rem 0.75rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.page-text {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #444;
+}
+
+/* =========================================================
+   LP – LIST PAGE
+   ========================================================= */
+.lp .page-header {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.lp-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.lp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lp-item+.lp-item {
+  border-top: 1px solid #e1e4e8;
+}
+
+.lp-item a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.4rem 0.75rem;
+  padding: 0.6rem 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 6px;
+}
+
+.lp-item a:hover,
+.lp-item a:active {
+  background: #f3f5f7;
+}
+
+.lp-index {
+  min-width: 2.5rem;
+  text-align: right;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.lp-title {
+  font-size: 1rem;
+  color: #111;
+}
+
+.lp-location {
+  grid-column: 2;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.lp-duration {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   DP – DETAIL PAGE
+   ========================================================= */
+
+.dp-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hoofdbeeld */
+.dp-hoofdbeeld img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+}
+
+.beeld-naam {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.beeld-tekst {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Audio */
+.dp-audio {
+  margin: 1rem 0;
+}
+
+.dp-audio audio {
+  width: 100%;
+}
+
+/* Galerij */
+.dp-galerij {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.galerij-item {
+  flex: 0 0 auto;
+  width: 120px;
+}
+
+.galerij-item img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Tekst */
+.dp-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-top: 1rem;
+}
+
+/* AVO */
+.dp-info {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.dp-info img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.85;
+}
+
+.dp-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+.dp-hoofdbeeld img,
+.dp-galerij img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.dp-galerij {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.dp-hoofdbeeld figcaption,
+.dp-galerij figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+/* ==============================
+   DP – Layout & spacing
+   ============================== */
+
+.dp-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.page-header {
+  margin-bottom: 0.75rem;
+}
+
+.page-header h1 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #222;
+  margin: 0;
+}
+
+.dp-hoofdbeeld {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.dp-hoofdbeeld img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.beeld-naam {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.35rem;
+}
+
+.beeld-tekst {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.15rem;
+}
+
+/*[hidden] {
+  display: none !important;
+}*/
+.dp-beeld.is-hidden {
+  display: none;
+}
+
+/* ==============================
+   DP – Atlas van Ooit link
+   ============================== */
+
+.dp-info {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dp-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.dp-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background: #f0f1f3;
+  /* zelfde toon als nav/footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dp-info-icon img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+}
+
+.dp-info-text {
+  line-height: 1;
+}
+
+/* =========================
+   DP – header uitlijning
+   ========================= */
+
+.dp .page-header {
+  max-width: 680px;
+  margin: 0 auto;
+  margin-top: 1;
+  /* eventueel 1.00 */
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+}
+
+.dp .dp-hoofdbeeld {
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   MAP – GEDEELD (HP + SP)
+   ========================================================= */
+
+.map-container {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 2rem;
+}
+
+.map-wrapper {
+  position: relative;
+  /* 🔥 DIT IS DE SLEUTEL */
+  width: 100%;
+}
+
+.map-image {
+  width: 100%;
+  display: block;
+}
+
+.map-hotspot:hover {
+  background: #094f8a;
+}
+
+.map-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0b5fa5;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.hp-hotspot-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0b5fa5;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.hp-legend {
+  margin-top: 1.5rem;
+}
+
+.hp-legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hp-legend-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   EP – END PAGE
+   ========================================================= */
+
+.ep main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+
+.ep-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.ep-survey a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  background: #f1f3f4;
+  border: 1px solid #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.ep-survey a:hover {
+  background: #e6e9eb;
+}
+
+/* =========================================================
+   DESKTOP – HP SPECIFIEK
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .hp .map-container {
+    max-width: 520px;
+  }
+}
+
+/* =========================================================
+   START INDEX – Audiotours
+   ========================================================= */
+
+.start-header {
+  text-align: center;
+  padding: 1rem 1rem 0;
+}
+
+.start-logo {
+  max-width: 160px;
+  margin: 0 auto 0.75rem;
+  display: block;
+}
+
+.start-hero {
+  width: 100%;
+  max-height: 32vh;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.start-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.start-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.start-title .icon {
+  font-size: 1.2rem;
+}
+
+/* =========================================================
+   TOUR LIST
+   ========================================================= */
+
+.tour-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tour-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.75rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+
+  background: #fafafa;
+  border: 1px solid #e5e7ea;
+
+  transition: background-color 0.15s ease;
+}
+
+.tour-item:hover,
+.tour-item:active {
+  background: #f1f3f4;
+}
+
+/* =========================================================
+   TOUR FLAG
+   ========================================================= */
+.tour-flag img {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+
+.tour-name {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.tour-duration {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TOUR START
+   ========================================================= */
+
+.tour-start-content {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  text-align: center;
+}
+
+.tour-start-logo {
+  width: 160px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.tour-start-hero img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.tour-start-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.tour-start-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.25rem;
+}
+
+.tour-start-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.tour-start-cta {
+  display: inline-block;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  background: #0b5fa5;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.tour-start-cta:hover {
+  background: #094f8a;
+}
+
+/* =========================================================
+   TOUR ZIP en view build/index.html
+   ========================================================= */
+.build-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.build-actions .inline {
+  margin: 0;
+}
+
+.build-actions-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.build-actions-bar .inline {
+  margin: 0;
+}
+
+.build-actions-bar .btn {
+  min-width: 180px;
+  text-align: center;
+}
+
+.needs-review {
+  background-color: #fff8cc;
+  border-left: 4px solid #e6a700;
+}
+
+.copy-icon {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+  cursor: pointer;
+}
