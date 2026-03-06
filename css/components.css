@@ -52,8 +52,8 @@
 
 /* Iconen */
 .nav img {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   display: block;
   opacity: 0.95;
   transition:
@@ -219,7 +219,7 @@ body {
    ========================================================= */
 
 .dp-content {
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -290,7 +290,7 @@ body {
 }
 
 .dp-content {
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 1rem 1rem 3rem;
 }
@@ -323,7 +323,7 @@ body {
    ============================== */
 
 .dp-content {
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 1.25rem 1rem 2.5rem;
 }
