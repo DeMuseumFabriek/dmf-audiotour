@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drei Feuersteinäxte aus Collendoorn</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_123.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_129.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Drei Feuersteinäxte aus Collendoorn</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/bijlen_collendoorn.jpg"
+            alt="Drei Feuersteinäxte"
+          />
+          
+          <figcaption class="beeld-tekst">Drei Feuersteinäxte</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/bijlen_collendoorn.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Drei Feuersteinäxte aus Collendoorn</strong></h2>
+<p>In Collendoorn bei Hardenberg entdeckten Archäologen drei große Feuersteinäxte. Sie stammen aus der Trichterbecherkultur (3400–2750 v. Chr.). Die Äxte wurden dicht beieinander am Rand eines Feuchtgebiets gefunden. Es gab keine Spuren von Besiedlung oder eines Grabes. Daher gehen die Forscher davon aus, dass dieser Ort bewusst gewählt wurde, um die Äxte dort zu deponieren.
+Die Äxte sind bemerkenswert groß und stammen wahrscheinlich aus Norddeutschland oder Südschweden. Sie sind zu groß für den alltäglichen Gebrauch und weisen keinerlei Gebrauchsspuren auf. Vermutlich wurden sie bei Zeremonien verwendet und anschließend als Opfergaben in der Landschaft niedergelegt. Solche Mehrfachfunde sind in den Niederlanden selten.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

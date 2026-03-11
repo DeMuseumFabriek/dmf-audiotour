@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="nl">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Romeinse maalstenen uit Haaksbergen</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_148.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_154.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Romeinse maalstenen uit Haaksbergen</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/maalstenen_haaksbergen.jpg"
+            alt="Romijnse maalstenen"
+          />
+          
+          <figcaption class="beeld-tekst">Romijnse maalstenen</figcaption>
+          
+        </figure>
+         
+          <figure
+            class="dp-beeld is-hidden"
+            data-sec="30"
+          >
+          <img
+            src="images/maalstenen_haaksbergen_2.jpg"
+            alt="Romijnse maalsteen"
+          />
+          
+          <figcaption class="beeld-tekst">Romijnse maalsteen</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/maalstenen_haakssbergen.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+      <section class="dp-galerij">
+        
+        <figure class="galerij-item">
+          <img
+            src="images/maalstenen_haaksbergen_2.jpg"
+            alt="Romijnse maalsteen"
+          />
+
+          
+          <figcaption class="beeld-tekst">Romijnse maalsteen</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Romeinse maalstenen uit Haaksbergen.</strong></h2>
+<p>Deze twee maalstenen dateren uit de Romeinse tijd, tussen de 1e en 3e eeuw na Christus. Ze zijn in 1933 gevonden op 2,5 meter diepte in het Haaksbergerveen. 
+De stenen zijn gemaakt van basaltlava, een hard gesteente dat geschikt is om graan te malen. De set bestaat uit een onderligger met één gat en een bovenligger met twee gaten. In het kleine gat zat een handvat. Door de bovenste steen rond te draaien, werd het graan tussen de stenen fijngemalen. Het meel kwam langs de rand naar buiten.
+Dit soort handmolens was onmisbaar in het dagelijks leven voor het maken van brood en pap.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>

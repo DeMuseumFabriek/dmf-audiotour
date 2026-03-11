@@ -1,54 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welkom bij De Museumfabriek Audiotours</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
-            padding: 40px;
-            text-align: center;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            max-width: 650px;
-            margin: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        img.logo {
-            max-width: 260px;
-            margin-bottom: 30px;
-        }
-        a.button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 24px;
-            background: #0078d4;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-        }
-        a.button:hover {
-            background: #005fa3;
-        }
-    </style>
-</head>
-<body>
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiotours – De Museumfabriek</title>
 
-<div class="container">
-    <img class="logo" src="DMFlogo.png" alt="Logo De Museumfabriek">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
 
-    <h1>Welkom bij de Audiotours van De MuseumFabriek</h1>
-    <p>Ontdek de verhalen, objecten en geschiedenis.</p>
+  <body class="start">
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="start-header">
+      <img
+        src="images/museum_logo.png"
+        alt="De Museumfabriek"
+        class="start-logo"
+      />
 
-    <a class="button" href="./de-museumfabriek-audiotours/index.html">Start de audiotours</a>
-</div>
+      <img
+        src="images/hero_audiotours.jpg"
+        alt=""
+        aria-hidden="true"
+        class="start-hero"
+      />
+    </header>
 
-</body>
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="start-content">
+      <h1 class="start-title">
+        <span class="icon" aria-hidden="true">🎧</span>
+        Audiotours
+      </h1>
+
+      
+      <section aria-label="Beschikbare audiotours">
+        <ul class="tour-list">
+          
+          <li>
+            <a
+              href="tours/off/NL/start.html"
+              class="tour-item"
+              aria-label="Start audiotour Offerschatten in "
+            >
+              <!-- Vlag -->
+              <span class="tour-flag">
+                <img
+                  src="images/flags/nl.svg"
+                  alt=""
+                />
+              </span>
+
+              <!-- Titel -->
+              <span class="tour-name"> Offerschatten </span>
+
+              <!-- Duur -->
+              
+              <span class="tour-duration"> ⏱ 20 min </span>
+              
+            </a>
+          </li>
+          
+          <li>
+            <a
+              href="tours/off/DE/start.html"
+              class="tour-item"
+              aria-label="Start audiotour Opfergaben in "
+            >
+              <!-- Vlag -->
+              <span class="tour-flag">
+                <img
+                  src="images/flags/de.svg"
+                  alt=""
+                />
+              </span>
+
+              <!-- Titel -->
+              <span class="tour-name"> Opfergaben </span>
+
+              <!-- Duur -->
+              
+              <span class="tour-duration"> ⏱ 20 min </span>
+              
+            </a>
+          </li>
+          
+          <li>
+            <a
+              href="tours/off/EN/start.html"
+              class="tour-item"
+              aria-label="Start audiotour Sacrificial Treasures in "
+            >
+              <!-- Vlag -->
+              <span class="tour-flag">
+                <img
+                  src="images/flags/en.svg"
+                  alt=""
+                />
+              </span>
+
+              <!-- Titel -->
+              <span class="tour-name"> Sacrificial Treasures </span>
+
+              <!-- Duur -->
+              
+              <span class="tour-duration"> ⏱ 20 min </span>
+              
+            </a>
+          </li>
+          
+        </ul>
+      </section>
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+  </body>
 </html>

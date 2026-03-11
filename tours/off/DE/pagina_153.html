@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="de">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Römische Mühlsteine von Haaksbergen</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/typography.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+  </head>
+
+  <body class="dp">
+    <!-- =============================
+         NAVIGATIE
+         ============================= -->
+    <nav class="nav">
+      
+        
+          <a href="pagina_150.html" class="nav-back">
+            <img src="../../../images/icons/back.svg" alt="Terug" /></a>
+        
+      
+
+      <a href="../../../index.html" class="nav-home">
+        <img src="../../../images/icons/home.svg" alt="Home" />
+      </a>
+
+      
+
+      <a href="index.html" class="nav-menu">
+        <img src="../../../images/icons/menu.svg" alt="Menu" />
+      </a>
+
+      
+      <a href="pagina_156.html" class="nav-next">
+        <img src="../../../images/icons/forward.svg" alt="Volgende" />
+      </a>
+      
+    </nav>
+
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <header class="page-header">
+      <h1>Römische Mühlsteine von Haaksbergen</h1>
+    </header>
+
+    <!-- =============================
+         CONTENT
+         ============================= -->
+    <main class="dp-content">
+      <!-- HOOFDBEELD -->
+       
+      <section class="dp-hoofdbeeld">
+         
+          <figure
+            class="dp-beeld"
+            data-sec="0"
+          >
+          <img
+            src="images/maalstenen_haaksbergen.jpg"
+            alt="Römische Mühlsteine"
+          />
+          
+          <figcaption class="beeld-tekst">Römische Mühlsteine</figcaption>
+          
+        </figure>
+         
+          <figure
+            class="dp-beeld is-hidden"
+            data-sec="25"
+          >
+          <img
+            src="images/maalstenen_haaksbergen_2.jpg"
+            alt="Römische Mühlstein"
+          />
+          
+          <figcaption class="beeld-tekst">Römische Mühlstein</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- AUDIO -->
+      
+      <section class="dp-audio">
+        <audio controls preload="metadata">
+          <source src="audio/maalstenen_haakssbergen.mp3" type="audio/mpeg" />
+          Je browser ondersteunt geen audio.
+        </audio>
+      </section>
+      
+
+      <!-- GALERIJ -->
+      
+      <section class="dp-galerij">
+        
+        <figure class="galerij-item">
+          <img
+            src="images/maalstenen_haaksbergen_2.jpg"
+            alt="Römische Mühlstein"
+          />
+
+          
+          <figcaption class="beeld-tekst">Römische Mühlstein</figcaption>
+          
+        </figure>
+        
+      </section>
+      
+
+      <!-- TEKST -->
+      
+      <section class="dp-text"><h2><strong>Römische Mühlsteine von Haaksbergen.</strong></h2>
+<p>Diese beiden Mühlsteine stammen aus der Römerzeit, zwischen dem 1. und 3. Jahrhundert n. Chr. Sie wurden 1933 in 2,5 Metern Tiefe in der Haaksbergerveen entdeckt. Die Steine bestehen aus Basaltlava, einem harten Gestein, das sich gut zum Mahlen von Getreide eignet. Das Set besteht aus einem unteren Stein mit einem Loch und einem oberen Stein mit zwei Löchern. Im kleineren Loch befand sich ein Griff. Durch Drehen des oberen Steins wurde das Getreide zwischen den Steinen gemahlen. Das Mehl trat am Rand aus.
+Diese Art von Handmühlen war im Alltag unverzichtbar zum Backen von Brot und Brei.</p></section>
+      
+
+      <!-- EXTRA INFO (AVO) -->
+      
+    </main>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+      <p>© 2026 De Museumfabriek</p>
+    </footer>
+    <script>
+      const audio = document.querySelector("audio");
+      const beelden = document.querySelectorAll(".dp-beeld");
+
+      if (audio && beelden.length > 1) {
+        audio.addEventListener("timeupdate", () => {
+          const t = Math.floor(audio.currentTime);
+
+          let actief = beelden[0];
+          beelden.forEach((b) => {
+            if (t >= parseInt(b.dataset.sec)) {
+              actief = b;
+            }
+          });
+          beelden.forEach((b) => b.classList.add("is-hidden"));
+          actief.classList.remove("is-hidden");
+          
+        });
+      }
+    </script>
+  </body>
+</html>
