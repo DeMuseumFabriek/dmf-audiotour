@@ -81,9 +81,24 @@
             
                 
 
-<script src="../../../static/audiotour/js/hotspots.js"></script>
+
 
 <div class="hotspot-wrapper" style="position: relative; width: 100%; height: auto;">
+        <div id="hotspot-tooltip"
+             style="
+                position:absolute;
+                background:rgba(0,0,0,0.8);
+                color:white;
+                padding:6px 10px;
+                border-radius:4px;
+                font-size:14px;
+                pointer-events:none;
+                opacity:0;
+                transform:translate(-50%, -10px);
+                transition:opacity .2s;
+                z-index:9999;
+             ">
+        </div>
 
     
         
@@ -238,7 +253,7 @@
     </div>
     
     <div class="description" role="button" tabindex="0">
-        <p data-block-key="u7m3n">Op deze plattegrond vind je de objecten en clusters van objecten van <b>Offerschatten</b>. Klik op één van de door rood aangegeven knoppen om naar één van de objecten of cluster van objecten te gaan.</p><p data-block-key="64tpb">Je kunt ook gebruikmaken van de pijltjes knoppen of een keuze maken uit de lijst van luisterpunten.</p><p data-block-key="9f5ub">Verder bevinden zich in deze tentoonstelleng QR codes bij ieder object. Door deze te scannen ga je direct naar het betreffende luisterpunt.</p><p data-block-key="fp7fg">Veel plezier!</p><hr/><p data-block-key="b6sp1"></p> 
+        <p data-block-key="u7m3n">Op deze plattegrond vind je de plaats van de objecten en verzameling van objecten van <b>Offerschatten</b>. Klik op één van de door rood aangegeven gebieden om naar de objecten of verzameling van objecten te gaan.</p><p data-block-key="6847i">Als je een mobiel of tablet gebruikt dan moet je éénmaal het rode gebied aanraken om een tooltip te zien, door het een tweede maal aan te raken ga je naar het betreffende luisterpunt met de audio.</p><p data-block-key="64tpb">Je kunt ook gebruikmaken van de pijltjes knoppen of een keuze maken uit de lijst van luisterpunten.</p><p data-block-key="9f5ub">Verder bevinden zich in deze tentoonstelleng QR codes bij ieder object. Door deze te scannen ga je direct naar het betreffende luisterpunt.</p><p data-block-key="7s4jd">Klik op het vraagteken voor meer uitleg over de knoppen op deze pagina's.</p><p data-block-key="fp7fg">Veel plezier!</p><hr/><p data-block-key="b6sp1"></p> 
     </div>
 
 
@@ -292,6 +307,8 @@
 
         
         
+        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
+
         
     </body>
 </html>
