@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
         <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
@@ -11,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="icon" href="../../../static/favicon.ico">
         <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
-        
+        <script src="https://unpkg.com/html5-qrcode"></script>
+
         <meta charset="utf-8" />
         <title>
             
@@ -38,10 +40,19 @@
         
 
         
-
+<div id="qr-overlay" class="qr-overlay">
+    <div id="qr-reader"></div>
+</div>
 <article class="audio-stop">
 
-    <div class="sticky-wrapper">        
+    <div class="sticky-wrapper">
+        
+<!--------------- navigatie knoppen ------------------------------------
+
+    Hieronder volgend de navigatie knoppen pijltje naar de vorige- en volgende pagina
+    Terug naar de lijst met luisterpunten en Home naar de welkomst pagina
+    
+----------------------------------------------------------------------->
         <nav class="stop-navigation">
             <div class="nav-slot">
                 
@@ -73,10 +84,12 @@
                 
             </div>
         </nav>
+<!---------------------------------- einde navigatie ------------------->
 
-
+<!------------- Laat de titel van de pagina zien ----------------------->
         <h1>Plattegrond van offerschatten</h1>
-        
+
+<!------------------ Laat een HotSpot Image zien------------------------>        
         
             
                 
@@ -89,27 +102,31 @@
     
         
                 
-    <img src="../../../media/images/plattegrond-offerschatten_eJpJqr.2e16d0ba.fill-2400x1600.svg" alt="" style="width: 100%; height: auto; display: block;">
-
+    <img src="../../../media/images/plattegrond-offerschatten.179eba43.fill-2400x1600.svg" alt="" style="width: 100%; height: auto; display: block;">
+    
+    <!-- Titel/omschrijving van de hotspot-afbeelding -->
+     <p class="hotspot-image-title">Plattegrond van offerschatten</p>
+    
+    
     
     
         <a class="hotspot"
            href="../../offerschatten/het-paar-van-weerdinge/index.html"
            style="
                 position: absolute;
-                top: 82%;
-                left: 19%;
-                width: 16%;
+                top: 68%;
+                left: 25%;
+                width: 20%;
                 height: 13%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Het paar van Weerdinge">
            
+           data-title="Het paar van Weerdinge">
+           6
         </a>
     
     
@@ -117,19 +134,19 @@
            href="../../offerschatten/het-zwaard/index.html"
            style="
                 position: absolute;
-                top: 27%;
-                left: 41%;
-                width: 6%;
+                top: 25%;
+                left: 46%;
+                width: 12%;
                 height: 9%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Het zwaard van Ommerschans">
            
+           data-title="Het zwaard van Ommerschans">
+           4
         </a>
     
     
@@ -137,19 +154,19 @@
            href="../../offerschatten/pracht-en-praal/index.html"
            style="
                 position: absolute;
-                top: 40%;
-                left: 16%;
-                width: 13%;
+                top: 35%;
+                left: 24%;
+                width: 18%;
                 height: 9%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Muntschat en offermes">
            
+           data-title="Muntschat en offermes">
+           3
         </a>
     
     
@@ -158,18 +175,18 @@
            style="
                 position: absolute;
                 top: 16%;
-                left: 16%;
-                width: 13%;
+                left: 24%;
+                width: 18%;
                 height: 9%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Bijlen en sieraden">
            
+           data-title="Bijlen en sieraden">
+           2
         </a>
     
     
@@ -177,19 +194,19 @@
            href="../../offerschatten/molenstenen/index.html"
            style="
                 position: absolute;
-                top: 63%;
+                top: 53%;
                 left: 90%;
                 width: 13%;
                 height: 10%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Maalstenen">
            
+           data-title="Maalstenen">
+           7
         </a>
     
     
@@ -197,26 +214,62 @@
            href="../../offerschatten/houten-wiel-van-steenwijk/index.html"
            style="
                 position: absolute;
-                top: 51%;
-                left: 39%;
-                width: 8%;
-                height: 12%;
+                top: 44%;
+                left: 44%;
+                width: 12%;
+                height: 11%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: red;
            "
-           data-title="Houten wiel van Steenwijk">
            
+           data-title="Houten wiel van Steenwijk">
+           5
+        </a>
+    
+    
+        <a class="hotspot"
+           href="../../offerschatten/video/index.html"
+           style="
+                position: absolute;
+                top: 74%;
+                left: 56%;
+                width: 6%;
+                height: 8%;
+                border-radius: 50%;
+                background: rgba(255, 0, 0, 1);
+                border: 2px solid red;
+                transform: translate(-50%, -50%);
+                color: white;
+           "
+           
+           data-title="Video offerschatten">
+           8
+        </a>
+    
+    
+        <a class="hotspot"
+           href="../../offerschatten/bronzen-offers/onderdelen-tempel/index.html"
+           style="
+                position: absolute;
+                top: 27%;
+                left: 4%;
+                width: 10%;
+                height: 20%;
+                border-radius: 20%;
+                background: rgba(255, 0, 0, 0.0);
+                border: 2px solid red;
+                transform: translate(-50%, -50%);
+                color: red;
+           "
+           
+           data-title="Tempel replica">
+           1
         </a>
     
 </div>
-
-<style>
-
-</style>
 
 
 
@@ -227,21 +280,31 @@
 
             
         
+<!-------------------- einde HotSpot Image ----------------------------->
 
-
-
-
-
+<!-------------- Laat Timed Images zien met een titel ------------------>
         
+<!------------------------- einde Timed Images ------------------------>
 
+
+<!------------------------- laat audio of video controls zien ---------->
         
         
     </div>
+
     
-    <div class="description" role="button" tabindex="0">
-        <p data-block-key="u7m3n">Op deze plattegrond vind je de plaats van de objecten en verzameling van objecten van Offerschatten. Klik op één van de door rood aangegeven gebieden om naar de objecten of verzameling van objecten te gaan.</p><p data-block-key="79r6m">Als je een mobiel of tablet gebruikt dan moet je éénmaal het rode gebied aanraken om een tooltip te zien, door het een tweede maal aan te raken ga je naar het betreffende luisterpunt met de audio.</p><p data-block-key="a5t9t">Je kunt ook gebruikmaken van de pijltjes knoppen of een keuze maken uit de lijst van luisterpunten.</p><p data-block-key="297g0">Klik op het vraagteken voor meer uitleg over de knoppen op deze pagina's.</p><p data-block-key="6rgls">Veel plezier!</p><hr/><p data-block-key="b6sp1"></p> 
-    </div>
+<!-------------------------- einde audio of video --------------------->
 
+<!-------------------------- Omschrijvingen-----------------------------
+
+    met de hand ingevoerd gevolgd door dat wat er
+    in een tekst bestand staat.
+    
+----------------------------------------------------------------------->
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="u7m3n">Op deze plattegrond vind je de plaats van de objecten en verzameling van objecten van Offerschatten. Klik op één van de door rood aangegeven gebieden om naar de objecten of verzameling van objecten te gaan.</p><ol><li data-block-key="b5r2i"><a href="../../offerschatten/bronzen-offers/onderdelen-tempel/index.html">Replica tempel</a></li><li data-block-key="55bl1"><a href="../../offerschatten/stenen-bijlen-en-gouden-halssieraden/index.html">Bijlen en sieraden</a></li><li data-block-key="6qh51"><a href="../../offerschatten/pracht-en-praal/index.html">Muntschat en offermes</a></li><li data-block-key="62dqt"><a href="../../offerschatten/het-zwaard/index.html">Zwaard van Ommerschans</a></li><li data-block-key="3mi7l"><a href="../../offerschatten/houten-wiel-van-steenwijk/index.html">Houten wiel van Steenwijk</a></li><li data-block-key="1u3gk"><a href="../../offerschatten/het-paar-van-weerdinge/index.html">Paar van Weerdinge</a></li><li data-block-key="ccto3"><a href="../../offerschatten/houten-wiel-van-steenwijk/index.html">Molenstenen</a></li><li data-block-key="10qib"><a href="../../offerschatten/video/index.html">Video offerschatten</a></li></ol><p data-block-key="79r6m">Als je een mobiel of tablet gebruikt dan moet je éénmaal het rode gebied aanraken om een tooltip te zien, door het een tweede maal aan te raken ga je naar het betreffende luisterpunt met de audio.</p><p data-block-key="a5t9t">Je kunt ook gebruikmaken van de pijltjes knoppen of een keuze maken uit de lijst van luisterpunten.</p><p data-block-key="297g0">Klik op het vraagteken voor meer uitleg over de knoppen op deze pagina's.</p><p data-block-key="6rgls">Veel plezier!</p><hr/><p data-block-key="b6sp1"></p> 
+    </div>
+<! ------------------ einde beschrijvingen ---------------------------->
 
 
 </article>
@@ -255,6 +318,13 @@
 ----------------------------------------------------------------------->
 <div class="help-widget">
     <button class="help-button">?</button>
+    
+    <!-- ⭐ QR-knop onder de help-button -->
+    <button id="start-qr" class="qr-button">QR
+<!--
+        <img src="../../../static/audiotour/icons/qr.svg" alt="Lees QR" title="Lees QR">
+-->
+    </button>
 
     <div class="help-popup hidden">
         <div class="help-content">
@@ -272,16 +342,74 @@
         </div>
     </div>
 </div>
+<div id="qr-reader" style="width: 300px; margin: 20px auto; display:none;"></div>
+<div id="qr-reader-results" style="text-align:center; margin-bottom:20px;"></div>
+
 <!------------------------- end help popup ---------------------------->
 
-<!--------------------- inf popup -------------------------------------
+<!--------------------- meer info popup --------------------------------
 
     Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
-    op het Info icoon klikt.
+    op het Meer Info icoon klikt.
 
 ----------------------------------------------------------------------->
 
-<!------------------------- end inf popup ---------------------------->
+<!------------------------- end meer info popup ----------------------->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const startBtn = document.getElementById("start-qr");
+    const overlay = document.getElementById("qr-overlay");
+
+    let qrScanner = null;
+
+    function onScanSuccess(decodedText, decodedResult) {
+
+        const allowedHost = window.location.host;
+
+        try {
+            const url = new URL(decodedText);
+
+            if (url.host === allowedHost) {
+                qrScanner.stop();
+                overlay.classList.remove("active");
+                window.location.href = decodedText;
+            } else {
+                alert("Alleen interne audiotour-links zijn toegestaan.");
+            }
+
+        } catch {
+            alert("Ongeldige QR-code.");
+        }
+    }
+
+    startBtn.addEventListener("click", function () {
+
+        overlay.classList.add("active");
+
+        setTimeout(() => {
+            qrScanner = new Html5Qrcode("qr-reader");
+
+            qrScanner.start(
+                { facingMode: "environment" },
+                { fps: 10 },   // ⭐ automatische qrbox
+                onScanSuccess
+            );
+        }, 150);
+    });
+
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
+        }
+    });
+});
+
+</script>
+
+
 
 
 

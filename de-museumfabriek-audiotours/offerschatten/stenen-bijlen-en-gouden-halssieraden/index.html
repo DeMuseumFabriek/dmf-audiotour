@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
         <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
@@ -11,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="icon" href="../../../static/favicon.ico">
         <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
-        
+        <script src="https://unpkg.com/html5-qrcode"></script>
+
         <meta charset="utf-8" />
         <title>
             
@@ -38,10 +40,19 @@
         
 
         
-
+<div id="qr-overlay" class="qr-overlay">
+    <div id="qr-reader"></div>
+</div>
 <article class="audio-stop">
 
-    <div class="sticky-wrapper">        
+    <div class="sticky-wrapper">
+        
+<!--------------- navigatie knoppen ------------------------------------
+
+    Hieronder volgend de navigatie knoppen pijltje naar de vorige- en volgende pagina
+    Terug naar de lijst met luisterpunten en Home naar de welkomst pagina
+    
+----------------------------------------------------------------------->
         <nav class="stop-navigation">
             <div class="nav-slot">
                 
@@ -67,16 +78,18 @@
             
             <div class="nav-slot">
                 
-                    <a class="nav-button" href="../../offerschatten/het-paar-van-weerdinge/index.html">
+                    <a class="nav-button" href="../../offerschatten/video/index.html">
                         <img src="../../../static/audiotour/icons/next.svg" alt="Volgende" title="Volgende stop">
                     </a>
                 
             </div>
         </nav>
+<!---------------------------------- einde navigatie ------------------->
 
-
+<!------------- Laat de titel van de pagina zien ----------------------->
         <h1>Bijlen en sieraden</h1>
-        
+
+<!------------------ Laat een HotSpot Image zien------------------------>        
         
             
                 
@@ -90,26 +103,30 @@
         
                 
     <img src="../../../media/images/pracht-en-praal-2.2e16d0ba.fill-2400x1600.jpg" alt="" style="width: 100%; height: auto; display: block;">
-
+    
+    <!-- Titel/omschrijving van de hotspot-afbeelding -->
+     <p class="hotspot-image-title">stenen bijlen en gouden halssieraden</p>
+    
+    
     
     
         <a class="hotspot"
            href="../../offerschatten/stenen-bijlen-en-gouden-halssieraden/stenen-bijlen/index.html"
            style="
                 position: absolute;
-                top: 48%;
+                top: 43%;
                 left: 18%;
-                width: 30%;
+                width: 34%;
                 height: 60%;
-                border-radius: 0%;
+                border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: white;
            "
-           data-title="stenen bijlen">
            
+           data-title="stenen bijlen">
+           1
         </a>
     
     
@@ -117,26 +134,22 @@
            href="../../offerschatten/stenen-bijlen-en-gouden-halssieraden/gouden-halssieraden/index.html"
            style="
                 position: absolute;
-                top: 47%;
+                top: 43%;
                 left: 82%;
                 width: 60%;
                 height: 60%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: white;
            "
-           data-title="Gouden halssieraden">
            
+           data-title="Gouden halssieraden">
+           2
         </a>
     
 </div>
-
-<style>
-
-</style>
 
 
 
@@ -147,21 +160,31 @@
 
             
         
+<!-------------------- einde HotSpot Image ----------------------------->
 
-
-
-
-
+<!-------------- Laat Timed Images zien met een titel ------------------>
         
+<!------------------------- einde Timed Images ------------------------>
 
+
+<!------------------------- laat audio of video controls zien ---------->
         
         
     </div>
+
     
-    <div class="description" role="button" tabindex="0">
-        <p data-block-key="fhrzl">Ga naar de <a href="../../offerschatten/plattegrond-offerschatten/index.html">plattegrond</a> van offerschatten</p><hr/><p data-block-key="coqln"></p> 
-    </div>
+<!-------------------------- einde audio of video --------------------->
 
+<!-------------------------- Omschrijvingen-----------------------------
+
+    met de hand ingevoerd gevolgd door dat wat er
+    in een tekst bestand staat.
+    
+----------------------------------------------------------------------->
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="fhrzl">Ga naar de <a href="../../offerschatten/plattegrond-offerschatten/index.html">plattegrond</a> van offerschatten</p><hr/><ol><li data-block-key="coqln"><a href="../../offerschatten/stenen-bijlen-en-gouden-halssieraden/stenen-bijlen/index.html">Stenen bijlen</a></li><li data-block-key="8j15o"><a href="../../offerschatten/stenen-bijlen-en-gouden-halssieraden/gouden-halssieraden/index.html">Gouden halssieraden</a></li></ol> 
+    </div>
+<! ------------------ einde beschrijvingen ---------------------------->
 
 
 </article>
@@ -175,6 +198,13 @@
 ----------------------------------------------------------------------->
 <div class="help-widget">
     <button class="help-button">?</button>
+    
+    <!-- ⭐ QR-knop onder de help-button -->
+    <button id="start-qr" class="qr-button">QR
+<!--
+        <img src="../../../static/audiotour/icons/qr.svg" alt="Lees QR" title="Lees QR">
+-->
+    </button>
 
     <div class="help-popup hidden">
         <div class="help-content">
@@ -192,16 +222,74 @@
         </div>
     </div>
 </div>
+<div id="qr-reader" style="width: 300px; margin: 20px auto; display:none;"></div>
+<div id="qr-reader-results" style="text-align:center; margin-bottom:20px;"></div>
+
 <!------------------------- end help popup ---------------------------->
 
-<!--------------------- inf popup -------------------------------------
+<!--------------------- meer info popup --------------------------------
 
     Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
-    op het Info icoon klikt.
+    op het Meer Info icoon klikt.
 
 ----------------------------------------------------------------------->
 
-<!------------------------- end inf popup ---------------------------->
+<!------------------------- end meer info popup ----------------------->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const startBtn = document.getElementById("start-qr");
+    const overlay = document.getElementById("qr-overlay");
+
+    let qrScanner = null;
+
+    function onScanSuccess(decodedText, decodedResult) {
+
+        const allowedHost = window.location.host;
+
+        try {
+            const url = new URL(decodedText);
+
+            if (url.host === allowedHost) {
+                qrScanner.stop();
+                overlay.classList.remove("active");
+                window.location.href = decodedText;
+            } else {
+                alert("Alleen interne audiotour-links zijn toegestaan.");
+            }
+
+        } catch {
+            alert("Ongeldige QR-code.");
+        }
+    }
+
+    startBtn.addEventListener("click", function () {
+
+        overlay.classList.add("active");
+
+        setTimeout(() => {
+            qrScanner = new Html5Qrcode("qr-reader");
+
+            qrScanner.start(
+                { facingMode: "environment" },
+                { fps: 10 },   // ⭐ automatische qrbox
+                onScanSuccess
+            );
+        }, 150);
+    });
+
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
+        }
+    });
+});
+
+</script>
+
+
 
 
 

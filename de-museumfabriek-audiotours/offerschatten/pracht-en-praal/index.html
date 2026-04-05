@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
         <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
@@ -11,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="icon" href="../../../static/favicon.ico">
         <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
-        
+        <script src="https://unpkg.com/html5-qrcode"></script>
+
         <meta charset="utf-8" />
         <title>
             
@@ -38,10 +40,19 @@
         
 
         
-
+<div id="qr-overlay" class="qr-overlay">
+    <div id="qr-reader"></div>
+</div>
 <article class="audio-stop">
 
-    <div class="sticky-wrapper">        
+    <div class="sticky-wrapper">
+        
+<!--------------- navigatie knoppen ------------------------------------
+
+    Hieronder volgend de navigatie knoppen pijltje naar de vorige- en volgende pagina
+    Terug naar de lijst met luisterpunten en Home naar de welkomst pagina
+    
+----------------------------------------------------------------------->
         <nav class="stop-navigation">
             <div class="nav-slot">
                 
@@ -73,10 +84,12 @@
                 
             </div>
         </nav>
+<!---------------------------------- einde navigatie ------------------->
 
-
+<!------------- Laat de titel van de pagina zien ----------------------->
         <h1>Muntschat en offermes</h1>
-        
+
+<!------------------ Laat een HotSpot Image zien------------------------>        
         
             
                 
@@ -90,26 +103,30 @@
         
                 
     <img src="../../../media/images/pracht-en-praal-1.2e16d0ba.fill-2400x1600.svg" alt="" style="width: 100%; height: auto; display: block;">
-
+    
+    <!-- Titel/omschrijving van de hotspot-afbeelding -->
+     <p class="hotspot-image-title">Pracht en praal</p>
+    
+    
     
     
         <a class="hotspot"
            href="../../offerschatten/pracht-en-praal/munten/index.html"
            style="
                 position: absolute;
-                top: 48%;
+                top: 42%;
                 left: 35%;
                 width: 20%;
-                height: 30%;
-                border-radius: 50%;
+                height: 22%;
+                border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: white;
            "
-           data-title="Munten">
            
+           data-title="Munten">
+           1
         </a>
     
     
@@ -117,26 +134,22 @@
            href="../../offerschatten/pracht-en-praal/offermes/index.html"
            style="
                 position: absolute;
-                top: 47%;
+                top: 42%;
                 left: 74%;
                 width: 20%;
                 height: 20%;
                 border-radius: 20%;
                 background: rgba(255, 0, 0, 0.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: white;
            "
-           data-title="Offermes">
            
+           data-title="Offermes">
+           2
         </a>
     
 </div>
-
-<style>
-
-</style>
 
 
 
@@ -147,21 +160,31 @@
 
             
         
+<!-------------------- einde HotSpot Image ----------------------------->
 
-
-
-
-
+<!-------------- Laat Timed Images zien met een titel ------------------>
         
+<!------------------------- einde Timed Images ------------------------>
 
+
+<!------------------------- laat audio of video controls zien ---------->
         
         
     </div>
+
     
-    <div class="description" role="button" tabindex="0">
-        <p data-block-key="a86vw">Ga naar de <a href="../../offerschatten/plattegrond-offerschatten/index.html">plattegrond</a> van offerschatten</p><hr/><p data-block-key="2n87">U staat voor de vitrine met de muntschat van Hezingen en een offermes.</p> 
-    </div>
+<!-------------------------- einde audio of video --------------------->
 
+<!-------------------------- Omschrijvingen-----------------------------
+
+    met de hand ingevoerd gevolgd door dat wat er
+    in een tekst bestand staat.
+    
+----------------------------------------------------------------------->
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="a86vw">Ga naar de <a href="../../offerschatten/plattegrond-offerschatten/index.html">plattegrond</a> van offerschatten</p><hr/><p data-block-key="2n87">U staat voor de vitrine met de muntschat van Hezingen en een offermes.</p><ol><li data-block-key="cs1e2"><a href="../../offerschatten/pracht-en-praal/munten/index.html">Muntschat</a></li><li data-block-key="6qij7"><a href="../../offerschatten/pracht-en-praal/offermes/index.html">Offermes</a></li></ol> 
+    </div>
+<! ------------------ einde beschrijvingen ---------------------------->
 
 
 </article>
@@ -175,6 +198,13 @@
 ----------------------------------------------------------------------->
 <div class="help-widget">
     <button class="help-button">?</button>
+    
+    <!-- ⭐ QR-knop onder de help-button -->
+    <button id="start-qr" class="qr-button">QR
+<!--
+        <img src="../../../static/audiotour/icons/qr.svg" alt="Lees QR" title="Lees QR">
+-->
+    </button>
 
     <div class="help-popup hidden">
         <div class="help-content">
@@ -192,16 +222,74 @@
         </div>
     </div>
 </div>
+<div id="qr-reader" style="width: 300px; margin: 20px auto; display:none;"></div>
+<div id="qr-reader-results" style="text-align:center; margin-bottom:20px;"></div>
+
 <!------------------------- end help popup ---------------------------->
 
-<!--------------------- inf popup -------------------------------------
+<!--------------------- meer info popup --------------------------------
 
     Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
-    op het Info icoon klikt.
+    op het Meer Info icoon klikt.
 
 ----------------------------------------------------------------------->
 
-<!------------------------- end inf popup ---------------------------->
+<!------------------------- end meer info popup ----------------------->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const startBtn = document.getElementById("start-qr");
+    const overlay = document.getElementById("qr-overlay");
+
+    let qrScanner = null;
+
+    function onScanSuccess(decodedText, decodedResult) {
+
+        const allowedHost = window.location.host;
+
+        try {
+            const url = new URL(decodedText);
+
+            if (url.host === allowedHost) {
+                qrScanner.stop();
+                overlay.classList.remove("active");
+                window.location.href = decodedText;
+            } else {
+                alert("Alleen interne audiotour-links zijn toegestaan.");
+            }
+
+        } catch {
+            alert("Ongeldige QR-code.");
+        }
+    }
+
+    startBtn.addEventListener("click", function () {
+
+        overlay.classList.add("active");
+
+        setTimeout(() => {
+            qrScanner = new Html5Qrcode("qr-reader");
+
+            qrScanner.start(
+                { facingMode: "environment" },
+                { fps: 10 },   // ⭐ automatische qrbox
+                onScanSuccess
+            );
+        }, 150);
+    });
+
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
+        }
+    });
+});
+
+</script>
+
+
 
 
 

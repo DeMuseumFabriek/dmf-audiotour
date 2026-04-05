@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
         <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
         <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
@@ -11,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="icon" href="../../../static/favicon.ico">
         <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
-        
+        <script src="https://unpkg.com/html5-qrcode"></script>
+
         <meta charset="utf-8" />
         <title>
             
@@ -38,10 +40,19 @@
         
 
         
-
+<div id="qr-overlay" class="qr-overlay">
+    <div id="qr-reader"></div>
+</div>
 <article class="audio-stop">
 
-    <div class="sticky-wrapper">        
+    <div class="sticky-wrapper">
+        
+<!--------------- navigatie knoppen ------------------------------------
+
+    Hieronder volgend de navigatie knoppen pijltje naar de vorige- en volgende pagina
+    Terug naar de lijst met luisterpunten en Home naar de welkomst pagina
+    
+----------------------------------------------------------------------->
         <nav class="stop-navigation">
             <div class="nav-slot">
                 
@@ -69,10 +80,12 @@
                 
             </div>
         </nav>
+<!---------------------------------- einde navigatie ------------------->
 
-
+<!------------- Laat de titel van de pagina zien ----------------------->
         <h1>Route naar offerschatten</h1>
-        
+
+<!------------------ Laat een HotSpot Image zien------------------------>        
         
             
                 
@@ -86,33 +99,33 @@
         
                 
     <img src="../../../media/images/route_offerschatten_HihxAWw.2e16d0ba.fill-2400x1600.svg" alt="" style="width: 100%; height: auto; display: block;">
-
+    
+    <!-- Titel/omschrijving van de hotspot-afbeelding -->
+     <p class="hotspot-image-title">route offerschatten</p>
+    
+    
     
     
         <a class="hotspot"
            href="../../offerschatten/plattegrond-offerschatten/index.html"
            style="
                 position: absolute;
-                top: 12%;
+                top: 11%;
                 left: 37%;
                 width: 6%;
                 height: 8%;
                 border-radius: 50%;
                 background: rgba(255, 0, 0, 1.0);
                 border: 2px solid red;
-
-                
                 transform: translate(-50%, -50%);
+                color: black;
            "
+           
            data-title="Plattegrond offerschatten">
            
         </a>
     
 </div>
-
-<style>
-
-</style>
 
 
 
@@ -123,21 +136,31 @@
 
             
         
+<!-------------------- einde HotSpot Image ----------------------------->
 
-
-
-
-
+<!-------------- Laat Timed Images zien met een titel ------------------>
         
+<!------------------------- einde Timed Images ------------------------>
 
+
+<!------------------------- laat audio of video controls zien ---------->
         
         
     </div>
+
     
+<!-------------------------- einde audio of video --------------------->
+
+<!-------------------------- Omschrijvingen-----------------------------
+
+    met de hand ingevoerd gevolgd door dat wat er
+    in een tekst bestand staat.
+    
+----------------------------------------------------------------------->
     <div class="description" role="button" tabindex="0">
         <p data-block-key="d9v2n">Om naar de expositie <b>Offerschatten</b> te gaan kun je de blauwe stippellijn op de bovenstaande plattegrond van de museumfabriek volgen. Loop door de schuifdeuren en sla rechtsaf naar de trap naar beneden. Na de tunnel sla je rechtsaf de helling op naar Hal 1. Offerschatten bevindt zich ongeveer in het midden van Hal 1. Klik op de pijl naar rechts of op de rode stip om naar de <b>inleiding van offerschatten</b> te gaan.</p><p data-block-key="etkmf">Als je een touch screen gebruikt (mobiele telefoon of tablet) kun je ook 'swipen'.</p> 
     </div>
-
+<! ------------------ einde beschrijvingen ---------------------------->
 
 
 </article>
@@ -151,6 +174,13 @@
 ----------------------------------------------------------------------->
 <div class="help-widget">
     <button class="help-button">?</button>
+    
+    <!-- ⭐ QR-knop onder de help-button -->
+    <button id="start-qr" class="qr-button">QR
+<!--
+        <img src="../../../static/audiotour/icons/qr.svg" alt="Lees QR" title="Lees QR">
+-->
+    </button>
 
     <div class="help-popup hidden">
         <div class="help-content">
@@ -168,17 +198,20 @@
         </div>
     </div>
 </div>
+<div id="qr-reader" style="width: 300px; margin: 20px auto; display:none;"></div>
+<div id="qr-reader-results" style="text-align:center; margin-bottom:20px;"></div>
+
 <!------------------------- end help popup ---------------------------->
 
-<!--------------------- inf popup -------------------------------------
+<!--------------------- meer info popup --------------------------------
 
     Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
-    op het Info icoon klikt.
+    op het Meer Info icoon klikt.
 
 ----------------------------------------------------------------------->
 
 <div class="avo-widget">
-    <button class="avo-button">Info</button>
+    <button class="avo-button">Meer info</button>
 
     <div class="avo-popup hidden">
         <div class="avo-content">
@@ -189,7 +222,62 @@
     
 </div>
 
-<!------------------------- end inf popup ---------------------------->
+<!------------------------- end meer info popup ----------------------->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const startBtn = document.getElementById("start-qr");
+    const overlay = document.getElementById("qr-overlay");
+
+    let qrScanner = null;
+
+    function onScanSuccess(decodedText, decodedResult) {
+
+        const allowedHost = window.location.host;
+
+        try {
+            const url = new URL(decodedText);
+
+            if (url.host === allowedHost) {
+                qrScanner.stop();
+                overlay.classList.remove("active");
+                window.location.href = decodedText;
+            } else {
+                alert("Alleen interne audiotour-links zijn toegestaan.");
+            }
+
+        } catch {
+            alert("Ongeldige QR-code.");
+        }
+    }
+
+    startBtn.addEventListener("click", function () {
+
+        overlay.classList.add("active");
+
+        setTimeout(() => {
+            qrScanner = new Html5Qrcode("qr-reader");
+
+            qrScanner.start(
+                { facingMode: "environment" },
+                { fps: 10 },   // ⭐ automatische qrbox
+                onScanSuccess
+            );
+        }, 150);
+    });
+
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
+        }
+    });
+});
+
+</script>
+
+
 
 
 
