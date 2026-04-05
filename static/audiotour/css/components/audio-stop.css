@@ -257,6 +257,7 @@
     display: none;
 }
 
+/* QR-knop */
 .qr-button {
     background: #444;
     color: white;
@@ -274,6 +275,7 @@
     height: 24px;
 }
 
+/* Overlay */
 .qr-overlay {
     position: fixed;
     top: 0;
@@ -283,9 +285,9 @@
     background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
-    align-items: flex-start;   /* ⭐ venster naar boven */
-    padding-top: 80px;         /* ⭐ afstand vanaf boven */
-    z-index: 999999;
+    align-items: flex-start;
+    padding-top: 80px;
+    z-index: 99999;
 
     visibility: hidden;
     opacity: 0;
@@ -293,27 +295,62 @@
     transition: opacity 0.2s ease;
 }
 
-
 .qr-overlay.active {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
 
+/* QR venster */
 #qr-reader {
     width: 300px;
     height: 300px;
     background: white;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
+    overflow: hidden; /* voorkomt fullscreen */
+    position: relative;
+    z-index: 100000;
 }
 
+/* Wrapper voor video */
+#qr-video-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Video zelf */
 #qr-reader video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    image-rendering: crisp-edges;
+
+    /* iPad anti-fullscreen fixes */
+    position: absolute !important;
+    top: 0;
+    left: 0;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    transform: none !important;
+    -webkit-transform: none !important;
+
+    /* voorkomt dat iPad het video-element los trekt */
+    -webkit-overflow-scrolling: auto !important;
+    border-radius: 8px;
 }
+
+/* iOS Safari specifieke fix */
+@supports (-webkit-touch-callout: none) {
+    #qr-reader video {
+        object-fit: cover !important;
+        position: absolute !important;
+    }
+}
+
 
 
 

@@ -40,34 +40,34 @@
         
 
         
+
+<!-- QR OVERLAY -->
 <div id="qr-overlay" class="qr-overlay">
-    <div id="qr-reader"></div>
+    <div id="qr-reader">
+        <div id="qr-video-wrapper"></div>
+    </div>
 </div>
+
 <article class="audio-stop">
 
     <div class="sticky-wrapper">
-        
-<!--------------- navigatie knoppen ------------------------------------
 
-    Hieronder volgend de navigatie knoppen pijltje naar de vorige- en volgende pagina
-    Terug naar de lijst met luisterpunten en Home naar de welkomst pagina
-    
------------------------------------------------------------------------>
+        <!-- Navigatie -->
         <nav class="stop-navigation">
             <div class="nav-slot">
                 
                     <a class="nav-button" href="../../offerschatten/00-route-naar-offerschatten/index.html">
-                        <img src="../../../static/audiotour/icons/back.svg" alt="Vorige"  title="Vorige stop" style="display: block;">
+                        <img src="../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige stop">
                     </a>
                 
             </div>
 
             <div class="nav-slot">
                 <a class="nav-button" href="../../offerschatten/index.html">
-                    <img src="../../../static/audiotour/icons/menu.svg" alt="Terug naar lijst met stops" title="Terug naar lijst met stops">
+                    <img src="../../../static/audiotour/icons/menu.svg" alt="Terug naar lijst" title="Terug naar lijst">
                 </a>
             </div>
-            
+
             
             <div class="nav-slot">
                 <a class="nav-button" href="/">
@@ -75,7 +75,6 @@
                 </a>
             </div>
 
-            
             <div class="nav-slot">
                 
                     <a class="nav-button" href="../../offerschatten/plattegrond-offerschatten/index.html">
@@ -84,16 +83,11 @@
                 
             </div>
         </nav>
-<!---------------------------------- einde navigatie ------------------->
 
-<!------------- Laat de titel van de pagina zien ----------------------->
         <h1>Inleiding offerschatten</h1>
 
-<!------------------ Laat een HotSpot Image zien------------------------>        
         
-<!-------------------- einde HotSpot Image ----------------------------->
 
-<!-------------- Laat Timed Images zien met een titel ------------------>
         
         <div class="timed-images">
             
@@ -108,10 +102,7 @@
         </div>
         <div id="timed-image-title" class="timed-image-title"></div>
         
-<!------------------------- einde Timed Images ------------------------>
 
-
-<!------------------------- laat audio of video controls zien ---------->
         
             
                 <audio id="audio-player" controls>
@@ -119,97 +110,59 @@
                 </audio>
             
         
-        
+
     </div>
 
     
-<!-------------------------- einde audio of video --------------------->
 
-<!-------------------------- Omschrijvingen-----------------------------
-
-    met de hand ingevoerd gevolgd door dat wat er
-    in een tekst bestand staat.
-    
------------------------------------------------------------------------>
     <div class="description" role="button" tabindex="0">
         <p data-block-key="gtzua">Ga naar de <a href="../../offerschatten/plattegrond-offerschatten/index.html"><b>plattegrond</b></a> van offerschatten.</p><hr/><p data-block-key="2sr2n"></p> <p>Inleiding – Offerschatten
 Welkom bij de tentoonstelling Offerschatten; Rituelen in het landschap van Twente van De Museumfabriek.
 Lang vóór het christendom waren er in Twente heilige plekken in de natuur. Mensen geloofden dat venen, rivieren, bomen en heuvels bezield waren. Op zulke plekken brachten zij offers aan goden en geesten. Dat deden zij om hulp te vragen of om te bedanken. Vooral moerassen waren belangrijk. Ze waren gevaarlijk en mysterieus en werden gezien als poorten naar een andere wereld. Daarom werden ze eeuwenlang bezocht. In deze tentoonstelling ontdek je waarom archeologen deze vondsten zien als offers en hoe oude rituelen later samengingen met het christendom.</p>
     </div>
-<! ------------------ einde beschrijvingen ---------------------------->
-
 
 </article>
 
-<!--------------------- help popup -------------------------------------
-
-    Een popup voor hulp verschijnt als de gebruiker
-    op het vraagteken icoon klikt in de rechter bovenhoek
-    van deze pagina.
-
------------------------------------------------------------------------>
+<!-- HELP + QR BUTTON -->
 <div class="help-widget">
     <button class="help-button">?</button>
-    
-    <!-- ⭐ QR-knop onder de help-button -->
-    <button id="start-qr" class="qr-button">QR
-<!--
-        <img src="../../../static/audiotour/icons/qr.svg" alt="Lees QR" title="Lees QR">
--->
-    </button>
+    <button id="start-qr" class="qr-button">QR</button>
 
     <div class="help-popup hidden">
         <div class="help-content">
             <ul>
-                <li>Om de audio te starten, klik op het pijltje in de audio control.</li>
-                <li>Dubbel-klik op de pagina om het tekstvenster naar de voorgrond te brengen.
-                Klik éénmalig op de tekst om de tekst weer naar de achtergrond te verplaatsen.</li>        
-                <li><img src="../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige pagina" style="vertical-align:middle"/>&emsp;Vorige stop (luisterpunt).</li>
-                <li><img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Home" style="vertical-align:middle"/>&emsp;Terug naar de beginpagina.</li>
-                <li><img src="../../../static/audiotour/icons/menu.svg" alt="Lijst met stops" title="Lijst met stops" style="vertical-align:middle"/>&emsp;Lijst met stops (luisterpunten) van deze audiotour</li>
-                <li><img src="../../../static/audiotour/icons/next.svg" alt="Volgende" title="Volgende pagina" style="vertical-align:middle"/>&emsp;Volgende stop (luisterpunt).</li>
+                <li>Om de audio te starten, klik op het pijltje.</li>
+                <li>Dubbelklik om tekst naar voren te halen.</li>
+                <li><img src="../../../static/audiotour/icons/back.svg"> Vorige stop</li>
+                <li><img src="../../../static/audiotour/icons/home.svg"> Home</li>
+                <li><img src="../../../static/audiotour/icons/menu.svg"> Lijst met stops</li>
+                <li><img src="../../../static/audiotour/icons/next.svg"> Volgende stop</li>
             </ul>
-            <p>Bij gebruik van een touch-screen (mobiel, tablet) is het ook mogelijk om te navigeren door te 'swipen'</p>
             <button class="close-help">Sluiten</button>
         </div>
     </div>
 </div>
-<div id="qr-reader" style="width: 300px; margin: 20px auto; display:none;"></div>
-<div id="qr-reader-results" style="text-align:center; margin-bottom:20px;"></div>
 
-<!------------------------- end help popup ---------------------------->
-
-<!--------------------- meer info popup --------------------------------
-
-    Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
-    op het Meer Info icoon klikt.
-
------------------------------------------------------------------------>
 
 <div class="avo-widget">
     <button class="avo-button">Meer info</button>
-
     <div class="avo-popup hidden">
         <div class="avo-content">
             <p><ul><li data-block-key="2y9ef"><a href="../../offerschatten/inleiding-offerschatten/wat-is-veen/index.html">Wat is veen eigenlijk?</a></li><li data-block-key="c4uat">Bekijk een <a href="../../offerschatten/video/index.html">video over het ontstaan van veengebieden</a> en hoe de mens daarmee omging.</li></ul></p>
             <button class="close-avo">Sluiten</button>
         </div>
     </div>
-    
 </div>
 
-<!------------------------- end meer info popup ----------------------->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const startBtn = document.getElementById("start-qr");
     const overlay = document.getElementById("qr-overlay");
-
     let qrScanner = null;
 
-    function onScanSuccess(decodedText, decodedResult) {
-
+    function onScanSuccess(decodedText) {
         const allowedHost = window.location.host;
 
         try {
@@ -222,22 +175,20 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 alert("Alleen interne audiotour-links zijn toegestaan.");
             }
-
         } catch {
             alert("Ongeldige QR-code.");
         }
     }
 
     startBtn.addEventListener("click", function () {
-
         overlay.classList.add("active");
 
         setTimeout(() => {
-            qrScanner = new Html5Qrcode("qr-reader");
+            qrScanner = new Html5Qrcode("qr-video-wrapper");
 
             qrScanner.start(
                 { facingMode: "environment" },
-                { fps: 10 },   // ⭐ automatische qrbox
+                { fps: 10 },
                 onScanSuccess
             );
         }, 150);
@@ -250,11 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
 </script>
-
-
-
 
 
 
