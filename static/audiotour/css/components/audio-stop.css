@@ -316,6 +316,12 @@
     overflow: hidden; /* voorkomt fullscreen */
     position: relative;
     z-index: 100000;
+    cursor: pointer; /* Toont dat het klikbaar is */
+    transition: transform 0.1s ease; /* Subtiele animatie */
+}
+
+#qr-reader:hover {
+    transform: scale(1.02); /* Subtiele hover effect */
 }
 
 /* Wrapper voor video */

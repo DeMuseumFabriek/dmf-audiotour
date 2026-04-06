@@ -195,6 +195,7 @@ De bijlen zijn opvallend groot en komen waarschijnlijk uit Noord-Duitsland of Zu
 
         const startBtn = document.getElementById("start-qr");
         const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
         let qrScanner = null;
 
         function onScanSuccess(decodedText) {
@@ -249,6 +250,12 @@ De bijlen zijn opvallend groot en komen waarschijnlijk uit Noord-Duitsland of Zu
                 overlay.classList.remove("active");
                 if (qrScanner) qrScanner.stop();
             }
+        });
+
+        // Annuleer QR scan door op het venster te klikken
+        qrReader.addEventListener("click", function () {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
         });
     });
     </script>

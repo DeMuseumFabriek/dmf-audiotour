@@ -182,6 +182,7 @@ Het zwaard van Ommerschans is een van de belangrijkste vondsten uit de Nederland
 
         const startBtn = document.getElementById("start-qr");
         const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
         let qrScanner = null;
 
         function onScanSuccess(decodedText) {
@@ -236,6 +237,12 @@ Het zwaard van Ommerschans is een van de belangrijkste vondsten uit de Nederland
                 overlay.classList.remove("active");
                 if (qrScanner) qrScanner.stop();
             }
+        });
+
+        // Annuleer QR scan door op het venster te klikken
+        qrReader.addEventListener("click", function () {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
         });
     });
     </script>
