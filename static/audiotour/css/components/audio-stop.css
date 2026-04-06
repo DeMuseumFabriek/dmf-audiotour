@@ -259,6 +259,11 @@
 
 /* QR-knop */
 .qr-button {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border: none !important;
+    outline: none !important;
+    background-clip: padding-box !important;
     background: #444;
     color: white;
     border: none;
