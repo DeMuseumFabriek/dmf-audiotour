@@ -1,52 +1,55 @@
-`
+
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+<head>
+    <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
 
-        <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
-        <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
-        <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
-        <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour-index.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="icon" href="../../../static/favicon.ico">
-        <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
-        <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-        <meta charset="utf-8" />
-        <title>
-            
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+    <title>
+        
             Het paar van Weerdinge
+        
+        
             
             
-            
-            
-            
-        </title>
         
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </title>
 
-        
-        
+    
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        
-        
-        
-    </head>
+    
 
-    <body class="">
-        
+    
+</head>
 
-        
+<body class="">
+    
 
-<!-- QR OVERLAY -->
-<div id="qr-overlay" class="qr-overlay">
-    <div id="qr-reader">
-        <div id="qr-video-wrapper"></div>
+    <!-- ⭐ QR OVERLAY (nu globaal beschikbaar) -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
     </div>
-</div>
+
+    <!-- ⭐ QR BUTTON (globaal, altijd zichtbaar) -->
+    <button id="start-qr" class="qr-button" style="position: fixed; top: 260px; width: 56px; height: 56px; border-radius: 12px; background: rgba(0,0,155,0.6); right: 10px; z-index: 999999;">
+        QR scan
+    </button>
+
+    
 
 <article class="audio-stop">
 
@@ -122,10 +125,9 @@ Men dacht eerst dat het een man en een vrouw waren. DNA-onderzoek liet later zie
 
 </article>
 
-<!-- HELP + QR BUTTON -->
+<!-- HELP -->
 <div class="help-widget">
     <button class="help-button">?</button>
-    <button id="start-qr" class="qr-button">QR</button>
 
     <div class="help-popup hidden">
         <div class="help-content">
@@ -144,71 +146,70 @@ Men dacht eerst dat het een man en een vrouw waren. DNA-onderzoek liet later zie
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const startBtn = document.getElementById("start-qr");
-    const overlay = document.getElementById("qr-overlay");
-    let qrScanner = null;
 
-    function onScanSuccess(decodedText, decodedResult) {
-        const allowedHost = window.location.host;
 
-        try {
-            const url = new URL(decodedText);
+    <!-- Global javascript -->
+    <script src="../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../static/audiotour/js/help-popup.js"></script>
 
-            if (url.host === allowedHost) {
-                qrScanner.stop();
-                overlay.classList.remove("active");
-                window.location.href = decodedText;
-            } else {
-                alert("Alleen interne audiotour-links zijn toegestaan.");
+    
+        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT (globaal) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+
+            try {
+                const url = new URL(decodedText);
+
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
                 overlay.classList.remove("active");
                 if (qrScanner) qrScanner.stop();
             }
-            
-        } catch {
-            alert("Ongeldige QR-code.");
-            overlay.classList.remove("active");
-            if (qrScanner) qrScanner.stop();
         }
-    }
 
-    startBtn.addEventListener("click", function () {
-        overlay.classList.add("active");
+        startBtn.addEventListener("click", function () {
+            overlay.classList.add("active");
 
-        setTimeout(() => {
-            qrScanner = new Html5Qrcode("qr-video-wrapper");
+            setTimeout(() => {
+                qrScanner = new Html5Qrcode("qr-video-wrapper");
 
-            qrScanner.start(
-                { facingMode: "environment" },
-                { fps: 10 },
-                onScanSuccess
-            );
-        }, 150);
+                qrScanner.start(
+                    { facingMode: "environment" },
+                    { fps: 10 },
+                    onScanSuccess
+                );
+            }, 150);
+        });
+
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) {
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        });
     });
+    </script>
 
-    overlay.addEventListener("click", function (e) {
-        if (e.target === overlay) {
-            overlay.classList.remove("active");
-            if (qrScanner) qrScanner.stop();
-        }
-    });
-});
-</script>
-
-
-
-        
-        <script src="../../../static/audiotour/js/audio-tour.js"></script>
-        <script src="../../../static/audiotour/js/audio-stop.js"></script>
-        <script src="../../../static/audiotour/js/help-popup.js"></script>
-
-        
-        
-        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
-
-        
-
-    </body>
+</body>
 </html>
