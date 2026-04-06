@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.getElementById("qr-overlay");
     let qrScanner = null;
 
-    function onScanSuccess(decodedText) {
+    function onScanSuccess(decodedText, decodedResult) {
         const allowedHost = window.location.host;
 
         try {
@@ -198,9 +198,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = decodedText;
             } else {
                 alert("Alleen interne audiotour-links zijn toegestaan.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
             }
+            
         } catch {
             alert("Ongeldige QR-code.");
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
         }
     }
 
