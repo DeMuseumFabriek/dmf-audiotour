@@ -332,7 +332,7 @@
     height: 100% !important;
     object-fit: cover !important;
 
-    /* iPad anti-fullscreen fixes */
+    /* iPad anti-fullscreen fixes - verbeterd */
     position: absolute !important;
     top: 0;
     left: 0;
@@ -346,6 +346,12 @@
     /* voorkomt dat iPad het video-element los trekt */
     -webkit-overflow-scrolling: auto !important;
     border-radius: 8px;
+
+    /* Extra fullscreen preventie */
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
 }
 
 /* iOS Safari specifieke fix */

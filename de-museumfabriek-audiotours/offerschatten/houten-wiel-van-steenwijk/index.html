@@ -204,9 +204,20 @@ Dit houten wiel is gevonden bij landgoed De Eese, bij Steenwijk. Het dateert uit
             setTimeout(() => {
                 qrScanner = new Html5Qrcode("qr-video-wrapper");
 
+                const config = {
+                    fps: 10,
+                    qrbox: { width: 250, height: 250 }, // Beperkt scan gebied tot 250x250 pixels
+                    aspectRatio: 1.0, // Forceert vierkante ratio
+                    videoConstraints: {
+                        facingMode: "environment",
+                        width: { ideal: 640 },
+                        height: { ideal: 640 }
+                    }
+                };
+
                 qrScanner.start(
                     { facingMode: "environment" },
-                    { fps: 10 },
+                    config,
                     onScanSuccess
                 );
             }, 150);
