@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../../static/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="../static/audiotour/css/components/tour-list.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-tour.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-stop.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-tour-index.css">
-    <link rel="stylesheet" href="../static/audiotour/css/hotspots.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/hotspots.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/html5-qrcode"></script>
@@ -17,7 +17,7 @@
     <meta charset="utf-8" />
     <title>
         
-            De MuseumFabriek audiotours
+            Video over de vondst van een muntschat
         
         
             
@@ -62,102 +62,123 @@
 
     
 
-<!---------------- audio_tour_index_page.html --------------------------
+<article class="audio-stop">
 
-  Dit is de Home pagina van de audiotours van DeMuseumFabriek.
-  Een gebruiker kan hier een keuze maken uit de beschikbare  audiotours.
-  
-  Fred van Goor, Februari 2026
-  
------------------------------------------------------------------------>
-  
-  <div class="nav-slot">
-      
-      <a class="nav-button" href=  "/" >
+    <div class="sticky-wrapper">        
+        <nav class="stop-navigation">
+<!--
+            <div class="nav-slot">
+                
+            </div>
+-->
 
-          <img src="../static/audiotour/icons/home.svg" alt="Home" title="Home">
-      </a>
-  </div>
-  <h1>De MuseumFabriek audiotours</h1>
-  
-  <!-------------------- help popup ------------------------------------
-  
+            <div class="nav-slot">
+                <a class="nav-button" href="../../../offerschatten/7-muntschat-hezingen-590-700-nchr/index.html">    
+                    <img src="../../../../static/audiotour/icons/back.svg" alt="Terug naar cluster pagina" title="Terug naar cluster pagina">
+                </a>
+            </div>
+            
+<!--            
+            
+            <div class="nav-slot">
+                <a class="nav-button" href="/">
+                    <img src="../../../../static/audiotour/icons/home.svg" alt="Home" title="Home">
+                </a>
+            </div>
+
+
+            <div class="nav-slot">
+                
+            </div>
+-->
+        </nav>
+
+
+        <h1>Video over de vondst van een muntschat</h1>
+        
+
+
+
+
+
+
+        
+
+        
+            
+                <button class="video-button open-video" type="button">Bekijk video</button>
+            
+        
+        
+    </div>
+
+    
+    <div class="video-modal hidden" aria-hidden="true">
+        <div class="video-modal__content">
+            <button class="video-modal__close" type="button">Sluiten</button>
+            <video controls preload="metadata">
+                <source src="../../../../documents/207/Film_2_muntschat_bgk83u6.mp4" type="video/mp4">
+                Je browser ondersteunt geen HTML5-video.
+            </video>
+        </div>
+    </div>
+    
+
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="zz1mm">Hoe twee amateur archeologen met hun metaaldetectoren de gouden munten vonden ....</p> 
+    </div>
+
+
+
+</article>
+
+<!--------------------- help popup -------------------------------------
+
     Een popup voor hulp verschijnt als de gebruiker
     op het vraagteken icoon klikt in de rechter bovenhoek
     van deze pagina.
 
-  --------------------------------------------------------------------->
-  <div class="help-widget">
+----------------------------------------------------------------------->
+<div class="help-widget">
     <button class="help-button">?</button>
 
     <div class="help-popup hidden">
         <div class="help-content">
             <ul>
-                <li>
-                  Dit is de lijst met beschikbare audiotours van de 
-                  MuseumFabriek.
-                  Hier kun je een audiotour uitkiezen.
-                  Klik op één van de onderwerpen.
-                </li>
-                <li>
-                  De eerste stop van de audiotour toont de route door
-                  het museum die je moet volgen om bij de 
-                  gekozen expositie te komen.
-                </li>
-                <li>
-                  Klik op het symbool,
-                  <img src="../static/audiotour/icons/menu.svg"
-                    alt="Terug naar menu" title="Lijst met audiotours" 
-                    style="vertical-align:middle"
-                  />, 
-                  om naar deze pagina terug te keren.
-                </li>
+                <li>Om de audio te starten, klik op het pijltje in de audio control.</li>
+                <li>Dubbel-klik op de pagina om het tekstvenster naar de voorgrond te brengen.
+                Klik éénmalig op de tekst om de tekst weer naar de achtergrond te verplaatsen.</li>        
+                <li><img src="../../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige pagina" style="vertical-align:middle"/>&emsp;Vorige stop (luisterpunt).</li>
+                <li><img src="../../../../static/audiotour/icons/home.svg" alt="Home" title="Terug naar beginpagina" style="vertical-align:middle"/>&emsp; terug naar beginpagina.</li>
+                <li><img src="../../../../static/audiotour/icons/menu.svg" alt="Lijst met stops" title="Lijst met stops" style="vertical-align:middle"/>&emsp;Lijst met stops (luisterpunten) van deze audiotour</li>
+                <li><img src="../../../../static/audiotour/icons/next.svg" alt="Volgende" title="Volgende pagina" style="vertical-align:middle"/>&emsp;Volgende stop (luisterpunt).</li>
             </ul>
+            <p>Bij gebruik van een touch-screen (mobiel, tablet) is het ook mogelijk om te navigeren door te 'swipen'</p>
             <button class="close-help">Sluiten</button>
         </div>
     </div>
-  </div>
-  <!------------------------- end help popup -------------------------->
+</div>
+<!------------------------- end help popup ---------------------------->
 
+<!--------------------- inf popup -------------------------------------
 
-  <div class="cover-images">
-    <img alt="foto demuseumfabriek" height="139" src="../media/images/demuseumfabriek-foto.max-400x400.jpg" width="400">
-  </div>
+    Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
+    op het Info icoon klikt.
 
-  
-    <div class="intro"><p data-block-key="tu1n5">Je gebruikt voor de hele tour maar één QR-code. Die heb je al gescand. Je kunt de tour volgen door telkens naar het volgende luisterpunt te gaan (pijltje rechts boven in je beeldscherm). En op de plattegrond (kom je door….) kun je zien waar dat is .De tour duurt 15 tot 20 minuten.</p><p data-block-key="2lbj5">Soms is het mogelijk om nog wat meer informatie over een onderwerp te krijgen of extra foto’s zien of zijn ter verduidelijking korte video’s toegevoegd. Als je dat wilt, kun je op de knop “meer info” drukken die dan rechts in het midden van je beeldscherm verschijnt. De tour wordt doordoor uiteraard wat langer.</p><p data-block-key="2dv59">Je kun ook een eigen volgorde (en lengte) kiezen door op de plattegrond de objecten te kiezen waar je het meeste in geïnteresseerd bent.</p><p data-block-key="e4asg">Je kunt de tekst luisteren (liefst met oortjes), maar ook gewoon op je beeldscherm lezen.</p><h2 data-block-key="7jr0r">Kies uit onderstaande lijst één van de audiotours.</h2><p data-block-key="7io6c">Veel plezier!</p></div>
-  
+----------------------------------------------------------------------->
 
-  <ul class="tour-list">
-    
-      <li class="tour-item">
-        <a href="./offerschatten/index.html" class="tour-link">
-          
-            <div class="tour-thumbnail">
-              <img alt="Het zwaard van Ommerschans" height="200" src="../media/images/zwaard_ommerschans_xIN5iM9.max-200x200.jpg" width="200">
-            </div>
-          
-          
-          <div class="tour-content">
-            <h2>Offerschatten</h2>
-            
-              <p class="tour-description"><p data-block-key="xfo7a">Deze audiotour gaat over de expositie <b>"Offerschatten"</b> in Hal 1 van de MuseumFabriek.</p><p data-block-key="8hp9k"></p><p data-block-key="6b89"><b>Deze audiotour is nog in ontwikkeling</b>. Sommige foto's gaan we binnenkort vervangen en de teksten zijn nog niet compleet. We konden het echter niet laten om wat we hebben alvast aan te bieden.</p><p data-block-key="bemcv">Veel plezier met deze geweldig interessante expositie!</p></p>
-            
-          </div>
-        </a>
-      </li>
-    
-  </ul>
+<!------------------------- end inf popup ---------------------------->
+
 
 
 
     <!-- Global javascript -->
-    <script src="../static/audiotour/js/audio-tour.js"></script>
-    <script src="../static/audiotour/js/audio-stop.js"></script>
-    <script src="../static/audiotour/js/help-popup.js"></script>
+    <script src="../../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../../static/audiotour/js/help-popup.js"></script>
 
     
-        <script src="../static/audiotour/js/hotspots.js?v="></script>
+        <script src="../../../../static/audiotour/js/hotspots.js?v="></script>
     
 
     <!-- ⭐ QR SCANNER SCRIPT (globaal) -->

@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="../static/audiotour/css/components/tour-list.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-tour.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-stop.css">
-    <link rel="stylesheet" href="../static/audiotour/css/components/audio-tour-index.css">
-    <link rel="stylesheet" href="../static/audiotour/css/hotspots.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/html5-qrcode"></script>
@@ -17,7 +17,7 @@
     <meta charset="utf-8" />
     <title>
         
-            De MuseumFabriek audiotours
+            12. Bolletje wol van Roswinkel ca 800-600 v Chr
         
         
             
@@ -62,102 +62,112 @@
 
     
 
-<!---------------- audio_tour_index_page.html --------------------------
+<article class="audio-stop">
 
-  Dit is de Home pagina van de audiotours van DeMuseumFabriek.
-  Een gebruiker kan hier een keuze maken uit de beschikbare  audiotours.
-  
-  Fred van Goor, Februari 2026
-  
------------------------------------------------------------------------>
-  
-  <div class="nav-slot">
-      
-      <a class="nav-button" href=  "/" >
+    <div class="sticky-wrapper">
 
-          <img src="../static/audiotour/icons/home.svg" alt="Home" title="Home">
-      </a>
-  </div>
-  <h1>De MuseumFabriek audiotours</h1>
-  
-  <!-------------------- help popup ------------------------------------
-  
-    Een popup voor hulp verschijnt als de gebruiker
-    op het vraagteken icoon klikt in de rechter bovenhoek
-    van deze pagina.
+        <!-- Navigatie -->
+        <nav class="stop-navigation">
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../offerschatten/14-het-houten-schijfwiel-bij-steenwijk-ca-2280-2130-v-chr/index.html">
+                        <img src="../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige stop">
+                    </a>
+                
+            </div>
 
-  --------------------------------------------------------------------->
-  <div class="help-widget">
+            <div class="nav-slot">
+                <a class="nav-button" href="../../offerschatten/index.html">
+                    <img src="../../../static/audiotour/icons/menu.svg" alt="Terug naar lijst" title="Terug naar lijst">
+                </a>
+            </div>
+
+            
+            <div class="nav-slot">
+                <a class="nav-button" href="/">
+                    <img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Home">
+                </a>
+            </div>
+
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../offerschatten/16-maalstenen-uit-haaksbergen-ca-100-n-chr/index.html">
+                        <img src="../../../static/audiotour/icons/next.svg" alt="Volgende" title="Volgende stop">
+                    </a>
+                
+            </div>
+        </nav>
+
+        <h1>12. Bolletje wol van Roswinkel ca 800-600 v Chr</h1>
+        
+        
+
+        
+        <div class="timed-images">
+            
+                
+                <img src="../../../media/images/bolletje_wol.b6d96bb5.fill-800x600.jpg"
+                     data-timestamp="0.0"
+                     class="timed-image"
+                     data-alt="bolletje_wol"
+                     data-focal-x="50"
+                     data-focal-y="50">
+            
+        </div>
+        <div id="timed-image-title" class="timed-image-title"></div>
+        
+        
+        
+            
+                <audio id="audio-player" controls>
+                    <source src="../../../documents/210/12._Bolletje_wol.mp3" type="audio/mpeg">
+                </audio>
+            
+        
+
+    </div>
+
+    
+
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="8ymri"><a href="../../offerschatten/plattegrond-offerschatten/index.html">Plattegrond van offerschatten</a></p><p data-block-key="9kjm8"></p><hr/><p data-block-key="tc4n">Dit bolletje wol uit de ijzertijd (rond 600 voor Christus) is gevonden in de (hoog)venen bij Roswinkel in ZO-Drenthe. Dat de wol zo goed bewaard is gebleven, komt doordat hij in een natte en zuurstofarme omgeving lag, waar organisch materiaal niet snel vergaat. In Drentse veengebieden zijn meerdere zeldzame wolkluwen (opgerolde bollen wolgaren) gevonden uit de late Bronstijd en vroege IJzertijd (ca. 1000-500 v.Chr.), o.a. in Smilde.</p><p data-block-key="47o7v">Deze bolletjes wol, zijn een zeldzaam voorbeeld van prehistorisch textiel in Nederland; ze tonen dat vrouwen al toen wol spinden voor textiel. Ze werden waarschijnlijk bewust in het veen neergelegd als rituele giften voor vruchtbaarheid, gezondheid of een gezonde schapenkudde.</p> 
+    </div>
+
+</article>
+
+<!-- HELP -->
+<div class="help-widget">
     <button class="help-button">?</button>
 
     <div class="help-popup hidden">
         <div class="help-content">
             <ul>
-                <li>
-                  Dit is de lijst met beschikbare audiotours van de 
-                  MuseumFabriek.
-                  Hier kun je een audiotour uitkiezen.
-                  Klik op één van de onderwerpen.
-                </li>
-                <li>
-                  De eerste stop van de audiotour toont de route door
-                  het museum die je moet volgen om bij de 
-                  gekozen expositie te komen.
-                </li>
-                <li>
-                  Klik op het symbool,
-                  <img src="../static/audiotour/icons/menu.svg"
-                    alt="Terug naar menu" title="Lijst met audiotours" 
-                    style="vertical-align:middle"
-                  />, 
-                  om naar deze pagina terug te keren.
-                </li>
+                <li>Om de audio te starten, klik op het pijltje.</li>
+                <li>Dubbelklik om tekst naar voren te halen.</li>
+                <li><img src="../../../static/audiotour/icons/back.svg"> Vorige stop</li>
+                <li><img src="../../../static/audiotour/icons/home.svg"> Home</li>
+                <li><img src="../../../static/audiotour/icons/menu.svg"> Lijst met stops</li>
+                <li><img src="../../../static/audiotour/icons/next.svg"> Volgende stop</li>
             </ul>
             <button class="close-help">Sluiten</button>
         </div>
     </div>
-  </div>
-  <!------------------------- end help popup -------------------------->
+</div>
 
 
-  <div class="cover-images">
-    <img alt="foto demuseumfabriek" height="139" src="../media/images/demuseumfabriek-foto.max-400x400.jpg" width="400">
-  </div>
 
-  
-    <div class="intro"><p data-block-key="tu1n5">Je gebruikt voor de hele tour maar één QR-code. Die heb je al gescand. Je kunt de tour volgen door telkens naar het volgende luisterpunt te gaan (pijltje rechts boven in je beeldscherm). En op de plattegrond (kom je door….) kun je zien waar dat is .De tour duurt 15 tot 20 minuten.</p><p data-block-key="2lbj5">Soms is het mogelijk om nog wat meer informatie over een onderwerp te krijgen of extra foto’s zien of zijn ter verduidelijking korte video’s toegevoegd. Als je dat wilt, kun je op de knop “meer info” drukken die dan rechts in het midden van je beeldscherm verschijnt. De tour wordt doordoor uiteraard wat langer.</p><p data-block-key="2dv59">Je kun ook een eigen volgorde (en lengte) kiezen door op de plattegrond de objecten te kiezen waar je het meeste in geïnteresseerd bent.</p><p data-block-key="e4asg">Je kunt de tekst luisteren (liefst met oortjes), maar ook gewoon op je beeldscherm lezen.</p><h2 data-block-key="7jr0r">Kies uit onderstaande lijst één van de audiotours.</h2><p data-block-key="7io6c">Veel plezier!</p></div>
-  
-
-  <ul class="tour-list">
-    
-      <li class="tour-item">
-        <a href="./offerschatten/index.html" class="tour-link">
-          
-            <div class="tour-thumbnail">
-              <img alt="Het zwaard van Ommerschans" height="200" src="../media/images/zwaard_ommerschans_xIN5iM9.max-200x200.jpg" width="200">
-            </div>
-          
-          
-          <div class="tour-content">
-            <h2>Offerschatten</h2>
-            
-              <p class="tour-description"><p data-block-key="xfo7a">Deze audiotour gaat over de expositie <b>"Offerschatten"</b> in Hal 1 van de MuseumFabriek.</p><p data-block-key="8hp9k"></p><p data-block-key="6b89"><b>Deze audiotour is nog in ontwikkeling</b>. Sommige foto's gaan we binnenkort vervangen en de teksten zijn nog niet compleet. We konden het echter niet laten om wat we hebben alvast aan te bieden.</p><p data-block-key="bemcv">Veel plezier met deze geweldig interessante expositie!</p></p>
-            
-          </div>
-        </a>
-      </li>
-    
-  </ul>
+<!-- Hotspot tooltip -->
+<div id="hotspot-tooltip" style="position: fixed; background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 8px; font-size: 14px; pointer-events: none; opacity: 0; z-index: 10000; transform: translateX(-50%);"></div>
 
 
 
     <!-- Global javascript -->
-    <script src="../static/audiotour/js/audio-tour.js"></script>
-    <script src="../static/audiotour/js/audio-stop.js"></script>
-    <script src="../static/audiotour/js/help-popup.js"></script>
+    <script src="../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../static/audiotour/js/help-popup.js"></script>
 
     
-        <script src="../static/audiotour/js/hotspots.js?v="></script>
+        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
     
 
     <!-- ⭐ QR SCANNER SCRIPT (globaal) -->

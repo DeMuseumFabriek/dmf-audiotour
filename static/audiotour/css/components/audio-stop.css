@@ -7,13 +7,23 @@
     padding: 0;
     margin: 0;
     contain: layout style paint;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .sticky-wrapper h1 {
     margin: 0;
     padding: 0.25rem 0;
     line-height: 1.2;
+}
+
+.hotspot-wrapper {
+    overflow: visible;
+}
+
+.hotspot-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Timed images */
