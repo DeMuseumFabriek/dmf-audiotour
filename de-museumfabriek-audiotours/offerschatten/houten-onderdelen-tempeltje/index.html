@@ -233,9 +233,13 @@
                     console.log("Available cameras:", cameras);
                     
                     if (cameras && cameras.length > 0) {
-                        // Kies de eerste beschikbare camera
-                        const cameraId = cameras[0].id;
-                        console.log("Using camera:", cameraId);
+                        // Kies de achterste camera als die aanwezig is
+                        const rearCamera = cameras.find(cam => {
+                            const label = (cam.label || "").toLowerCase();
+                            return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                        });
+                        const cameraId = (rearCamera || cameras[0]).id;
+                        console.log("Using camera:", cameraId, rearCamera ? "(rear)" : "(default)");
                         
                         await qrScanner.start(
                             cameraId,

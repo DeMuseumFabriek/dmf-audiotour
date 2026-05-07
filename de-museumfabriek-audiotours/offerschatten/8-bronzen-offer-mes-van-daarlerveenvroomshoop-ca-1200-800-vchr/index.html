@@ -130,7 +130,7 @@
     
 
     <div class="description" role="button" tabindex="0">
-        <p data-block-key="zcbfo"><a href="../../offerschatten/plattegrond-offerschatten/index.html">Plattegrond van offerschatten</a></p><p data-block-key="5uujk"></p><hr/><p data-block-key="fapeq">Dit bronzen mes dateert uit de late Bronstijd, ongeveer van 1200 tot 800 voor Christus. Het is dus meer dan drieduizend jaar oud. In die tijd maakten mensen al voorwerpen van brons, een mengsel van koper en tin.</p><p data-block-key="e32te">Dit mes is bijzonder door zijn vorm en door de plek waar het is gevonden. Het kwam uit een natte omgeving bij Vroomshoop in Overijssel. Het is waarschijnlijk geen gewoon gebruiksvoorwerp, maar een ritueel object. Zulke bronzen messen worden vaak “offermessen” genoemd. Archeologen denken dat ze bewust in veen, water of moeras zijn achtergelaten als geschenk aan de goden.</p><p data-block-key="1cca0">De vorm wijst daar ook op. Het lemmet is smal en sierlijk, en het heft heeft een opvallende vorm. Dat maakt duidelijk dat dit mes niet alleen bedoeld was om mee te snijden.</p><p data-block-key="2clt3">Vondsten als deze laten zien dat mensen in de Bronstijd niet alleen werkten en leefden van landbouw. Ze voerden ook rituelen uit, waarbij ze waardevolle voorwerpen in het water achterlieten voor hun goden. Voor hen was het veen misschien een bijzondere plek, waar je iets aan de goden kon geven.</p><p data-block-key="7ackm"><a href="../../offerschatten/7-muntschat-hezingen-590-700-nchr/video-over-de-vondst-van-een-muntschat/index.html">Bekijk een video over de vondst van deze muntschat.</a></p> 
+        <p data-block-key="zcbfo"><a href="../../offerschatten/plattegrond-offerschatten/index.html">Plattegrond van offerschatten</a></p><p data-block-key="5uujk"></p><hr/><p data-block-key="fapeq">Dit bronzen mes dateert uit de late Bronstijd, ongeveer van 1200 tot 800 voor Christus. Het is dus meer dan drieduizend jaar oud. In die tijd maakten mensen al voorwerpen van brons, een mengsel van koper en tin.</p><p data-block-key="e32te">Dit mes is bijzonder door zijn vorm en door de plek waar het is gevonden. Het kwam uit een natte omgeving bij Vroomshoop in Overijssel. Het is waarschijnlijk geen gewoon gebruiksvoorwerp, maar een ritueel object. Zulke bronzen messen worden vaak “offermessen” genoemd. Archeologen denken dat ze bewust in veen, water of moeras zijn achtergelaten als geschenk aan de goden.</p><p data-block-key="1cca0">De vorm wijst daar ook op. Het lemmet is smal en sierlijk, en het heft heeft een opvallende vorm. Dat maakt duidelijk dat dit mes niet alleen bedoeld was om mee te snijden.</p><p data-block-key="2clt3">Vondsten als deze laten zien dat mensen in de Bronstijd niet alleen werkten en leefden van landbouw. Ze voerden ook rituelen uit, waarbij ze waardevolle voorwerpen in het water achterlieten voor hun goden. Voor hen was het veen misschien een bijzondere plek, waar je iets aan de goden kon geven.</p> 
     </div>
 
 </article>
@@ -233,9 +233,13 @@
                     console.log("Available cameras:", cameras);
                     
                     if (cameras && cameras.length > 0) {
-                        // Kies de eerste beschikbare camera
-                        const cameraId = cameras[0].id;
-                        console.log("Using camera:", cameraId);
+                        // Kies de achterste camera als die aanwezig is
+                        const rearCamera = cameras.find(cam => {
+                            const label = (cam.label || "").toLowerCase();
+                            return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                        });
+                        const cameraId = (rearCamera || cameras[0]).id;
+                        console.log("Using camera:", cameraId, rearCamera ? "(rear)" : "(default)");
                         
                         await qrScanner.start(
                             cameraId,

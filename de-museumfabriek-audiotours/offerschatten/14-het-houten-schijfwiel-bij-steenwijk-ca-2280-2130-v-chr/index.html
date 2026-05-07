@@ -113,6 +113,14 @@
                      data-focal-x="50"
                      data-focal-y="50">
             
+                
+                <img src="../../../media/images/12_plattegrond_offerschatten.31bfe49c.fill-800x600.svg"
+                     data-timestamp="80.0"
+                     class="timed-image"
+                     data-alt="Volgend luisterpunt: 12. Bolletje wol van Roswinkel ca 800-600 v Chr. Klik op --&gt;"
+                     data-focal-x="50"
+                     data-focal-y="50">
+            
         </div>
         <div id="timed-image-title" class="timed-image-title"></div>
         
@@ -233,9 +241,13 @@
                     console.log("Available cameras:", cameras);
                     
                     if (cameras && cameras.length > 0) {
-                        // Kies de eerste beschikbare camera
-                        const cameraId = cameras[0].id;
-                        console.log("Using camera:", cameraId);
+                        // Kies de achterste camera als die aanwezig is
+                        const rearCamera = cameras.find(cam => {
+                            const label = (cam.label || "").toLowerCase();
+                            return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                        });
+                        const cameraId = (rearCamera || cameras[0]).id;
+                        console.log("Using camera:", cameraId, rearCamera ? "(rear)" : "(default)");
                         
                         await qrScanner.start(
                             cameraId,

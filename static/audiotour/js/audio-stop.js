@@ -41,50 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * van de audio. 
  * Werkt alleen voor 'Timed images', dus niet
  * bij 'Hotspot image'. 
- * --------------------------------------------------------- */
-    //const audio = document.getElementById("audio-player");
-    //const images = Array.from(document.querySelectorAll(".timed-image"));
-
-    //if (audio && images.length > 0) {
-
-        //// Reset audio on load
-        //audio.pause();
-        //audio.currentTime = 0;
-
-        //// Apply focal point + hide all images
-        //images.forEach(img => {
-            //const focalX = img.dataset.focalX || "50%";
-            //const focalY = img.dataset.focalY || "50%";
-            //img.style.objectPosition = `${focalX} ${focalY}`;
-            //img.style.objectFit = "cover";
-            //img.style.display = "none";
-        //});
-
-        //// Show first image
-        //let first = images[0];
-        //first.style.display = "block";
-
-
-        //audio.addEventListener("timeupdate", function () {
-            //const current = audio.currentTime;
-            //let active = null;
-
-            //images.forEach(img => {
-                //const ts = parseFloat(img.dataset.timestamp);
-                //if (current >= ts) active = img;
-            //});
-
-             //images.forEach(img => img.style.display = "none");
-             //if (active) active.style.display = "block";
-        //});
-
-        //audio.addEventListener("ended", function () {
-             //images.forEach(img => img.style.display = "none");
-             //first.style.display = "block";            
-        //});
-    //}
-/* ---------------------------------------------------------
- * TIMED IMAGES + AUDIO SYNC
+ * FIXES: iOS slider interaction issue by listening to multiple events
  * --------------------------------------------------------- */
 const audio = document.getElementById("audio-player");
 const images = Array.from(document.querySelectorAll(".timed-image"));
@@ -114,7 +71,8 @@ if (audio && images.length > 0) {
         titleBox.textContent = first.dataset.alt || "";
     }
 
-    audio.addEventListener("timeupdate", function () {
+    // Helper function to update images based on current time
+    function updateTimedImages() {
         const current = audio.currentTime;
         let active = null;
 
@@ -133,16 +91,41 @@ if (audio && images.length > 0) {
                 titleBox.textContent = active.dataset.alt || "";
             }
         }
-    });
+    }
+
+    // Update on timeupdate (during normal playback)
+    audio.addEventListener("timeupdate", updateTimedImages);
+
+    // Update on seeking (when slider interaction starts)
+    audio.addEventListener("seeking", updateTimedImages);
+
+    // Update on seeked (when user releases slider)
+    audio.addEventListener("seeked", updateTimedImages);
+
+    // Update on play event (iOS sometimes needs this)
+    audio.addEventListener("play", updateTimedImages);
+
+    // Update on pause event
+    audio.addEventListener("pause", updateTimedImages);
+
+    // iOS Specific: Listen to input changes on the time range slider
+    // Safari doesn't always trigger seeked properly, so we need to catch input events
+    const audioControls = audio.closest('[controls]') || audio;
+    document.addEventListener("change", function(e) {
+        if (e.target === audio || (e.target.tagName === "INPUT" && e.target.type === "range")) {
+            updateTimedImages();
+        }
+    }, true);
+
+    // Additional fallback for touch devices
+    document.addEventListener("touchend", function() {
+        // Force update on touch end in case user was adjusting slider
+        setTimeout(updateTimedImages, 50);
+    }, false);
 
     audio.addEventListener("ended", function () {
-        images.forEach(img => img.style.display = "none");
-        first.style.display = "block";
-
-        // Reset title to first image
-        if (titleBox) {
-            titleBox.textContent = first.dataset.alt || "";
-        }
+        // Keep the last active image visible when playback ends.
+        updateTimedImages();
     });
 }
 

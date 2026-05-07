@@ -113,6 +113,14 @@
                      data-focal-x="50"
                      data-focal-y="50">
             
+                
+                <img src=""
+                     data-timestamp="39.0"
+                     class="timed-image"
+                     data-alt=""
+                     data-focal-x="50"
+                     data-focal-y="50">
+            
         </div>
         <div id="timed-image-title" class="timed-image-title"></div>
         
@@ -130,7 +138,7 @@
     
 
     <div class="description" role="button" tabindex="0">
-        <p data-block-key="8ymri"><a href="../../offerschatten/plattegrond-offerschatten/index.html">Plattegrond van offerschatten</a></p><p data-block-key="9kjm8"></p><hr/><p data-block-key="tc4n">Dit bolletje wol uit de ijzertijd (rond 600 voor Christus) is gevonden in de (hoog)venen bij Roswinkel in ZO-Drenthe. Dat de wol zo goed bewaard is gebleven, komt doordat hij in een natte en zuurstofarme omgeving lag, waar organisch materiaal niet snel vergaat. In Drentse veengebieden zijn meerdere zeldzame wolkluwen (opgerolde bollen wolgaren) gevonden uit de late Bronstijd en vroege IJzertijd (ca. 1000-500 v.Chr.), o.a. in Smilde.</p><p data-block-key="47o7v">Deze bolletjes wol, zijn een zeldzaam voorbeeld van prehistorisch textiel in Nederland; ze tonen dat vrouwen al toen wol spinden voor textiel. Ze werden waarschijnlijk bewust in het veen neergelegd als rituele giften voor vruchtbaarheid, gezondheid of een gezonde schapenkudde.</p> 
+        <p data-block-key="8ymri"><a href="../../offerschatten/plattegrond-offerschatten/index.html">Plattegrond van offerschatten</a></p><p data-block-key="9kjm8"></p><hr/><p data-block-key="tc4n">Dit bolletje wol uit de ijzertijd (rond 600 voor Christus) is gevonden in de (hoog)venen bij Roswinkel in ZO-Drenthe. Dat de wol zo goed bewaard is gebleven, komt doordat hij in een natte en zuurstofarme omgeving lag, waar organisch materiaal niet snel vergaat. In Drentse veengebieden zijn meerdere zeldzame wolkluwen (opgerolde bollen wolgaren) gevonden uit de late Bronstijd en vroege IJzertijd (ca. 1000-500 v.Chr.), o.a. in Smilde.</p><p data-block-key="47o7v">Deze bolletjes wol, zijn een zeldzaam voorbeeld van prehistorisch textiel in Nederland; ze tonen dat vrouwen al toen wol spinden voor textiel. Ze werden waarschijnlijk bewust in het veen neergelegd als rituele giften voor vruchtbaarheid, gezondheid of een gezonde schapenkudde.</p><p data-block-key="afucl">Het volgende luisterpunt is <a href="../../offerschatten/16-maalstenen-uit-haaksbergen-ca-100-n-chr/index.html">13. Maalstenen uit Haaksbergen</a>.</p> 
     </div>
 
 </article>
@@ -233,9 +241,13 @@
                     console.log("Available cameras:", cameras);
                     
                     if (cameras && cameras.length > 0) {
-                        // Kies de eerste beschikbare camera
-                        const cameraId = cameras[0].id;
-                        console.log("Using camera:", cameraId);
+                        // Kies de achterste camera als die aanwezig is
+                        const rearCamera = cameras.find(cam => {
+                            const label = (cam.label || "").toLowerCase();
+                            return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                        });
+                        const cameraId = (rearCamera || cameras[0]).id;
+                        console.log("Using camera:", cameraId, rearCamera ? "(rear)" : "(default)");
                         
                         await qrScanner.start(
                             cameraId,
