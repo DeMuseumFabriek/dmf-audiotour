@@ -1,0 +1,57 @@
+/* Cover image */
+.cover-images img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px auto;
+}
+
+/* Help widget */
+.help-widget {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.help-button {
+    background: rgba(0,0,155,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.help-popup {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    max-width: 300px;
+}
+
+.close-help {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    width: 100px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.hidden {
+    display: none;
+}
+

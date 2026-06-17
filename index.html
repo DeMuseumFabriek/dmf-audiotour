@@ -2,53 +2,148 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <title>Kies uw taal – Audiotour</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welkom bij De Museumfabriek Audiotours</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+
     <style>
+        /* --- Achtergrondfoto fullscreen --- */
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: #000;
+            background-image: url("demuseumfabriek-foto.jpg"); /* <-- JOUW FOTO */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+            position: relative;
+        }
+
+        /* Donkere overlay voor leesbaarheid */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- Centraal kaartje --- */
+        .card {
+            position: relative;
+            z-index: 2;
+
+            background: rgba(255,255,255,0.92);
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
             text-align: center;
+            max-width: 420px;
+            width: 90%;
+
+            animation: fadeIn 0.7s ease-out;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            max-width: 650px;
-            margin: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        img.logo {
-            max-width: 260px;
+
+        /* --- Logo bovenaan --- */
+        .logo {
+            width: 160px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 26px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        p.subtitle {
+            margin-top: -10px;
             margin-bottom: 30px;
+            color: #555;
+            font-size: 16px;
         }
-        a.button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 24px;
+
+        /* --- Taal knoppen --- */
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        a.lang-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            padding: 14px 20px;
             background: #0078d4;
             color: white;
             text-decoration: none;
+            border-radius: 10px;
+
             font-size: 18px;
-            border-radius: 8px;
+            font-weight: 500;
+
+            transition: transform 0.15s ease, background 0.2s ease;
         }
-        a.button:hover {
+
+        a.lang-btn:hover {
             background: #005fa3;
+            transform: translateY(-3px);
+        }
+
+        .flag {
+            font-size: 22px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
         }
     </style>
 </head>
+
 <body>
+    <div class="overlay"></div>
 
-<div class="container">
-    <img class="logo" src="DMFlogo.png" alt="Logo De Museumfabriek">
+    <div class="card">
+        <img src="DMFlogo.png" alt="Logo" class="logo"> <!-- <-- JOUW LOGO -->
 
-    <h1>Welkom bij de Audiotours van De MuseumFabriek</h1>
-    <p>Ontdek de verhalen, objecten en geschiedenis.</p>
+        <h1>Kies uw taal</h1>
+        <p class="subtitle">Selecteer uw voorkeurstaal voor de audiotour</p>
 
-    <a class="button" href="./de-museumfabriek-audiotours/index.html">Start de audiotours</a>
-</div>
+        <div class="languages">
+            <a class="lang-btn" href="dmf-audiotour-nl/nl/de-museumfabriek-audiotours/index.html">
+                <span class="flag">🇳🇱</span> Nederlands
+            </a>
 
+            <a class="lang-btn" href="dmf-audiotour-en/en/de-museumfabriek-audiotours/index.html">
+                <span class="flag">🇬🇧</span> English
+            </a>
+
+            <a class="lang-btn" href="dmf-audiotour-de/de/de-museumfabriek-audiotours/index.html">
+                <span class="flag">🇩🇪</span> Deutsch
+            </a>
+        </div>
+        <div class="footer">
+            De Museumfabriek – Audiotour
+        </div>
+    </div>
 </body>
 </html>
+

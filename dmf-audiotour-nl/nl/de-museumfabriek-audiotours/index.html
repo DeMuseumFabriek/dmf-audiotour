@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+
+    <title>
+        
+            De MuseumFabriek audiotours
+        
+        
+            
+            - Audiotours in de museumfabriek
+        
+    </title>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    
+</head>
+
+<body class="">
+    
+
+
+<!-- ⭐ TAALSWITCHER (Officiële Wagtail Core Methode) -->
+<!--
+<div class="language-switcher"
+        style="
+            position: absolute;
+            top: 140px;
+            right: 10px;
+            z-index: 999999;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: sans-serif;
+     ">
+    
+    
+    
+    
+        
+            <!-- Actieve taal -->
+<!--
+            <span class="active-lang"><strong>NL</strong></span>
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/en/de-museumfabriek-audiotours/">EN</a>
+            
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/de/de-museumfabriek-audiotours/">DE</a>
+            
+        
+        
+    
+</div>
+-->
+
+
+
+
+</script>
+    <!-- ⭐ QR OVERLAY -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- ⭐ QR BUTTON -->
+    
+      
+        <button id="start-qr" class="qr-button" style="
+            position: absolute !important;
+            top: 400px !important;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 12px !important;
+            color: white !important;
+            background: rgba(0,0,155,0.6) !important;
+            right: 10px !important;
+            z-index: 999999 !important;
+            font-size: 12px !important;
+            ">
+            QR
+        </button>
+      
+    
+
+    
+
+<!---------------- audio_tour_index_page.html --------------------------
+
+  Dit is de Home pagina van de audiotours van DeMuseumFabriek.
+  Een gebruiker kan hier een keuze maken uit de beschikbare  audiotours.
+  
+  Fred van Goor, Februari 2026
+  
+----------------------------------------------------------------------->
+<!--
+  
+  <div class="nav-slot">
+      
+      <a class="nav-button" href=  "/" >
+
+          <img src="../../static/audiotour/icons/home.svg" alt="Home" title="Home">
+      </a>
+  </div>
+  <h1>De MuseumFabriek audiotours</h1>
+-->
+  
+  <!-------------------- help popup ------------------------------------
+  
+    Een popup voor hulp verschijnt als de gebruiker
+    op het vraagteken icoon klikt in de rechter bovenhoek
+    van deze pagina.
+
+  --------------------------------------------------------------------->
+  <div class="help-widget">
+    <button class="help-button">?</button>
+
+    <div class="help-popup hidden">
+        <div class="help-content">
+            <ul>
+                <li>
+                  Dit is de lijst met beschikbare audiotours van de 
+                  MuseumFabriek.
+                  Hier kun je een audiotour uitkiezen.
+                  Klik op één van de onderwerpen.
+                </li>
+                <li>
+                  De eerste stop van de audiotour toont de route door
+                  het museum die je moet volgen om bij de 
+                  gekozen expositie te komen.
+                </li>
+                <li>
+                  Klik op het symbool,
+                  <img src="../../static/audiotour/icons/menu.svg"
+                    alt="Terug naar menu" title="Lijst met audiotours" 
+                    style="vertical-align:middle"
+                  />, 
+                  om naar deze pagina terug te keren.
+                </li>
+            </ul>
+            <button class="close-help">Sluiten</button>
+        </div>
+    </div>
+  </div>
+  <!------------------------- end help popup -------------------------->
+
+
+  <div class="cover-images">
+    <img alt="Foto demuseumfabriek" height="139" src="../../media/images/demuseumfabriek-foto.max-400x400.jpg" width="400">
+  </div>
+
+  
+    <div class="intro"><h2 data-block-key="tu1n5">Kies uit onderstaande lijst één van de audiotours.</h2><p data-block-key="7io6c">Veel plezier!</p></div>
+  
+
+  <ul class="tour-list">
+    
+      <li class="tour-item">
+        <a href="./offerschatten/index.html" class="tour-link">
+          
+            <div class="tour-thumbnail">
+              <img alt="Het zwaard van Ommerschans" height="200" src="../../media/images/zwaard_ommerschans_xIN5iM9.max-200x200.jpg" width="200">
+            </div>
+          
+          
+          <div class="tour-content">
+            <h2>Offerschatten</h2>
+            
+              <p class="tour-description"><p data-block-key="xfo7a"><b>Kies je taal:</b> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-nl/nl/de-museumfabriek-audiotours/offerschatten/index.html">Nederlands</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-en/en/de-museumfabriek-audiotours/estimate-the-cost/index.html">English</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-de/de/de-museumfabriek-audiotours/opfergaben-schatzen/index.html">Deutsch</a></p><p data-block-key="fvhtn">Deze audiotour gaat over de expositie <b>"Offerschatten"</b> in Hal 1 van de MuseumFabriek.</p><p data-block-key="6b89"><b>Deze audiotour is nog in ontwikkeling</b>. Sommige foto's gaan we binnenkort vervangen en de teksten zijn nog niet compleet. We konden het echter niet laten om wat we hebben alvast aan te bieden.</p><p data-block-key="bemcv">Veel plezier met deze geweldig interessante expositie!</p></p>
+            
+          </div>
+        </a>
+      </li>
+    
+  </ul>
+
+
+
+    <!-- Global javascript -->
+    <script src="../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../static/audiotour/js/help-popup.js"></script>
+
+    
+        <script src="../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+            try {
+                const url = new URL(decodedText);
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        }
+
+        function onScanError(errorMessage) {
+            console.warn("QR scan error:", errorMessage);
+        }
+
+        if (startBtn && overlay && qrReader) {
+            startBtn.addEventListener("click", function () {
+                overlay.classList.add("active");
+                setTimeout(async () => {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                        stream.getTracks().forEach(track => track.stop());
+                        qrScanner = new Html5Qrcode("qr-video-wrapper");
+                        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+                        const cameras = await Html5Qrcode.getCameras();
+                        if (cameras && cameras.length > 0) {
+                            const rearCamera = cameras.find(cam => {
+                                const label = (cam.label || "").toLowerCase();
+                                return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                            });
+                            const cameraId = (rearCamera || cameras[0]).id;
+                            await qrScanner.start(cameraId, config, onScanSuccess, onScanError);
+                        } else {
+                            alert("Geen camera gevonden");
+                            overlay.classList.remove("active");
+                        }
+                    } catch (error) {
+                        alert("Camera toegang geweigerd: " + error.message);
+                        overlay.classList.remove("active");
+                    }
+                }, 500);
+            });
+
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
