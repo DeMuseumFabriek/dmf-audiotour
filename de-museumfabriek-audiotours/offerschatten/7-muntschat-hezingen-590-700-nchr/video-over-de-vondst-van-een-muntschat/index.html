@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../../static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+    <title>
+        
+            Video over de vondst van een muntschat
+        
+        
+            
+            - Audiotours in de museumfabriek
+        
+    </title>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    
+</head>
+
+<body class="">
+    
+
+    <!-- ⭐ QR OVERLAY (nu globaal beschikbaar) -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- ⭐ QR BUTTON (globaal, altijd zichtbaar behalve als  uitgeschakeld) -->
+    
+      
+    
+
+    
+
+<article class="audio-stop">
+
+    <div class="sticky-wrapper">        
+        <nav class="stop-navigation">
+<!--
+            <div class="nav-slot">
+                
+            </div>
+-->
+
+            <div class="nav-slot">
+                <a class="nav-button" href="../../../offerschatten/7-muntschat-hezingen-590-700-nchr/index.html">    
+                    <img src="../../../../static/audiotour/icons/back.svg" alt="Terug naar het luisterpunt" title="Terug naar het luisterpunt">
+                </a>
+            </div>
+            
+<!--            
+            
+            <div class="nav-slot">
+                <a class="nav-button" href="/">
+                    <img src="../../../../static/audiotour/icons/home.svg" alt="Home" title="Home">
+                </a>
+            </div>
+
+
+            <div class="nav-slot">
+                
+            </div>
+-->
+        </nav>
+
+
+        <h1>Video over de vondst van een muntschat</h1>
+        
+
+
+
+
+
+
+        
+
+        
+            
+                <button class="video-button open-video" type="button">Bekijk video</button>
+            
+        
+        
+    </div>
+
+    
+    <div class="video-modal hidden" aria-hidden="true">
+        <div class="video-modal__content">
+            <button class="video-modal__close" type="button">Sluiten</button>
+            <video controls preload="metadata">
+                <source src="../../../../documents/207/Film_2_muntschat_bgk83u6.mp4" type="video/mp4">
+                Je browser ondersteunt geen HTML5-video.
+            </video>
+        </div>
+    </div>
+    
+
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="zz1mm">Hoe twee amateur archeologen met hun metaaldetectoren de gouden munten vonden ....</p> 
+    </div>
+
+
+
+</article>
+
+<!--------------------- help popup -------------------------------------
+
+    Een popup voor hulp verschijnt als de gebruiker
+    op het vraagteken icoon klikt in de rechter bovenhoek
+    van deze pagina.
+
+----------------------------------------------------------------------->
+<div class="help-widget">
+    <button class="help-button">?</button>
+
+    <div class="help-popup hidden">
+        <div class="help-content">
+            <ul>        
+                <li><img src="../../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige pagina" style="vertical-align:middle"/>
+                &emsp;Terug naar het luisterpunt.</li>
+            </ul>
+            <p>Bij gebruik van een touch-screen (mobiel, tablet) is het ook mogelijk om te navigeren door te 'swipen'</p>
+            <button class="close-help">Sluiten</button>
+        </div>
+    </div>
+</div>
+<!------------------------- end help popup ---------------------------->
+
+<!--------------------- inf popup -------------------------------------
+
+    Een popup voor meer informatie (verdieping) verschijnt als de gebruiker
+    op het Info icoon klikt.
+
+----------------------------------------------------------------------->
+
+<!------------------------- end inf popup ---------------------------->
+
+
+
+
+    <!-- Global javascript -->
+    <script src="../../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../../static/audiotour/js/help-popup.js"></script>
+
+    
+        <script src="../../../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT (globaal) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+
+            try {
+                const url = new URL(decodedText);
+
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        }
+
+        function onScanError(errorMessage) {
+            console.warn("QR scan error:", errorMessage);
+        }
+
+        startBtn.addEventListener("click", function () {
+            console.log("QR button clicked");
+            overlay.classList.add("active");
+
+            setTimeout(async () => {
+                console.log("Requesting camera permission");
+                
+                try {
+                    // Vraag eerst camera permissies
+                    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                    console.log("Camera permission granted");
+                    
+                    // Stop de stream meteen
+                    stream.getTracks().forEach(track => track.stop());
+                    
+                    console.log("Starting QR scanner");
+                    qrScanner = new Html5Qrcode("qr-video-wrapper");
+
+                    const config = {
+                        fps: 10,
+                        qrbox: { width: 250, height: 250 } // Beperkt scan gebied tot 250x250 pixels
+                    };
+
+                    // Haal beschikbare camera's op
+                    const cameras = await Html5Qrcode.getCameras();
+                    console.log("Available cameras:", cameras);
+                    
+                    if (cameras && cameras.length > 0) {
+                        // Kies de achterste camera als die aanwezig is
+                        const rearCamera = cameras.find(cam => {
+                            const label = (cam.label || "").toLowerCase();
+                            return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                        });
+                        const cameraId = (rearCamera || cameras[0]).id;
+                        console.log("Using camera:", cameraId, rearCamera ? "(rear)" : "(default)");
+                        
+                        await qrScanner.start(
+                            cameraId,
+                            config,
+                            onScanSuccess,
+                            onScanError
+                        );
+                        console.log("QR scanner started successfully");
+                    } else {
+                        console.error("No cameras found");
+                        alert("Geen camera gevonden");
+                        overlay.classList.remove("active");
+                    }
+                } catch (error) {
+                    console.error("Camera access failed:", error);
+                    alert("Camera toegang geweigerd: " + error.message);
+                    overlay.classList.remove("active");
+                }
+            }, 500);  // Langer wachten
+        });
+
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) {
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        });
+
+        // Annuleer QR scan door op het venster te klikken
+        qrReader.addEventListener("click", function () {
+            overlay.classList.remove("active");
+            if (qrScanner) qrScanner.stop();
+        });
+    });
+    </script>
+
+</body>
+</html>
