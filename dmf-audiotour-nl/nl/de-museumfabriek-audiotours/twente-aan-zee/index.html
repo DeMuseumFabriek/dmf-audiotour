@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+
+    <title>
+        
+            Twente aan zee
+        
+        
+            
+            - Audiotours in de museumfabriek
+        
+    </title>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    
+</head>
+
+<body class="">
+    
+
+
+<!-- ⭐ TAALSWITCHER (Officiële Wagtail Core Methode) -->
+<!--
+<div class="language-switcher"
+        style="
+            position: absolute;
+            top: 140px;
+            right: 10px;
+            z-index: 999999;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: sans-serif;
+     ">
+    
+    
+    
+    
+        
+            <!-- Actieve taal -->
+<!--
+            <span class="active-lang"><strong>NL</strong></span>
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/en/de-museumfabriek-audiotours/twente-aan-zee/">EN</a>
+            
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/de/de-museumfabriek-audiotours/twente-aan-zee/">DE</a>
+            
+        
+        
+    
+</div>
+-->
+
+
+
+
+</script>
+    <!-- ⭐ QR OVERLAY -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- ⭐ QR BUTTON -->
+    
+      
+        <button id="start-qr" class="qr-button" style="
+            position: absolute !important;
+            top: 400px !important;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 12px !important;
+            color: white !important;
+            background: rgba(0,0,155,0.6) !important;
+            right: 10px !important;
+            z-index: 999999 !important;
+            font-size: 12px !important;
+            ">
+            QR
+        </button>
+      
+    
+
+    
+
+<article class="audio-stop">
+        
+    <header class="stop-header">
+
+        <nav class="stop-navigation">
+            
+<!--
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/back.svg" alt="back" title="Lijst met audiotours">
+                </a>
+            </div>
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/menu.svg" alt="Lijst met audiotours" title="Lijst met audiotours">
+                </a>
+            </div>
+
+            <div class="nav-slot">
+                <a class="nav-button" href="../../../../index.html"">
+                    <img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Beginpagina">
+                </a>
+            </div>
+-->            
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Lijst met audiotours">
+                </a>
+            </div>            
+            
+            
+                
+                    <div class="nav-slot">    
+                        <a class="nav-button" href="../twente-aan-zee/plattegrond-twente-aan-zee/index.html">
+                             <img src="../../../static/audiotour/icons/next.svg" alt="next" title="Eerste luisterpunt">
+                        </a>
+                    </div>
+                
+            
+        </nav>
+        
+        
+        <h1>Twente aan zee</h1>
+        <!--------------------- help popup -------------------------------------
+
+            Een popup voor hulp verschijnt als de gebruiker
+            op het vraagteken icoon klikt in de rechter bovenhoek
+            van deze pagina.
+
+        ----------------------------------------------------------------------->
+        <div class="help-widget">
+            <button class="help-button">?</button>
+
+            <div class="help-popup hidden">
+                
+                <div class="help-content">
+                    
+                    <ul>
+                        <li>Klik op één van de luisterpunten van deze audiotour om deze te openen.</li>        
+                        <li><img src="../../../static/audiotour/icons/home.svg" alt="Lijst audiotours" title="Lijst met audiotours" style="vertical-align:middle"/>&emsp;Ga naar de lijst met audiotours om een andere audiotour te kiezen.</li>
+                        <li><img src="../../../static/audiotour/icons/next.svg"> Ga naar het eerste luisterpunt</li>
+                        <li><img src="../../../static/audiotour/icons/qr.svg"> Scan een QR code (wanneer van toepassing</li>
+                    </ul>
+                    <button class="close-help">Sluiten</button>
+                    
+                    
+                                        
+                    
+                </div>
+            </div>
+        </div>
+        <!------------------------- end help popup ---------------------------->
+        
+        
+        
+            <div class="tour-intro">
+                <p data-block-key="0dpdj">Een verhaal door fossielen. Hoe ontwikkelde zich in deze regio de aarde in miljoenen jaren.</p>
+            </div>
+        
+    </header>
+
+    <section class="tour-stops">
+        
+        
+        <h2>
+             Luisterpunten in deze tour 
+            
+            
+       </h2> 
+        
+        <ul class="stop-list">
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/plattegrond-twente-aan-zee/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 1</span>
+-->
+                            <span class="stop-title">Plattegrond Twente aan zee</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/1-welkom/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 2</span>
+-->
+                            <span class="stop-title">1. Welkom</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/2-fossielen/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 3</span>
+-->
+                            <span class="stop-title">2. Fossielen</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/3-aardlagen/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 4</span>
+-->
+                            <span class="stop-title">3. Aardlagen</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                            <ul class="substop-list">
+                                
+                                    <li>
+<!--
+                                        Stop 4.1
+ 
+-->
+                                        <a href="../twente-aan-zee/3-aardlagen/dateringsmethoden/index.html">Dateringsmethoden</a>
+                                    </li>
+                                
+                                    <li>
+<!--
+                                        Stop 4.2
+ 
+-->
+                                        <a href="../twente-aan-zee/3-aardlagen/platentektoniek/index.html">Platentektoniek</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/4-geologische-tijdsperioden/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 5</span>
+-->
+                            <span class="stop-title">4. Geologische tijdsperioden</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/5-oude-aardlagen-aan-de-oppervlakte/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 6</span>
+-->
+                            <span class="stop-title">5. Oude aardlagen aan de oppervlakte</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/6-reconstructie-nothosaurus/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 7</span>
+-->
+                            <span class="stop-title">6. Reconstructie Nothosaurus</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                            <ul class="substop-list">
+                                
+                                    <li>
+<!--
+                                        Stop 7.1
+ 
+-->
+                                        <a href="../twente-aan-zee/6-reconstructie-nothosaurus/de-vijf-grote-massa-extincties/index.html">De vijf grote massa-extincties</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/7-fossielen-nothausaurus-uit-winterswijk-en-gereedschap-voor-prepareren/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 8</span>
+-->
+                            <span class="stop-title">7. Fossielen Nothausaurus uit Winterswijk en gereedschap voor prepareren</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/8-andere-triasfossielen-uit-de-groeve-in-winterswijk/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 9</span>
+-->
+                            <span class="stop-title">8. Andere Triasfossielen uit de groeve in Winterswijk</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/fossiele-loopsporen-uit-de-groeve-in-winterswijk/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 10</span>
+-->
+                            <span class="stop-title">9. Fossiele loopsporen uit de groeve in Winterswijk</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/10-fossiele-walvisbotten-uit-twente/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 11</span>
+-->
+                            <span class="stop-title">10. Fossiele walvisbotten uit Twente</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                            <ul class="substop-list">
+                                
+                                    <li>
+<!--
+                                        Stop 11.1
+ 
+-->
+                                        <a href="../twente-aan-zee/10-fossiele-walvisbotten-uit-twente/walvissen-en-zeemansverhalen/index.html">Walvissen en zeemansverhalen</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/11-tand-van-een-megalodon/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 12</span>
+-->
+                            <span class="stop-title">11. Tand van een Megalodon</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../twente-aan-zee/12-tot-slot/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 13</span>
+-->
+                            <span class="stop-title">12. Tot slot</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                            <ul class="substop-list">
+                                
+                                    <li>
+<!--
+                                        Stop 13.1
+ 
+-->
+                                        <a href="../twente-aan-zee/12-tot-slot/ammonieten-uitgestorven-zeedieren/index.html">Ammonieten uitgestorven zeedieren</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    
+               </li>
+
+            
+        </ul>
+    </section>
+
+</article>
+
+
+
+    <!-- Global javascript -->
+    <script src="../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../static/audiotour/js/help-popup.js"></script>
+
+    
+        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+            try {
+                const url = new URL(decodedText);
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        }
+
+        function onScanError(errorMessage) {
+            console.warn("QR scan error:", errorMessage);
+        }
+
+        if (startBtn && overlay && qrReader) {
+            startBtn.addEventListener("click", function () {
+                overlay.classList.add("active");
+                setTimeout(async () => {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                        stream.getTracks().forEach(track => track.stop());
+                        qrScanner = new Html5Qrcode("qr-video-wrapper");
+                        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+                        const cameras = await Html5Qrcode.getCameras();
+                        if (cameras && cameras.length > 0) {
+                            const rearCamera = cameras.find(cam => {
+                                const label = (cam.label || "").toLowerCase();
+                                return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                            });
+                            const cameraId = (rearCamera || cameras[0]).id;
+                            await qrScanner.start(cameraId, config, onScanSuccess, onScanError);
+                        } else {
+                            alert("Geen camera gevonden");
+                            overlay.classList.remove("active");
+                        }
+                    } catch (error) {
+                        alert("Camera toegang geweigerd: " + error.message);
+                        overlay.classList.remove("active");
+                    }
+                }, 500);
+            });
+
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
