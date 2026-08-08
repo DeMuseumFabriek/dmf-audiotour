@@ -390,7 +390,7 @@
         if (/iP(hone|ad|od)/.test(ua)) {
             var iosVersion = getVersion(/OS (\d+)_/, ua);
             if (iosVersion && iosVersion < 16) {
-                return 'Deze iPhone/iPad gebruikt een oudere iOS-versie. De website kan minder goed functioneren in oudere Safari-versies.';
+                return 'Deze iPhone/iPad gebruikt een oudere iOS-versie (versie ' + iosVersion + '). De website kan minder goed functioneren in oudere Safari-versies.';
             }
             return null;
         }
@@ -398,7 +398,7 @@
         if (/Android/.test(ua)) {
             var androidVersion = getVersion(/Android (\d+)/, ua);
             if (androidVersion && androidVersion < 12) {
-                return 'Uw Android-telefoon of tablet draait een oudere Android-versie. Sommige functies kunnen minder goed werken.';
+                return 'Uw Android-telefoon of tablet draait een oudere Android-versie (versie ' + androidVersion + '). Sommige functies kunnen minder goed werken.';
             }
             return null;
         }
