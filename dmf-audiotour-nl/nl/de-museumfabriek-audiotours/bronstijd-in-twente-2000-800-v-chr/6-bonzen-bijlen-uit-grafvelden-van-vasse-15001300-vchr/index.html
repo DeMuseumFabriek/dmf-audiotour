@@ -168,6 +168,19 @@
         
 
         
+        <div class="timed-images">
+            
+                
+                 <img src="../../../../media/images/OKT.A_907_Hielbijl__Vriezenveen.2e16d0ba.fill-800x600.jpg"
+                     data-timestamp="0,0"
+                     class="timed-image"
+                     data-alt="Hielbijl – Vriezenveen"
+                     data-focal-x="50"
+                     data-focal-y="50">
+            
+        </div>
+        <div id="timed-image-title" class="timed-image-title"></div>
+        
         
         
 
@@ -176,7 +189,7 @@
     
 
     <div class="description" role="button" tabindex="0">
-         <p data-block-key="jq6jp"> </p><p data-block-key="3vjln">Bronzen bijlen behoren tot de meest kenmerkende voorwerpen uit de bronstijd. Deze bijlen zijn gevonden op de hoge, droge zandgronden van de Vasserheide. Het gebied is bekend door het Vasse grafveld. Dat is misschien wel het bekendste grafheuvelveld van Nederland. Daar liggen ongeveer twintig oude grafheuvels, urnenvelden en resten van kleine akkertjes uit de ijzertijd. Alleen aan het begin van de 20e eeuw zijn er opgravingen gedaan. Nu is het grafveld beschermd en mag de bodem daar niet meer worden verstoord.</p><p data-block-key="8i524">Je ziet hier een hielbijl en twee kokerbijlen. Hielbijlen hebben opstaande randen langs de zijkanten, waardoor ze stevig aan een houten steel konden worden vastgemaakt. Dit soort bijlen hoort bij de midden-bronstijd, ongeveer 1500 tot 1300 voor Christus. Later kwam de kokerbijl, waarbij de steel in een holle koker werd gestoken.</p><p data-block-key="6g1h3">Bijlen werden gebruikt voor houtbewerking, maar hadden waarschijnlijk ook een symbolische betekenis. Brons was kostbaar en moest van ver komen. Het is een mengsel van koper en tin. Een bronzen bijl was dus geen gewoon gereedschap, maar kon ook een teken van rijkdom en macht zijn.</p><p data-block-key="h1fg">Soms kreeg een dode een bijl mee in het graf. Zulke voorwerpen werden vaak als grafgift meegegeven.</p><p data-block-key="15asn">Maar bronzen bijlen werden ook geofferd bij rituelen. Dat gebeurde niet zomaar, maar volgens vaste tradities die je in heel Europa terugziet. Door een kostbare bijl aan de goden of geesten te geven, wilde men respect tonen, dankbaar zijn of bescherming vragen.</p><p data-block-key="7sshn">Soms begroeven mensen meerdere bijlen samen in een kuil: een bronsdepot. Misschien was dat een offer voor de goden, misschien een soort reserve voor moeilijke tijden. We weten het niet precies, maar deze bronzen bijlen laten zien hoe belangrijk brons was in geloof, handel en status in de bronstijd.</p> 
+         <p data-block-key="jq6jp"></p><p data-block-key="3vjln">Bronzen bijlen behoren tot de meest kenmerkende voorwerpen uit de bronstijd. Deze bijlen zijn gevonden op de hoge, droge zandgronden van de Vasserheide. Het gebied is bekend door het Vasse grafveld. Dat is misschien wel het bekendste grafheuvelveld van Nederland. Daar liggen ongeveer twintig oude grafheuvels, urnenvelden en resten van kleine akkertjes uit de ijzertijd. Alleen aan het begin van de 20e eeuw zijn er opgravingen gedaan. Nu is het grafveld beschermd en mag de bodem daar niet meer worden verstoord.</p><p data-block-key="8i524">Je ziet hier een hielbijl en twee kokerbijlen. Hielbijlen hebben opstaande randen langs de zijkanten, waardoor ze stevig aan een houten steel konden worden vastgemaakt. Dit soort bijlen hoort bij de midden-bronstijd, ongeveer 1500 tot 1300 voor Christus. Later kwam de kokerbijl, waarbij de steel in een holle koker werd gestoken.</p><p data-block-key="6g1h3">Bijlen werden gebruikt voor houtbewerking, maar hadden waarschijnlijk ook een symbolische betekenis. Brons was kostbaar en moest van ver komen. Het is een mengsel van koper en tin. Een bronzen bijl was dus geen gewoon gereedschap, maar kon ook een teken van rijkdom en macht zijn.</p><p data-block-key="h1fg">Soms kreeg een dode een bijl mee in het graf. Zulke voorwerpen werden vaak als grafgift meegegeven.</p><p data-block-key="15asn">Maar bronzen bijlen werden ook geofferd bij rituelen. Dat gebeurde niet zomaar, maar volgens vaste tradities die je in heel Europa terugziet. Door een kostbare bijl aan de goden of geesten te geven, wilde men respect tonen, dankbaar zijn of bescherming vragen.</p><p data-block-key="7sshn">Soms begroeven mensen meerdere bijlen samen in een kuil: een bronsdepot. Misschien was dat een offer voor de goden, misschien een soort reserve voor moeilijke tijden. We weten het niet precies, maar deze bronzen bijlen laten zien hoe belangrijk brons was in geloof, handel en status in de bronstijd.</p> 
     </div>
 
 </article>
@@ -295,5 +308,86 @@
         }
     });
     </script>
+
+<style>
+#device-warning-banner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(255, 244, 204, 0.97);
+    color: #1a1a1a;
+    border-bottom: 1px solid #d9c58b;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.12);
+}
+#device-warning-banner button {
+    margin-left: 1rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #999;
+    background: #fff;
+    color: #222;
+    border-radius: 4px;
+    cursor: pointer;
+}
+</style>
+<script>
+(function() {
+    function getVersion(re, ua) {
+        var m = ua.match(re);
+        return m ? parseInt(m[1], 10) : null;
+    }
+
+    function shouldShowWarning() {
+        var ua = navigator.userAgent || '';
+        var isMobile = /Mobile|Android|iP(hone|ad|od)|Silk/.test(ua);
+        if (!isMobile) {
+            return null;
+        }
+
+        if (/iP(hone|ad|od)/.test(ua)) {
+            var iosVersion = getVersion(/OS (\d+)_/, ua);
+            if (iosVersion && iosVersion < 16) {
+                return 'Deze iPhone/iPad gebruikt een oudere iOS-versie. De website kan minder goed functioneren in oudere Safari-versies.';
+            }
+            return null;
+        }
+
+        if (/Android/.test(ua)) {
+            var androidVersion = getVersion(/Android (\d+)/, ua);
+            if (androidVersion && androidVersion < 12) {
+                return 'Uw Android-telefoon of tablet draait een oudere Android-versie. Sommige functies kunnen minder goed werken.';
+            }
+            return null;
+        }
+
+        if (/Windows Phone|BB10|Kindle|KF[A-Z]/.test(ua)) {
+            return 'Dit apparaat of deze browser kan mogelijk niet volledig ondersteund worden.';
+        }
+
+        return null;
+    }
+
+    var warningText = shouldShowWarning();
+    if (!warningText) {
+        return;
+    }
+
+    var banner = document.createElement('div');
+    banner.id = 'device-warning-banner';
+    banner.innerHTML = '<span>' + warningText + '</span>' +
+                       '<button type="button" aria-label="Sluiten">Sluiten</button>';
+    document.documentElement.insertBefore(banner, document.documentElement.firstChild);
+    banner.style.display = 'block';
+
+    banner.querySelector('button').addEventListener('click', function() {
+        banner.style.display = 'none';
+    });
+})();
+</script>
 </body>
 </html>

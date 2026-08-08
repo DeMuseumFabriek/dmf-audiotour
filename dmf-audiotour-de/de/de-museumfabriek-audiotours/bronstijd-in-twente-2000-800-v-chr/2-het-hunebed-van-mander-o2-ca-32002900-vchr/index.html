@@ -168,7 +168,26 @@
         
 
         
+        <div class="timed-images">
+            
+                
+                 <img src="../../../../media/images/maquette_hunebed.2e16d0ba.fill-800x600.jpg"
+                     data-timestamp="0,0"
+                     class="timed-image"
+                     data-alt="maquette hunebed"
+                     data-focal-x="50"
+                     data-focal-y="50">
+            
+        </div>
+        <div id="timed-image-title" class="timed-image-title"></div>
         
+        
+        
+            
+                <audio id="audio-player" controls>
+                    <source src="../../../../documents/305/2-het-hunebed-van-mander-o2-ca-32002900-vchr_SP6FgL0.mp3" type="audio/mpeg">
+                </audio>
+            
         
 
     </div>
@@ -176,7 +195,7 @@
     
 
     <div class="description" role="button" tabindex="0">
-         <p data-block-key="yfkp9"> </p><p data-block-key="dfinm">Je kijkt hier niet naar het echte hunebed van Mander, maar naar een model van een hunebed. Zo zie je goed hoe zo’n graf er vroeger ongeveer uit moet hebben gezien. Het hunebed van Mander werd gebouwd rond 3200 voor Christus, in de nieuwe steentijd. In die tijd veranderde het leven sterk. Mensen gingen op één plek wonen en begonnen met landbouw en veeteelt. Ze bouwden ook grote graven van zware stenen.</p><p data-block-key="ab4ab">Het hunebed van Mander was het meest zuidelijke hunebed van Nederland en het enige in Overijssel. Het bestond vroeger uit minstens twaalf draagstenen met grote dekstenen erop. Later zijn de stenen weggehaald en opnieuw gebruikt. Toch zijn de sporen nog zichtbaar in de grond. Zo weten we dat het hunebed ongeveer 13 meter lang en 2,5 meter breed was. De stenen kwamen in de ijstijd naar Twente met gletsjers.</p><p data-block-key="c2jqh">In de buurt zijn ook eenvoudige graven gevonden. Die horen bij dezelfde tijd. Later, in de bronstijd, begroeven mensen op de hogere zandgronden hun doden nog steeds op zulke plekken. Soms lag er een kleine heuvel van zand overheen. Zo bleven deze begraafplaatsen heel lang belangrijk voor de mensen die hier woonden.</p> 
+         <p data-block-key="yfkp9"></p><p data-block-key="dfinm">Je kijkt hier niet naar het echte hunebed van Mander, maar naar een model van een hunebed. Zo zie je goed hoe zo’n graf er vroeger ongeveer uit moet hebben gezien. Het hunebed van Mander werd gebouwd rond 3200 voor Christus, in de nieuwe steentijd. In die tijd veranderde het leven sterk. Mensen gingen op één plek wonen en begonnen met landbouw en veeteelt. Ze bouwden ook grote graven van zware stenen.</p><p data-block-key="ab4ab">Het hunebed van Mander was het meest zuidelijke hunebed van Nederland en het enige in Overijssel. Het bestond vroeger uit minstens twaalf draagstenen met grote dekstenen erop. Later zijn de stenen weggehaald en opnieuw gebruikt. Toch zijn de sporen nog zichtbaar in de grond. Zo weten we dat het hunebed ongeveer 13 meter lang en 2,5 meter breed was. De stenen kwamen in de ijstijd naar Twente met gletsjers.</p><p data-block-key="c2jqh">In de buurt zijn ook eenvoudige graven gevonden. Die horen bij dezelfde tijd. Later, in de bronstijd, begroeven mensen op de hogere zandgronden hun doden nog steeds op zulke plekken. Soms lag er een kleine heuvel van zand overheen. Zo bleven deze begraafplaatsen heel lang belangrijk voor de mensen die hier woonden.</p> 
     </div>
 
 </article>
@@ -295,5 +314,86 @@
         }
     });
     </script>
+
+<style>
+#device-warning-banner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(255, 244, 204, 0.97);
+    color: #1a1a1a;
+    border-bottom: 1px solid #d9c58b;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.12);
+}
+#device-warning-banner button {
+    margin-left: 1rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #999;
+    background: #fff;
+    color: #222;
+    border-radius: 4px;
+    cursor: pointer;
+}
+</style>
+<script>
+(function() {
+    function getVersion(re, ua) {
+        var m = ua.match(re);
+        return m ? parseInt(m[1], 10) : null;
+    }
+
+    function shouldShowWarning() {
+        var ua = navigator.userAgent || '';
+        var isMobile = /Mobile|Android|iP(hone|ad|od)|Silk/.test(ua);
+        if (!isMobile) {
+            return null;
+        }
+
+        if (/iP(hone|ad|od)/.test(ua)) {
+            var iosVersion = getVersion(/OS (\d+)_/, ua);
+            if (iosVersion && iosVersion < 16) {
+                return 'Deze iPhone/iPad gebruikt een oudere iOS-versie. De website kan minder goed functioneren in oudere Safari-versies.';
+            }
+            return null;
+        }
+
+        if (/Android/.test(ua)) {
+            var androidVersion = getVersion(/Android (\d+)/, ua);
+            if (androidVersion && androidVersion < 12) {
+                return 'Uw Android-telefoon of tablet draait een oudere Android-versie. Sommige functies kunnen minder goed werken.';
+            }
+            return null;
+        }
+
+        if (/Windows Phone|BB10|Kindle|KF[A-Z]/.test(ua)) {
+            return 'Dit apparaat of deze browser kan mogelijk niet volledig ondersteund worden.';
+        }
+
+        return null;
+    }
+
+    var warningText = shouldShowWarning();
+    if (!warningText) {
+        return;
+    }
+
+    var banner = document.createElement('div');
+    banner.id = 'device-warning-banner';
+    banner.innerHTML = '<span>' + warningText + '</span>' +
+                       '<button type="button" aria-label="Sluiten">Sluiten</button>';
+    document.documentElement.insertBefore(banner, document.documentElement.firstChild);
+    banner.style.display = 'block';
+
+    banner.querySelector('button').addEventListener('click', function() {
+        banner.style.display = 'none';
+    });
+})();
+</script>
 </body>
 </html>
