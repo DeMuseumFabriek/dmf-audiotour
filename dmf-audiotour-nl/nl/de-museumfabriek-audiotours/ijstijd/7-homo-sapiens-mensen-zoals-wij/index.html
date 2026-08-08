@@ -363,34 +363,56 @@
 
     function getAndroidVersion(callback) {
         var ua = navigator.userAgent || '';
-        var version = getAndroidVersionFromUA(ua);
-        if (version) {
-            callback(version);
-            return;
-        }
+        var direct = getAndroidVersionFromUA(ua);
 
         if (navigator.userAgentData && typeof navigator.userAgentData.getHighEntropyValues === 'function') {
             navigator.userAgentData.getHighEntropyValues(['platformVersion'])
                 .then(function(data) {
-                    callback(parsePlatformVersion(data.platformVersion));
+                    var version = parsePlatformVersion(data.platformVersion);
+                    console.info('Android detection: userAgentData.platformVersion', data.platformVersion, 'parsed', version, 'ua', ua);
+                    if (version) {
+                        callback(version);
+                        return;
+                    }
+                    callback(direct);
                 })
-                .catch(function() {
-                    callback(null);
+                .catch(function(error) {
+                    console.warn('Android detection: getHighEntropyValues failed', error, 'ua', ua);
+                    callback(direct);
                 });
             return;
         }
 
         if (navigator.userAgentData && navigator.userAgentData.platform === 'Android') {
-            callback(parsePlatformVersion(navigator.userAgentData.platformVersion));
-            return;
+            var version = parsePlatformVersion(navigator.userAgentData.platformVersion);
+            console.info('Android detection: userAgentData.platformVersion fallback', navigator.userAgentData.platformVersion, 'parsed', version, 'ua', ua);
+            if (version) {
+                callback(version);
+                return;
+            }
         }
 
-        callback(null);
+        console.info('Android detection: fallback userAgent parse', 'ua', ua, 'parsed', direct);
+        callback(direct);
+    }
+
+    function isModernBrowser() {
+        return typeof Promise !== 'undefined' &&
+               typeof fetch !== 'undefined' &&
+               typeof CSS !== 'undefined' &&
+               typeof CSS.supports === 'function' &&
+               CSS.supports('display', 'grid');
     }
 
     function warnAndroid(version) {
+        if (isModernBrowser()) {
+            return null;
+        }
         if (version && version < 12) {
             return 'Uw Android-telefoon of tablet draait een oudere Android-versie (versie ' + version + '). Sommige functies kunnen minder goed werken.';
+        }
+        if (!version) {
+            return 'Uw Android-browser lijkt verouderd of kan niet correct worden herkend. Sommige functies kunnen minder goed werken.';
         }
         return null;
     }
@@ -448,10 +470,6 @@
     }
 
     showWarning(warningText);
-
-    banner.querySelector('button').addEventListener('click', function() {
-        banner.style.display = 'none';
-    });
 })();
 </script>
 </body>
