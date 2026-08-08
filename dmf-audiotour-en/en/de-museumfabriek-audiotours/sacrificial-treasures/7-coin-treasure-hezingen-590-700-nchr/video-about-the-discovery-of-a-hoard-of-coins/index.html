@@ -332,6 +332,19 @@
         return getVersion(/Android\s+([0-9]+(?:\.[0-9]+)?)/i, ua);
     }
 
+    function isAndroidPlatform(ua) {
+        if (/Android/i.test(ua)) {
+            return true;
+        }
+        if (navigator.userAgentData && navigator.userAgentData.platform === 'Android') {
+            return true;
+        }
+        if (navigator.platform && /Android/i.test(navigator.platform)) {
+            return true;
+        }
+        return false;
+    }
+
     function getAndroidVersion(callback) {
         var ua = navigator.userAgent || '';
         var version = getAndroidVersionFromUA(ua);
@@ -368,7 +381,8 @@
 
     function shouldShowWarning() {
         var ua = navigator.userAgent || '';
-        var isMobile = /Mobile|Android|iP(hone|ad|od)|Silk/.test(ua);
+        var androidPlatform = isAndroidPlatform(ua);
+        var isMobile = /Mobile|iP(hone|ad|od)|Silk/.test(ua) || androidPlatform;
         if (!isMobile) {
             return null;
         }
@@ -381,7 +395,7 @@
             return null;
         }
 
-        if (/Android/.test(ua)) {
+        if (androidPlatform) {
             return 'android';
         }
 
