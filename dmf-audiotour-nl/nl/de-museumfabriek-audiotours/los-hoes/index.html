@@ -885,7 +885,21 @@
 (function() {
     function getVersion(re, ua) {
         var m = ua.match(re);
-        return m ? parseInt(m[1], 10) : null;
+        return m ? parseFloat(m[1]) : null;
+    }
+
+    function getAndroidVersion(ua) {
+        var version = getVersion(/Android\s+([0-9]+(?:\.[0-9]+)?)/i, ua);
+        if (version) {
+            return version;
+        }
+        if (navigator.userAgentData && navigator.userAgentData.platform === 'Android') {
+            var platformVersion = navigator.userAgentData.platformVersion;
+            if (platformVersion) {
+                return parseFloat(platformVersion);
+            }
+        }
+        return null;
     }
 
     function shouldShowWarning() {
@@ -904,7 +918,7 @@
         }
 
         if (/Android/.test(ua)) {
-            var androidVersion = getVersion(/Android (\d+)/, ua);
+            var androidVersion = getAndroidVersion(ua);
             if (androidVersion && androidVersion < 12) {
                 return 'Uw Android-telefoon of tablet draait een oudere Android-versie (versie ' + androidVersion + '). Sommige functies kunnen minder goed werken.';
             }
