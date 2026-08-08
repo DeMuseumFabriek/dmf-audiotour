@@ -355,16 +355,47 @@
         return m ? parseFloat(m[1]) : null;
     }
 
-    function getAndroidVersion(ua) {
-        var version = getVersion(/Android\s+([0-9]+(?:\.[0-9]+)?)/i, ua);
-        if (version) {
-            return version;
+    function parsePlatformVersion(version) {
+        if (!version) {
+            return null;
         }
+        return parseFloat(version.replace(/_/g, '.'));
+    }
+
+    function getAndroidVersionFromUA(ua) {
+        return getVersion(/Android\s+([0-9]+(?:\.[0-9]+)?)/i, ua);
+    }
+
+    function getAndroidVersion(callback) {
+        var ua = navigator.userAgent || '';
+        var version = getAndroidVersionFromUA(ua);
+        if (version) {
+            callback(version);
+            return;
+        }
+
+        if (navigator.userAgentData && typeof navigator.userAgentData.getHighEntropyValues === 'function') {
+            navigator.userAgentData.getHighEntropyValues(['platformVersion'])
+                .then(function(data) {
+                    callback(parsePlatformVersion(data.platformVersion));
+                })
+                .catch(function() {
+                    callback(null);
+                });
+            return;
+        }
+
         if (navigator.userAgentData && navigator.userAgentData.platform === 'Android') {
-            var platformVersion = navigator.userAgentData.platformVersion;
-            if (platformVersion) {
-                return parseFloat(platformVersion);
-            }
+            callback(parsePlatformVersion(navigator.userAgentData.platformVersion));
+            return;
+        }
+
+        callback(null);
+    }
+
+    function warnAndroid(version) {
+        if (version && version < 12) {
+            return 'Uw Android-telefoon of tablet draait een oudere Android-versie (versie ' + version + '). Sommige functies kunnen minder goed werken.';
         }
         return null;
     }
@@ -385,11 +416,7 @@
         }
 
         if (/Android/.test(ua)) {
-            var androidVersion = getAndroidVersion(ua);
-            if (androidVersion && androidVersion < 12) {
-                return 'Uw Android-telefoon of tablet draait een oudere Android-versie (versie ' + androidVersion + '). Sommige functies kunnen minder goed werken.';
-            }
-            return null;
+            return 'android';
         }
 
         if (/Windows Phone|BB10|Kindle|KF[A-Z]/.test(ua)) {
@@ -399,17 +426,32 @@
         return null;
     }
 
+    function showWarning(warningText) {
+        if (!warningText) {
+            return;
+        }
+
+        var banner = document.createElement('div');
+        banner.id = 'device-warning-banner';
+        banner.innerHTML = '<span>' + warningText + '</span>' +
+                           '<button type="button" aria-label="Sluiten">Sluiten</button>';
+        document.documentElement.insertBefore(banner, document.documentElement.firstChild);
+        banner.style.display = 'block';
+
+        banner.querySelector('button').addEventListener('click', function() {
+            banner.style.display = 'none';
+        });
+    }
+
     var warningText = shouldShowWarning();
-    if (!warningText) {
+    if (warningText === 'android') {
+        getAndroidVersion(function(androidVersion) {
+            showWarning(warnAndroid(androidVersion));
+        });
         return;
     }
 
-    var banner = document.createElement('div');
-    banner.id = 'device-warning-banner';
-    banner.innerHTML = '<span>' + warningText + '</span>' +
-                       '<button type="button" aria-label="Sluiten">Sluiten</button>';
-    document.documentElement.insertBefore(banner, document.documentElement.firstChild);
-    banner.style.display = 'block';
+    showWarning(warningText);
 
     banner.querySelector('button').addEventListener('click', function() {
         banner.style.display = 'none';
