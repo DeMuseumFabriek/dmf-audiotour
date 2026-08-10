@@ -43,90 +43,194 @@ document.addEventListener("DOMContentLoaded", function () {
  * bij 'Hotspot image'. 
  * FIXES: iOS slider interaction issue by listening to multiple events
  * --------------------------------------------------------- */
-const audio = document.getElementById("audio-player");
-const images = Array.from(document.querySelectorAll(".timed-image"));
-const titleBox = document.getElementById("timed-image-title");
+var audio = document.getElementById("audio-player");
+var images = Array.prototype.slice.call(document.querySelectorAll(".timed-image"));
+var titleBox = document.getElementById("timed-image-title");
+
+function isLegacyAudioBrowser() {
+    var ua = navigator.userAgent || "";
+    var oldIos = /iP(hone|ad|od).*OS (9|10|11)_/i.test(ua);
+    var oldSafari = /Version\/(9|10|11)\./i.test(ua) && !/(Chrome|CriOS|FxiOS|OPiOS|EdgiOS)/i.test(ua);
+    return oldIos || oldSafari;
+}
 
 if (audio && images.length > 0) {
+    if (isLegacyAudioBrowser()) {
+        for (var i = 0; i < images.length; i++) {
+            var legacyImg = images[i];
+            legacyImg.className = "timed-image";
+            legacyImg.style.display = "none";
+        }
+
+        if (images[0]) {
+            images[0].className = "timed-image active";
+            images[0].style.display = "block";
+        }
+
+        if (titleBox && images[0]) {
+            titleBox.textContent = images[0].getAttribute("data-alt") || "";
+        }
+        return;
+    }
+
+    var syncTimer = null;
+    var lastAppliedTimestamp = null;
+    var pollTimer = null;
+    var isPolling = false;
 
     // Reset audio on load
     audio.pause();
     audio.currentTime = 0;
 
     // Apply focal point + hide all images
-    images.forEach(img => {
-        const focalX = img.dataset.focalX || "50%";
-        const focalY = img.dataset.focalY || "50%";
-        img.style.objectPosition = `${focalX} ${focalY}`;
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        var focalX = img.getAttribute("data-focal-x") || "50%";
+        var focalY = img.getAttribute("data-focal-y") || "50%";
+        img.style.objectPosition = focalX + " " + focalY;
         img.style.objectFit = "cover";
+        img.className = "timed-image";
         img.style.display = "none";
-    });
+    }
 
     // Show first image
-    let first = images[0];
-    first.style.display = "block";
+    var first = images[0];
+    if (first) {
+        first.className = "timed-image active";
+        first.style.display = "block";
+    }
 
     // Update title for first image
-    if (titleBox) {
-        titleBox.textContent = first.dataset.alt || "";
+    if (titleBox && first) {
+        titleBox.textContent = first.getAttribute("data-alt") || "";
     }
 
-    // Helper function to update images based on current time
-    function updateTimedImages() {
-        const current = audio.currentTime;
-        let active = null;
+    function clearImageVisibility() {
+        for (var j = 0; j < images.length; j++) {
+            images[j].className = "timed-image";
+            images[j].style.display = "none";
+        }
+    }
 
-        images.forEach(img => {
-            const ts = parseFloat(img.dataset.timestamp);
-            if (current >= ts) active = img;
-        });
+    function updateTimedImages(force) {
+        if (!audio || isNaN(audio.currentTime)) return;
 
-        images.forEach(img => img.style.display = "none");
+        var current = audio.currentTime;
+        var currentTimestamp = Math.floor(current * 10) / 10;
 
-        if (active) {
-            active.style.display = "block";
+        if (!force && lastAppliedTimestamp === currentTimestamp) {
+            return;
+        }
 
-            // Update title for active image
-            if (titleBox) {
-                titleBox.textContent = active.dataset.alt || "";
+        var active = null;
+
+        for (var k = 0; k < images.length; k++) {
+            var image = images[k];
+            var ts = parseFloat(image.getAttribute("data-timestamp"));
+            if (!isNaN(ts) && current >= ts) {
+                active = image;
             }
         }
+
+        clearImageVisibility();
+
+        if (active) {
+            active.className = "timed-image active";
+            active.style.display = "block";
+            lastAppliedTimestamp = currentTimestamp;
+
+            if (titleBox) {
+                titleBox.textContent = active.getAttribute("data-alt") || "";
+            }
+        } else {
+            lastAppliedTimestamp = currentTimestamp;
+        }
     }
 
-    // Update on timeupdate (during normal playback)
-    audio.addEventListener("timeupdate", updateTimedImages);
-
-    // Update on seeking (when slider interaction starts)
-    audio.addEventListener("seeking", updateTimedImages);
-
-    // Update on seeked (when user releases slider)
-    audio.addEventListener("seeked", updateTimedImages);
-
-    // Update on play event (iOS sometimes needs this)
-    audio.addEventListener("play", updateTimedImages);
-
-    // Update on pause event
-    audio.addEventListener("pause", updateTimedImages);
-
-    // iOS Specific: Listen to input changes on the time range slider
-    // Safari doesn't always trigger seeked properly, so we need to catch input events
-    const audioControls = audio.closest('[controls]') || audio;
-    document.addEventListener("change", function(e) {
-        if (e.target === audio || (e.target.tagName === "INPUT" && e.target.type === "range")) {
-            updateTimedImages();
+    function scheduleSync() {
+        if (syncTimer) {
+            clearTimeout(syncTimer);
         }
-    }, true);
 
-    // Additional fallback for touch devices
-    document.addEventListener("touchend", function() {
-        // Force update on touch end in case user was adjusting slider
-        setTimeout(updateTimedImages, 50);
-    }, false);
+        syncTimer = setTimeout(function () {
+            updateTimedImages(true);
+            syncTimer = null;
+        }, 100);
+    }
 
-    audio.addEventListener("ended", function () {
-        // Keep the last active image visible when playback ends.
-        updateTimedImages();
-    });
+    function startPolling() {
+        if (isPolling) return;
+        isPolling = true;
+
+        pollTimer = setInterval(function () {
+            if (!audio || isNaN(audio.currentTime)) return;
+            updateTimedImages(false);
+        }, 150);
+    }
+
+    function stopPolling() {
+        isPolling = false;
+        if (pollTimer) {
+            clearInterval(pollTimer);
+            pollTimer = null;
+        }
+    }
+
+    function attachSyncListeners() {
+        audio.addEventListener("timeupdate", function () {
+            updateTimedImages(false);
+        });
+        audio.addEventListener("seeking", function () {
+            scheduleSync();
+        });
+        audio.addEventListener("seeked", function () {
+            scheduleSync();
+        });
+        audio.addEventListener("play", function () {
+            startPolling();
+            scheduleSync();
+        });
+        audio.addEventListener("playing", function () {
+            startPolling();
+            scheduleSync();
+        });
+        audio.addEventListener("pause", function () {
+            stopPolling();
+            scheduleSync();
+        });
+        audio.addEventListener("ended", function () {
+            stopPolling();
+            updateTimedImages(true);
+        });
+        audio.addEventListener("loadedmetadata", function () {
+            scheduleSync();
+        });
+        audio.addEventListener("canplay", function () {
+            scheduleSync();
+        });
+        audio.addEventListener("canplaythrough", function () {
+            scheduleSync();
+        });
+
+        document.addEventListener("change", function (e) {
+            if (e.target === audio || (e.target.tagName === "INPUT" && e.target.type === "range")) {
+                scheduleSync();
+            }
+        }, true);
+
+        document.addEventListener("touchend", function () {
+            setTimeout(function () {
+                scheduleSync();
+            }, 50);
+        }, false);
+
+        window.addEventListener("pageshow", function () {
+            scheduleSync();
+        });
+    }
+
+    attachSyncListeners();
+    scheduleSync();
 }
 
     const videoOpenButton = document.querySelector(".open-video");

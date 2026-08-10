@@ -119,6 +119,56 @@
 
     
 
+<div id="audio-stop-warning"
+     style="display:none; background:#ffcc00; padding:12px; font-family:sans-serif; margin-bottom:12px; border-radius:6px;">
+  <strong>Let op:</strong> Deze browser of dit apparaat is te oud voor een optimale weergave.
+  De audio en andere knoppen werken mogelijk niet goed.
+</div>
+
+<script>
+function isLegacyAppleDevice() {
+  var ua = navigator.userAgent || "";
+  var isOldIOS = /iP(hone|ad|od).*OS (9|10|11)_/i.test(ua);
+  var isOldSafari = /Version\/(9|10|11)\./i.test(ua) && !/(Chrome|CriOS|FxiOS|OPiOS|EdgiOS)/i.test(ua);
+  var isOldIPhone = /iPhone/i.test(ua) && /(OS 9|OS 10|OS 11)/i.test(ua);
+  return isOldIOS || isOldSafari || isOldIPhone;
+}
+
+function isModernDevice() {
+  var modernScore = 0;
+  var ua = navigator.userAgent || "";
+
+  if (navigator.userAgentData) modernScore++;
+  if (typeof window.matchMedia === "function") modernScore++;
+  if (typeof window.addEventListener === "function") modernScore++;
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) modernScore++;
+
+  try {
+    eval("let x = () => true;");
+    modernScore++;
+  } catch (e) {}
+
+  try {
+    var audio = document.createElement("audio");
+    if (audio && typeof audio.play === "function") modernScore++;
+  } catch (e) {}
+
+  if (/iPhone/i.test(ua) && /OS (12|13|14|15|16|17|18)/i.test(ua)) {
+    modernScore += 2;
+  }
+
+  return modernScore >= 4 && !isLegacyAppleDevice();
+}
+
+if (!isModernDevice()) {
+  var banner = document.getElementById("audio-stop-warning");
+  if (banner) {
+    banner.style.display = "block";
+  }
+}
+</script>
+
+
 <article class="audio-stop">
 
     <div class="sticky-wrapper">
@@ -173,7 +223,7 @@
                 
                  <img src="../../../../media/images/IMG_9947_2.2e16d0ba.fill-800x600.jpg"
                      data-timestamp="0.0"
-                     class="timed-image"
+                     class="timed-image active"
                      data-alt="Offermes"
                      data-focal-x="50"
                      data-focal-y="50">

@@ -27,9 +27,14 @@
 }
 
 /* Timed images */
-.timed-images img{
+.timed-images .timed-image {
+    display: none;
     width: 100%;
     border-radius: 8px;
+}
+
+.timed-images .timed-image.active {
+    display: block;
 }
 
 /* Container voor alle content */
