@@ -1,0 +1,1061 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+
+    <title>
+        
+            Ontwikkeling van de textiel in Twente
+        
+        
+            
+            - Audiotours in de museumfabriek
+        
+    </title>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    
+</head>
+
+<body class="">
+    
+
+
+<!-- ⭐ TAALSWITCHER (Officiële Wagtail Core Methode) -->
+<!--
+<div class="language-switcher"
+        style="
+            position: absolute;
+            top: 140px;
+            right: 10px;
+            z-index: 999999;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: sans-serif;
+     ">
+    
+    
+    
+    
+        
+            <!-- Actieve taal -->
+<!--
+            <span class="active-lang"><strong>NL</strong></span>
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/en/de-museumfabriek-audiotours/ontwikkeling-van-de-textiel-in-twente/">EN</a>
+            
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/de/de-museumfabriek-audiotours/ontwikkeling-van-de-textiel-in-twente/">DE</a>
+            
+        
+        
+    
+</div>
+-->
+
+
+
+
+</script>
+    <!-- ⭐ QR OVERLAY -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- ⭐ QR BUTTON -->
+    
+      
+        <button id="start-qr" class="qr-button" style="
+            position: absolute !important;
+            top: 400px !important;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 12px !important;
+            color: white !important;
+            background: rgba(0,0,155,0.6) !important;
+            right: 10px !important;
+            z-index: 999999 !important;
+            font-size: 12px !important;
+            ">
+            QR
+        </button>
+      
+    
+
+    
+<div id="tour-page-warning"
+     style="display:none; background:#ffcc00; padding:12px; font-family:sans-serif; margin-bottom:12px; border-radius:6px;">
+  <strong>Let op:</strong> Deze browser of dit apparaat is te oud voor een optimale weergave.
+  De audio en andere knoppen werken mogelijk niet goed.
+</div>
+
+<script>
+function isLegacyAppleDevice() {
+  var ua = navigator.userAgent || "";
+  var isOldIOS = /iP(hone|ad|od).*OS (9|10|11)_/i.test(ua);
+  var isOldSafari = /Version\/(9|10|11)\./i.test(ua) && !/(Chrome|CriOS|FxiOS|OPiOS|EdgiOS)/i.test(ua);
+  var isOldIPhone = /iPhone/i.test(ua) && /(OS 9|OS 10|OS 11)/i.test(ua);
+  return isOldIOS || isOldSafari || isOldIPhone;
+}
+
+function isModernDevice() {
+  var modernScore = 0;
+  var ua = navigator.userAgent || "";
+
+  if (navigator.userAgentData) modernScore++;
+  if (typeof window.matchMedia === "function") modernScore++;
+  if (typeof window.addEventListener === "function") modernScore++;
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) modernScore++;
+
+  try {
+    eval("let x = () => true;");
+    modernScore++;
+  } catch (e) {}
+
+  try {
+    var audio = document.createElement("audio");
+    if (audio && typeof audio.play === "function") modernScore++;
+  } catch (e) {}
+
+  if (/iPhone/i.test(ua) && /OS (12|13|14|15|16|17|18)/i.test(ua)) {
+    modernScore += 2;
+  }
+
+  return modernScore >= 4 && !isLegacyAppleDevice();
+}
+
+if (!isModernDevice()) {
+  var banner = document.getElementById("tour-page-warning");
+  if (banner) {
+    banner.style.display = "block";
+  }
+}
+</script>
+
+
+<article class="audio-stop">
+        
+    <header class="stop-header">
+
+        <nav class="stop-navigation">
+            
+<!--
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/back.svg" alt="back" title="Lijst met audiotours">
+                </a>
+            </div>
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/menu.svg" alt="Lijst met audiotours" title="Lijst met audiotours">
+                </a>
+            </div>
+
+            <div class="nav-slot">
+                <a class="nav-button" href="../../../../index.html"">
+                    <img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Beginpagina">
+                </a>
+            </div>
+-->            
+            <div class="nav-slot">
+                <a class="nav-button" href="../index.html">
+                    <img src="../../../static/audiotour/icons/home.svg" alt="Home" title="Lijst met audiotours">
+                </a>
+            </div>            
+            
+            
+                
+                    <div class="nav-slot">    
+                        <a class="nav-button" href="../ontwikkeling-van-de-textiel-in-twente/1-inleiding-en-plattegrond/index.html">
+                             <img src="../../../static/audiotour/icons/next.svg" alt="next" title="Eerste luisterpunt">
+                        </a>
+                    </div>
+                
+            
+        </nav>
+        
+        
+        <h1>Ontwikkeling van de textiel in Twente</h1>
+        <!--------------------- help popup -------------------------------------
+
+            Een popup voor hulp verschijnt als de gebruiker
+            op het vraagteken icoon klikt in de rechter bovenhoek
+            van deze pagina.
+
+        ----------------------------------------------------------------------->
+        <div class="help-widget">
+            <button class="help-button">?</button>
+
+            <div class="help-popup hidden">
+                
+                <div class="help-content">
+                    
+                    <ul>
+                        <li>Klik op één van de luisterpunten van deze audiotour om deze te openen.</li>        
+                        <li><img src="../../../static/audiotour/icons/home.svg" alt="Lijst audiotours" title="Lijst met audiotours" style="vertical-align:middle"/>&emsp;Ga naar de lijst met audiotours om een andere audiotour te kiezen.</li>
+                        <li><img src="../../../static/audiotour/icons/next.svg"> Ga naar het eerste luisterpunt</li>
+                        <li><img src="../../../static/audiotour/icons/qr.svg"> Scan een QR code (wanneer van toepassing</li>
+                    </ul>
+                    <button class="close-help">Sluiten</button>
+                    
+                    
+                                        
+                    
+                </div>
+            </div>
+        </div>
+        <!------------------------- end help popup ---------------------------->
+        
+        
+        
+            <div class="tour-intro">
+                <p data-block-key="jup44">(Teksten uit: "versie 12 aug.docx", Riet Martens)</p><p data-block-key="2to11">Leuk dat je deelneemt aan de audiotour “ontwikkeling van de textiel in Twente” van de Museum Fabriek. In deze audiotour voeren we je langs allerlei grote en kleinere objecten in het museum, en vertellen daarbij over de ontwikkeling van de textiel in Twente: van huisnijverheid tot textielindustrie.</p>
+            </div>
+        
+    </header>
+
+    <section class="tour-stops">
+        
+        
+        <h2>
+             Luisterpunten in deze tour 
+            
+            
+       </h2> 
+        
+        <ul class="stop-list">
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/1-inleiding-en-plattegrond/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                               
+                                
+                                    
+                                         
+                                        <img src="../../../media/images/plattegrond-museumfabriek_eNt1WFN.2e16d0ba.fill-300x300.png" alt="1. Inleiding en plattegrond van de MuseumFabriek" class="stop-thumb-img">
+                                    
+                                
+                                
+                                                            
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 1</span>
+-->
+                            <span class="stop-title">1. Inleiding en plattegrond van de MuseumFabriek</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/plattegrond-hal-1/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                               
+                                
+                                    
+                                         
+                                        <img src="../../../media/images/plattegrond-textiel-twente-hal-1_j.2e16d0ba.fill-300x300.png" alt="Plattegrond Hal 1" class="stop-thumb-img">
+                                    
+                                
+                                
+                                                            
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 2</span>
+-->
+                            <span class="stop-title">Plattegrond Hal 1</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/2-sporen-van-weven-in-de-ijzertijd/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                
+                                    
+                                    
+                                        <img src="../../../media/images/weven_in_de_ijzertijd.2e16d0ba.fill-300x200.jpg" alt="2. Sporen van weven in de IJzertijd" class="stop-thumb-img" data-focal-x="50" data-focal-y="50">
+                                    
+                                
+                                
+                             
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 3</span>
+-->
+                            <span class="stop-title">2. Sporen van weven in de IJzertijd</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/3-germaanse-boerderij-en-spinklosjes/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                
+                                    
+                                    
+                                        <img src="../../../media/images/spinnen_met_spinklosje.2e16d0ba.fill-300x200.png" alt="3. Germaanse boerderij en spinklosjes" class="stop-thumb-img" data-focal-x="50" data-focal-y="50">
+                                    
+                                
+                                
+                             
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 4</span>
+-->
+                            <span class="stop-title">3. Germaanse boerderij en spinklosjes</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/4-los-hoes-vlas-van-stengel-naar-vezel/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 5</span>
+-->
+                            <span class="stop-title">4. Los hoes – vlas van stengel naar vezel</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/5-los-hoes-spinnen-op-het-spinnewiel/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 6</span>
+-->
+                            <span class="stop-title">5. Los hoes – spinnen op het spinnewiel</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/6-los-hoes-weven/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 7</span>
+-->
+                            <span class="stop-title">6. Los Hoes – weven</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/plattegrond-hal-2/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                               
+                                
+                                    
+                                         
+                                        <img src="../../../media/images/plattegrond-textiel-twente-hal-2_0.2e16d0ba.fill-300x300.png" alt="Plattegrond hal 2" class="stop-thumb-img">
+                                    
+                                
+                                
+                                                            
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 8</span>
+-->
+                            <span class="stop-title">Plattegrond hal 2</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/7-bedrukken-van-stoffen/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 9</span>
+-->
+                            <span class="stop-title">7. Bedrukken van stoffen</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/8-verven-van-stoffen/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 10</span>
+-->
+                            <span class="stop-title">8. Verven van stoffen</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/9-fabriqueurskist-van-abraham-ter-horst/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 11</span>
+-->
+                            <span class="stop-title">9. Fabriqueurskist van Abraham ter Horst</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/10-schoolplaat-fabrieksstad-enschede/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 12</span>
+-->
+                            <span class="stop-title">10. Schoolplaat ‘Fabrieksstad Enschede’</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/plattegrond-hal-3/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                               
+                                
+                                    
+                                         
+                                        <img src="../../../media/images/plattegrond-textiel-twente-hal-3_C.2e16d0ba.fill-300x300.png" alt="Plattegrond Hal 3" class="stop-thumb-img">
+                                    
+                                
+                                
+                                                            
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 13</span>
+-->
+                            <span class="stop-title">Plattegrond Hal 3</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/11-stoomkelder/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 14</span>
+-->
+                            <span class="stop-title">11. Stoomkelder</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/12-vier-weefmachines/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 15</span>
+-->
+                            <span class="stop-title">12. Vier weefmachines</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/13-spinmachines/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 16</span>
+-->
+                            <span class="stop-title">13. Spinmachines</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/14-model-spinfabriek/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 17</span>
+-->
+                            <span class="stop-title">14. Model spinfabriek</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/15-snelweefgetouw-met-jacquardkop-het-snel-weven/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 18</span>
+-->
+                            <span class="stop-title">15. Snelweefgetouw met Jacquardkop - het snel weven</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/16-snelweefgetouw-met-jacquardkop-jacquardweven/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 19</span>
+-->
+                            <span class="stop-title">16. Snelweefgetouw met Jacquardkop – Jacquardweven</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/17-twee-keer-gerrit-maar-uit-verschillende-werelden/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 20</span>
+-->
+                            <span class="stop-title">17. Twee keer Gerrit, maar uit verschillende werelden</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/18-arbeidsmigranten/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 21</span>
+-->
+                            <span class="stop-title">18. Arbeidsmigranten</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/19-neergang-van-de-textielindustrie/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 22</span>
+-->
+                            <span class="stop-title">19. Neergang van de textielindustrie</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/20-innovaties-in-textiel/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 23</span>
+-->
+                            <span class="stop-title">20. Innovaties in textiel</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+            
+                <li class="stop-item">
+                    <a href="../ontwikkeling-van-de-textiel-in-twente/21-tenslotte/index.html" class="stop-link">
+
+                        <div class="stop-thumb">
+                            
+                                <div class="thumb-placeholder"> </div>
+                            
+                        </div>
+
+                        <div class="stop-info">
+<!--
+                            <span class="stop-number">Stop 24</span>
+-->
+                            <span class="stop-title">21. Tenslotte...</span>
+  
+                        </div>
+
+                    </a>
+                
+                
+               
+                    
+                        
+                    
+               </li>
+
+            
+        </ul>
+    </section>
+
+</article>
+
+
+
+    <!-- Global javascript -->
+    <script src="../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../static/audiotour/js/help-popup.js"></script>
+
+    
+        <script src="../../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+            try {
+                const url = new URL(decodedText);
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        }
+
+        function onScanError(errorMessage) {
+            console.warn("QR scan error:", errorMessage);
+        }
+
+        if (startBtn && overlay && qrReader) {
+            startBtn.addEventListener("click", function () {
+                overlay.classList.add("active");
+                setTimeout(async () => {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                        stream.getTracks().forEach(track => track.stop());
+                        qrScanner = new Html5Qrcode("qr-video-wrapper");
+                        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+                        const cameras = await Html5Qrcode.getCameras();
+                        if (cameras && cameras.length > 0) {
+                            const rearCamera = cameras.find(cam => {
+                                const label = (cam.label || "").toLowerCase();
+                                return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                            });
+                            const cameraId = (rearCamera || cameras[0]).id;
+                            await qrScanner.start(cameraId, config, onScanSuccess, onScanError);
+                        } else {
+                            alert("Geen camera gevonden");
+                            overlay.classList.remove("active");
+                        }
+                    } catch (error) {
+                        alert("Camera toegang geweigerd: " + error.message);
+                        overlay.classList.remove("active");
+                    }
+                }, 500);
+            });
+
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

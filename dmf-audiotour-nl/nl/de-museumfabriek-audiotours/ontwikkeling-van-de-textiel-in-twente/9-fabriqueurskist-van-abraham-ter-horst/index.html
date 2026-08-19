@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../../../static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/tour-list.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-stop.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/components/audio-tour-index.css">
+    <link rel="stylesheet" href="../../../../static/audiotour/css/hotspots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <meta charset="utf-8" />
+
+    <title>
+        
+            9. Fabriqueurskist van Abraham ter Horst
+        
+        
+            
+            - Audiotours in de museumfabriek
+        
+    </title>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    
+</head>
+
+<body class="">
+    
+
+
+<!-- ⭐ TAALSWITCHER (Officiële Wagtail Core Methode) -->
+<!--
+<div class="language-switcher"
+        style="
+            position: absolute;
+            top: 140px;
+            right: 10px;
+            z-index: 999999;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: sans-serif;
+     ">
+    
+    
+    
+    
+        
+            <!-- Actieve taal -->
+<!--
+            <span class="active-lang"><strong>NL</strong></span>
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/en/de-museumfabriek-audiotours/ontwikkeling-van-de-textiel-in-twente/9-fabriqueurskist-van-abraham-ter-horst/">EN</a>
+            
+        
+         | 
+    
+        
+-->
+            <!-- Wijzig de context tijdelijk naar de doeltaal en haal de gelokaliseerde pagina op -->
+<!--
+            
+                <a href="/de/de-museumfabriek-audiotours/ontwikkeling-van-de-textiel-in-twente/9-fabriqueurskist-van-abraham-ter-horst/">DE</a>
+            
+        
+        
+    
+</div>
+-->
+
+
+
+
+</script>
+    <!-- ⭐ QR OVERLAY -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div id="qr-reader">
+            <div id="qr-video-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- ⭐ QR BUTTON -->
+    
+      
+        <button id="start-qr" class="qr-button" style="
+            position: absolute !important;
+            top: 400px !important;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 12px !important;
+            color: white !important;
+            background: rgba(0,0,155,0.6) !important;
+            right: 10px !important;
+            z-index: 999999 !important;
+            font-size: 12px !important;
+            ">
+            QR
+        </button>
+      
+    
+
+    
+
+<div id="audio-stop-warning"
+     style="display:none; background:#ffcc00; padding:12px; font-family:sans-serif; margin-bottom:12px; border-radius:6px;">
+  <strong>Let op:</strong> Deze browser of dit apparaat is te oud voor een optimale weergave.
+  De audio en andere knoppen werken mogelijk niet goed.
+</div>
+
+<script>
+function isLegacyAppleDevice() {
+  var ua = navigator.userAgent || "";
+  var isOldIOS = /iP(hone|ad|od).*OS (9|10|11)_/i.test(ua);
+  var isOldSafari = /Version\/(9|10|11)\./i.test(ua) && !/(Chrome|CriOS|FxiOS|OPiOS|EdgiOS)/i.test(ua);
+  var isOldIPhone = /iPhone/i.test(ua) && /(OS 9|OS 10|OS 11)/i.test(ua);
+  return isOldIOS || isOldSafari || isOldIPhone;
+}
+
+function isModernDevice() {
+  var modernScore = 0;
+  var ua = navigator.userAgent || "";
+
+  if (navigator.userAgentData) modernScore++;
+  if (typeof window.matchMedia === "function") modernScore++;
+  if (typeof window.addEventListener === "function") modernScore++;
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) modernScore++;
+
+  try {
+    eval("let x = () => true;");
+    modernScore++;
+  } catch (e) {}
+
+  try {
+    var audio = document.createElement("audio");
+    if (audio && typeof audio.play === "function") modernScore++;
+  } catch (e) {}
+
+  if (/iPhone/i.test(ua) && /OS (12|13|14|15|16|17|18)/i.test(ua)) {
+    modernScore += 2;
+  }
+
+  return modernScore >= 4 && !isLegacyAppleDevice();
+}
+
+if (!isModernDevice()) {
+  var banner = document.getElementById("audio-stop-warning");
+  if (banner) {
+    banner.style.display = "block";
+  }
+}
+</script>
+
+
+<article class="audio-stop">
+
+    <div class="sticky-wrapper">
+
+        <!-- Navigatie -->
+        <nav class="stop-navigation">
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../ontwikkeling-van-de-textiel-in-twente/8-verven-van-stoffen/index.html">
+                        <img src="../../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorig luisterpunt">
+                    </a>
+                
+            </div>
+
+            <div class="nav-slot">
+                <a class="nav-button" href="../../ontwikkeling-van-de-textiel-in-twente/index.html">
+                    <img src="../../../../static/audiotour/icons/menu.svg" alt="Terug naar lijst" title="Lijst van luisterpunten">
+                </a>
+            </div>
+
+            
+<!--
+            <div class="nav-slot">
+                <a class="nav-button" href="../../../../../index.html"">
+                    <img src="../../../../static/audiotour/icons/home.svg" alt="Home" title="Beginpagina">
+                </a>
+            </div>
+-->
+            
+            <div class="nav-slot">
+                <a class="nav-button" href="../../index.html">
+                    <img src="../../../../static/audiotour/icons/home.svg" alt="Home" title="Lijst met audiotours">
+                </a>
+            </div>
+            
+            <div class="nav-slot">
+                
+                    <a class="nav-button" href="../../ontwikkeling-van-de-textiel-in-twente/10-schoolplaat-fabrieksstad-enschede/index.html">
+                        <img src="../../../../static/audiotour/icons/next.svg" alt="Volgende" title="Volgend luisterpunt">
+                    </a>
+                
+            </div>
+        </nav>
+
+        <h1>9. Fabriqueurskist van Abraham ter Horst</h1>
+        
+        
+
+        
+        
+        
+
+    </div>
+
+    
+
+    <div class="description" role="button" tabindex="0">
+        <p data-block-key="74kau">Ga naar <a href="../../ontwikkeling-van-de-textiel-in-twente/plattegrond-hal-2/index.html">Plattegrond hal 2</a></p> <p data-block-key="8rtfr">Vroeger was vervoer niet gemakkelijk. In Twente ging het vervoer waar mogelijk over water. Voor andere routes gebruikte men de wegen. Die waren vaak slecht, vooral bij regen. Handelaren gebruikten daarom stevige houten kisten om garen, stoffen en papier te bewaren en te vervoeren. Sommige kisten waren ook waterdicht.</p><p data-block-key="8plq8">De kisten herinneren aan de opkomst van de textielhandel in Twente. De bevolking groeide en de meeste boerenbedrijven waren klein. Er was maar weinig goede landbouwgrond. Daardoor kon niet iedere boerenzoon later een eigen boerderij beginnen.</p><p data-block-key="20gr3">Aanvankelijk was spinnen en weven vooral een bijverdienste. In de winter was er weinig werk op het land. Boerengezinnen werkten dan thuis met garen en stoffen. Wat zij extra maakten, verkochten zij aan handelaren. Later gingen sommige boerenzonen steeds meer spinnen of weven. Voor hen werd textiel uiteindelijk het belangrijkste, of zelfs het enige, werk.</p><p data-block-key="a9til">In 1597, tijdens de Tachtigjarige Oorlog, veroverde prins Maurits Enschede op de Spanjaarden. Daarna werden de buitenste gracht en de aarden wallen grotendeels afgebroken. Enschede werd daardoor een open stad. De stad kreeg meer ruimte om te groeien en werd aantrekkelijker voor handel en ambacht.</p><p data-block-key="392fn">De handelaren die het thuiswerk regelden, werden fabriqueurs genoemd. Zij waren voorlopers van de latere textielfabrikant</p> 
+    </div>
+
+</article>
+
+<!-- HELP -->
+
+<div class="help-widget">
+    <button class="help-button">?</button>
+
+    <div class="help-popup hidden">
+        <div class="help-content">
+            
+           <ul>
+                <li><img src="../../../../static/audiotour/icons/audio_control.svg">Om de audio te starten, klik op het pijltje: ▶.</li>
+                <li>Dubbelklik op de foto om de tekst naar voren te halen.</li>
+                <li><img src="../../../../static/audiotour/icons/back.svg"> Vorig luisterpunt</li>
+                <li><img src="../../../../static/audiotour/icons/home.svg"> Lijst met audiotours</li>
+                <li><img src="../../../../static/audiotour/icons/menu.svg"> Lijst met luisterpunten</li>
+                <li><img src="../../../../static/audiotour/icons/next.svg"> Volgend luisterpunt</li>
+                <li><img src="../../../../static/audiotour/icons/meer_info.svg"> Meer informatie</li>
+                <li><img src="../../../../static/audiotour/icons/qr.svg"> Scan een QR code (wanneer van toepassing)</li>
+                <li>Bij gebruik van een mobiel of tablet is "swipen" ook mogelijk.</li>
+            </ul>
+            <button class="close-help">Sluiten</button>
+           
+           
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Hotspot tooltip -->
+<div id="hotspot-tooltip" style="position: fixed; background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 8px; font-size: 14px; pointer-events: none; opacity: 0; z-index: 10000; transform: translateX(-50%);"></div>
+
+
+
+    <!-- Global javascript -->
+    <script src="../../../../static/audiotour/js/audio-tour.js"></script>
+    <script src="../../../../static/audiotour/js/audio-stop.js"></script>
+    <script src="../../../../static/audiotour/js/help-popup.js"></script>
+
+    
+        <script src="../../../../static/audiotour/js/hotspots.js?v="></script>
+    
+
+    <!-- ⭐ QR SCANNER SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startBtn = document.getElementById("start-qr");
+        const overlay = document.getElementById("qr-overlay");
+        const qrReader = document.getElementById("qr-reader");
+        let qrScanner = null;
+
+        function onScanSuccess(decodedText) {
+            const allowedHost = window.location.host;
+            try {
+                const url = new URL(decodedText);
+                if (url.host === allowedHost) {
+                    qrScanner.stop();
+                    overlay.classList.remove("active");
+                    window.location.href = decodedText;
+                } else {
+                    alert("Alleen interne audiotour-links zijn toegestaan.");
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            } catch {
+                alert("Ongeldige QR-code.");
+                overlay.classList.remove("active");
+                if (qrScanner) qrScanner.stop();
+            }
+        }
+
+        function onScanError(errorMessage) {
+            console.warn("QR scan error:", errorMessage);
+        }
+
+        if (startBtn && overlay && qrReader) {
+            startBtn.addEventListener("click", function () {
+                overlay.classList.add("active");
+                setTimeout(async () => {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                        stream.getTracks().forEach(track => track.stop());
+                        qrScanner = new Html5Qrcode("qr-video-wrapper");
+                        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+                        const cameras = await Html5Qrcode.getCameras();
+                        if (cameras && cameras.length > 0) {
+                            const rearCamera = cameras.find(cam => {
+                                const label = (cam.label || "").toLowerCase();
+                                return /back|rear|environment|achter|achterkant|selfie/.test(label) && !/front|voor/.test(label);
+                            });
+                            const cameraId = (rearCamera || cameras[0]).id;
+                            await qrScanner.start(cameraId, config, onScanSuccess, onScanError);
+                        } else {
+                            alert("Geen camera gevonden");
+                            overlay.classList.remove("active");
+                        }
+                    } catch (error) {
+                        alert("Camera toegang geweigerd: " + error.message);
+                        overlay.classList.remove("active");
+                    }
+                }, 500);
+            });
+
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove("active");
+                    if (qrScanner) qrScanner.stop();
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
