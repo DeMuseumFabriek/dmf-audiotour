@@ -56,7 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Tweede tik → navigeer
                     window.location = hotspot.getAttribute("href");
                 }
+                
             });
+            
         }
 
         // ----------------------------------------------------
@@ -109,8 +111,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const rect = img.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            display.textContent = `X: ${x.toFixed(0)}%, Y: ${y.toFixed(0)}%`;
+            
+            //const clientX = e.clientX - rect.left;
+            //const clientY = e.clientY - rect.top;
+            
+            //const scaleX = 100 / rect.width;
+            //const scaleY = 100 / rect.height;
 
-            display.textContent = `X: ${x.toFixed(1)}%, Y: ${y.toFixed(1)}%`;
+            //const imageX = Math.round(clientX);
+            //const imageY = Math.round(clientY);
+
+            //display.textContent += ` | Image X: ${imageX}, Image Y: ${imageY}`;
+            //display.textContent += ` | Client X: ${clientX}, Client Y: ${clientY}`;
+            
         });
     }
 });
