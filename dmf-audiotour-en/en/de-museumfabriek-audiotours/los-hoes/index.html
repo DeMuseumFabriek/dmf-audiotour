@@ -199,6 +199,26 @@ if (!isModernDevice()) {
         
         
         <h1>Los Hoes</h1>
+
+        <form action="../../search/index.html" method="get" class="tour-search-form" role="search">
+            
+            <label for="tour-search-query" class="sr-only">
+                
+                Search the audio tour
+                
+            </label>
+            <input
+                id="tour-search-query"
+                type="search"
+                name="query"
+                value=""
+                placeholder="Search..."
+                required
+            >
+            <button type="submit">
+                Search
+            </button>
+        </form>
         <!--------------------- help popup -------------------------------------
 
             Een popup voor hulp verschijnt als de gebruiker

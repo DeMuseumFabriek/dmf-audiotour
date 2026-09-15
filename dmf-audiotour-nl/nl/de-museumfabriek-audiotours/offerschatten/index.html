@@ -195,6 +195,26 @@ if (!isModernDevice()) {
         
         
         <h1>Offerschatten</h1>
+
+        <form action="../../search/index.html" method="get" class="tour-search-form" role="search">
+            
+            <label for="tour-search-query" class="sr-only">
+                Zoek in de audiotour
+                
+                
+            </label>
+            <input
+                id="tour-search-query"
+                type="search"
+                name="query"
+                value=""
+                placeholder="Zoeken..."
+                required
+            >
+            <button type="submit">
+                Zoeken
+            </button>
+        </form>
         <!--------------------- help popup -------------------------------------
 
             Een popup voor hulp verschijnt als de gebruiker
