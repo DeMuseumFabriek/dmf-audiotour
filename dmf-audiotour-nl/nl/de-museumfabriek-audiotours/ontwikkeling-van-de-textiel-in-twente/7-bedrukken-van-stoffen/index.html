@@ -283,6 +283,11 @@ if (!isModernDevice()) {
                 <li><img src="../../../../static/audiotour/icons/qr.svg"> Scan een QR code (wanneer van toepassing)</li>
                 <li>Bij gebruik van een mobiel of tablet is "swipen" ook mogelijk.</li>
             </ul>
+            <form action="../../../search/index.html" method="get" class="tour-search-form" role="search">
+                <label for="tour-search-query-help" class="sr-only">Zoek in de audiotours</label>
+                <input id="tour-search-query-help" type="search" name="query" value="" placeholder="Zoeken..." required>
+                <button type="submit">Zoeken</button>
+            </form>
             <button class="close-help">Sluiten</button>
            
            

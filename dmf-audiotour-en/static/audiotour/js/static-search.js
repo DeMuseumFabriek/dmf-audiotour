@@ -8,8 +8,51 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
     }
 
+    const locale = (status.dataset.locale || document.documentElement.lang || "nl").toLowerCase();
+    const language = locale.startsWith("en") ? "en" : locale.startsWith("de") ? "de" : "nl";
+    const translations = {
+        nl: {
+            unavailable: "Zoeken is tijdelijk niet beschikbaar.",
+            none: "Geen zoekresultaten gevonden",
+            one: "1 resultaat gevonden",
+            many: (count) => `${count} resultaten gevonden`
+        },
+        en: {
+            unavailable: "Search is temporarily unavailable.",
+            none: "No search results found",
+            one: "1 result found",
+            many: (count) => `${count} results found`
+        },
+        de: {
+            unavailable: "Suche ist vorübergehend nicht verfügbar.",
+            none: "Keine Suchergebnisse gefunden",
+            one: "1 Ergebnis gefunden",
+            many: (count) => `${count} Ergebnisse gefunden`
+        }
+    };
+
+    const text = translations[language];
+
     const query = new URLSearchParams(window.location.search).get("query") || "";
     input.value = query;
+
+    const hasServerResults = results.querySelector("li") !== null;
+    if (hasServerResults) {
+        status.textContent = "";
+    }
+
+    const cancelButtons = document.querySelectorAll("[data-search-cancel]");
+    cancelButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const searchUrl = new URL(window.location.href);
+            searchUrl.searchParams.delete("query");
+            if (document.referrer && document.referrer.startsWith(window.location.origin)) {
+                window.history.back();
+                return;
+            }
+            window.location.href = searchUrl.pathname;
+        });
+    });
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -19,6 +62,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     if (!query.trim()) {
+        return;
+    }
+
+    if (hasServerResults) {
         return;
     }
 
@@ -36,9 +83,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         results.replaceChildren();
+
+        if (matches.length === 0) {
+            status.textContent = text.none;
+            return;
+        }
+
         status.textContent = matches.length === 1
-            ? "1 resultaat gevonden"
-            : `${matches.length} resultaten gevonden`;
+            ? text.one
+            : text.many(matches.length);
 
         for (const match of matches) {
             const item = document.createElement("li");
@@ -49,7 +102,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             results.appendChild(item);
         }
     } catch (error) {
-        status.textContent = "Zoeken is tijdelijk niet beschikbaar.";
+        if (results.querySelector("li")) {
+            status.textContent = "";
+            return;
+        }
+        status.textContent = text.unavailable;
         console.error(error);
     }
 });

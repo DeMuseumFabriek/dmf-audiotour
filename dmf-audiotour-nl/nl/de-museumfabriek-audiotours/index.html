@@ -168,6 +168,26 @@ if (!isModernDevice()) {
   <h1>De MuseumFabriek audiotours</h1>
 -->
   
+  <form action="../search/index.html" method="get" class="tour-search-form" role="search">
+    
+    <label for="tour-search-query" class="sr-only">
+        Zoek in de audiotours
+        
+        
+    </label>
+    <input
+        id="tour-search-query"
+        type="search"
+        name="query"
+        value=""
+        placeholder="Zoeken..."
+        required
+    >
+    <button type="submit">
+        Zoeken
+    </button>
+  </form>
+
   <!-------------------- help popup ------------------------------------
   
     Een popup voor hulp verschijnt als de gebruiker
@@ -180,6 +200,25 @@ if (!isModernDevice()) {
 
     <div class="help-popup hidden">
         <div class="help-content">
+            <form action="../search/index.html" method="get" class="tour-search-form" role="search">
+                
+                <label for="tour-search-query-help" class="sr-only">
+                    Zoek in de audiotours
+                    
+                    
+                </label>
+                <input
+                    id="tour-search-query-help"
+                    type="search"
+                    name="query"
+                    value=""
+                    placeholder="Zoeken..."
+                    required
+                >
+                <button type="submit">
+                    Zoeken
+                </button>
+            </form>
             <ul>
                 
                 <li>

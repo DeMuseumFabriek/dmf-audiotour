@@ -289,6 +289,11 @@ if (!isModernDevice()) {
                 <li><img src="../../../../static/audiotour/icons/qr.svg"> Scannen Sie einen QR-Code (falls zutreffend)</li>
                 <li>Bei der Verwendung eines Mobiltelefons oder Tablets ist auch das „Wischen“ möglich.</li>
             </ul>
+            <form action="../../../search/index.html" method="get" class="tour-search-form" role="search">
+                <label for="tour-search-query-help" class="sr-only">Audiotouren durchsuchen</label>
+                <input id="tour-search-query-help" type="search" name="query" value="" placeholder="Suchen..." required>
+                <button type="submit">Suchen</button>
+            </form>
             <button class="close-help">Schließen</button>
             
             

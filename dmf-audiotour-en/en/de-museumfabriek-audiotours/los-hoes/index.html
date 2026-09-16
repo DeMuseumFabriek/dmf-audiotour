@@ -204,7 +204,7 @@ if (!isModernDevice()) {
             
             <label for="tour-search-query" class="sr-only">
                 
-                Search the audio tour
+                Search the audio tours
                 
             </label>
             <input
@@ -240,6 +240,11 @@ if (!isModernDevice()) {
                         <li><img src="../../../static/audiotour/icons/next.svg">Go to the first listening point</li>
                         <li><img src="../../../static/audiotour/icons/qr.svg"> Scan a QR code (when applicable)</li>
                     </ul>
+                    <form action="../../search/index.html" method="get" class="tour-search-form" role="search">
+                        <label for="tour-search-query-help" class="sr-only">Search the audio tours</label>
+                        <input id="tour-search-query-help" type="search" name="query" value="" placeholder="Search..." required>
+                        <button type="submit">Search</button>
+                    </form>
                     <button class="close-help">Close</button>
                     
                                         

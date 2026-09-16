@@ -240,6 +240,11 @@ if (!isModernDevice()) {
                 <li><img src="../../../../../static/audiotour/icons/back.svg" alt="Vorige" title="Vorige pagina" style="vertical-align:middle"/>
                 &emsp;Terug naar het luisterpunt.</li>
             </ul>
+            <form action="../../../../search/index.html" method="get" class="tour-search-form" role="search">
+                <label for="tour-search-query-help" class="sr-only">Zoek in de audiotours</label>
+                <input id="tour-search-query-help" type="search" name="query" value="" placeholder="Zoeken..." required>
+                <button type="submit">Zoeken</button>
+            </form>
             <p>Bij gebruik van een touch-screen (mobiel, tablet) is het ook mogelijk om te navigeren door te 'swipen'</p>
             <button class="close-help">Sluiten</button>
         </div>
