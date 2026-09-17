@@ -11,7 +11,7 @@
 .tour-item {
     padding: 0;
     margin-bottom: 20px;
-    border: 1px solid #e6e6e6;
+    border: 3px solid #e6e6e6;
     border-radius: 4px;
     background-color: #f9f9f9;
     width: 100%;
@@ -39,9 +39,9 @@
 /* Thumbnail */
 .tour-thumbnail {
     flex-shrink: 0;
-    width: 200px;
-    min-width: 200px;
-    height: 200px;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
