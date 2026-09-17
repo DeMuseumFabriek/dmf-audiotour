@@ -289,6 +289,9 @@
     font-family: "Open Sans", sans-serif;
 }
 
+.help-popup .close-help {
+    margin-top: 20px;
+}
 
 .hidden {
     display: none;
