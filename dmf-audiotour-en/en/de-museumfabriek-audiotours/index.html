@@ -150,24 +150,20 @@ if (!isModernDevice()) {
 
 <!---------------- audio_tour_index_page.html --------------------------
 
-  Dit is de Home pagina van de audiotours van DeMuseumFabriek.
+  Dit is de Home pagina van de audiotours van het museum.
   Een gebruiker kan hier een keuze maken uit de beschikbare  audiotours.
   
   Fred van Goor, Februari 2026
   
 ----------------------------------------------------------------------->
-<!--
-  
-  <div class="nav-slot">
-      
-      <a class="nav-button" href=  "/" >
 
-          <img src="../../static/audiotour/icons/home.svg" alt="Home" title="Home">
-      </a>
-  </div>
-  <h1>The MuseumFabriek audio tours</h1>
--->
-  
+<!-------------------- zoek functie ------------------------------------
+  De volgende code zorgt voor het verschijnen van een invulveld voor 
+  de zoekfunctie. De gebruiker vult een woord in en een popup venster
+  verschijnt met alle luisterpunten waarin dat woord voorkomt.
+  De gebruiker kan vervolgens een keuze hieruit maken of of de 
+  annuleren knop drukken om terug te gaan.
+----------------------------------------------------------------------->
   <form action="../search/index.html" method="get" class="tour-search-form" role="search">
     
     <label for="tour-search-query" class="sr-only">
@@ -187,6 +183,7 @@ if (!isModernDevice()) {
         Search
     </button>
   </form>
+<!------------------------ einde zoek --------------------------------->
 
   <!-------------------- help popup ------------------------------------
   
@@ -247,7 +244,12 @@ if (!isModernDevice()) {
         </div>
     </div>
   </div>
-  <!------------------------- end help popup -------------------------->
+<!------------------------- end help popup ---------------------------->
+
+<!------------------------- QR knop ------------------------------------
+  Hier staat de code die nodig is voor de QR knop. Als de gebruiker hierop
+  klikt wordt de QR functie (camera + scannen + linken) uitgevoerd.
+----------------------------------------------------------------------->
 
   
     
@@ -258,15 +260,33 @@ if (!isModernDevice()) {
       </nav>
     
   
+<!-------------------------- einde QR knop ---------------------------->
 
+<!------------------------cover afbeelding -----------------------------
+  De cover afbeelding wordt geplaatst.
+  Dat is bijvoorbeeld een foto van het museum.
+----------------------------------------------------------------------->
   <div class="cover-images">
     <img alt="Foto demuseumfabriek" height="139" src="../../media/images/demuseumfabriek-foto.max-400x400.jpg" width="400">
   </div>
+<!---------------------- einde cover afbeelding ----------------------->
 
+<!----------------------- Introducte tekst -----------------------------
+  Hier wordt de tekst geplaatst van het introductie block.
+----------------------------------------------------------------------->
   
     <div class="intro"><h2 data-block-key="tu1n5">Choose one of the audio tours from the list below.</h2><p data-block-key="7io6c">Have fun!</p></div>
   
+<!---------------------------einde intro tekst ------------------------>
 
+<!-------------------------- Lijst van audiotours ----------------------
+  Hier wordt met behulp van een for-loop een lijst met alle audiotours
+  geplaatst. Een cover foto van de tour, de introductietekst en indien
+  aanwezig een extra introducte tekst met links naar andere talen. Dit 
+  laatste was nodig omdat Wagtail het niet toestaat dat er "links in een 
+  link" (nested links) staan. De extra intro is bedoeld voor de links
+  naar de verschillende talen.
+----------------------------------------------------------------------->
   <ul class="tour-list">
     
       <li class="tour-item">
@@ -282,10 +302,9 @@ if (!isModernDevice()) {
             
               <p class="tour-description"><p data-block-key="xfo7a"><b>Choose your language:</b> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-nl/nl/de-museumfabriek-audiotours/offerschatten/index.html">Nederlands</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-en/en/de-museumfabriek-audiotours/sacrificial-treasures/index.html">English</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-de/de/de-museumfabriek-audiotours/opfergaben-schatzen/index.html">Deutsch</a></p><p data-block-key="eb0cr">In this exhibition, we are displaying a variety of artifacts found in the peatlands in and around Twente. These “sacrificial treasures,” which were likely valuable at the time, were probably offered to the gods to win their favor and protect the people from disasters.</p></p>
                         
-
           </div>
         </a>
-                    
+        
       </li>
     
       <li class="tour-item">
@@ -301,10 +320,9 @@ if (!isModernDevice()) {
             
               <p class="tour-description"><p data-block-key="ytlpp"><b>Choose your language:</b> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-nl/nl/de-museumfabriek-audiotours/los-hoes/index.html">Nederlands</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-en/en/de-museumfabriek-audiotours/los-hoes/index.html">English</a> <a href="https://dmf-audiotour-v5gw8.kinsta.page/dmf-audiotour-de/de/de-museumfabriek-audiotours/los-hoes/index.html">Deutsch</a></p><p data-block-key="c8tnp">Welcome to the Museumfabriek’s audio tour, “Los Hoes: Farm Life in Twente.” Today, you’ll take a trip back in time. Imagine: it’s the year 1100, and you’re a farmer in Twente. How do you live, what do you eat, and what does your farm look like? You’ll hear and see all that on this tour.</p></p>
                         
-
           </div>
         </a>
-                    
+        
       </li>
     
   </ul>
