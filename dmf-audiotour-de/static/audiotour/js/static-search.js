@@ -76,10 +76,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         const documents = await response.json();
-        const normalizedQuery = query.trim().toLocaleLowerCase();
+        const numericQuery = /^\p{Decimal_Number}+$/u.test(query);
         const matches = documents.filter((document) => {
+            if (numericQuery) {
+                if (typeof document.description_top !== "string") {
+                    return false;
+                }
+                const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const numberPattern = new RegExp(
+                    `(?:^|[^\\p{Decimal_Number}])${escapedQuery}(?!\\p{Decimal_Number})`,
+                    "u"
+                );
+                return numberPattern.test(document.description_top);
+            }
+
             const searchableText = `${document.title} ${document.text}`.toLocaleLowerCase();
-            return searchableText.includes(normalizedQuery);
+            return searchableText.includes(query.toLocaleLowerCase());
         });
 
         results.replaceChildren();
@@ -92,6 +104,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         status.textContent = matches.length === 1
             ? text.one
             : text.many(matches.length);
+
+        if (matches.length === 1) {
+            window.location.href = matches[0].url;
+            return;
+        }
 
         for (const match of matches) {
             const item = document.createElement("li");
