@@ -317,6 +317,13 @@
     max-width: 300px;
 }
 
+.help-popup {
+    box-sizing: border-box;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+}
+
 .help-content,
 .avo-content {
     font-family: "Open Sans", sans-serif;
