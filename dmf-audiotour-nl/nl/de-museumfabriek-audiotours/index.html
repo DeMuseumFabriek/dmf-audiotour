@@ -197,25 +197,7 @@ if (!isModernDevice()) {
 
     <div class="help-popup hidden">
         <div class="help-content">
-            <form action="../search/index.html" method="get" class="tour-search-form" role="search">
-                
-                <label for="tour-search-query-help" class="sr-only">
-                    
-                    
-                    
-                </label>
-                <input
-                    id="tour-search-query-help"
-                    type="search"
-                    name="query"
-                    value=""
-                    placeholder="Zoeken..."
-                    required
-                >
-                <button type="submit">
-                    Zoeken
-                </button>
-            </form>
+            <h3>De functie van de knoppen op deze pagina:</h3>
             <ul>
                 
                 <li>
@@ -237,8 +219,28 @@ if (!isModernDevice()) {
                   />, 
                   om naar deze pagina terug te keren.
                 </li>
-                <li><img src="../../static/audiotour/icons/qr.svg"> Scan een QR code met de camera van je mobiel</li>
+                <li><img src="../../static/audiotour/icons/qr.svg"> Scan een QR code met de camera van je mobiel (indien van toepassing)</li>
+                <li>Voer het nummer van het object in het zoekvenster in om naar het luisterpunt te gaan of zoek naar een bepaald woord.</li>
             </ul>
+            <form action="../search/index.html" method="get" class="tour-search-form" role="search">
+                
+                <label for="tour-search-query-help" class="sr-only">
+                    
+                    
+                    
+                </label>
+                <input
+                    id="tour-search-query-help"
+                    type="search"
+                    name="query"
+                    value=""
+                    placeholder="Zoeken..."
+                    required
+                >
+                <button type="submit">
+                    Zoeken
+                </button>
+            </form>
             <button class="close-help">Sluiten</button>
             
             
