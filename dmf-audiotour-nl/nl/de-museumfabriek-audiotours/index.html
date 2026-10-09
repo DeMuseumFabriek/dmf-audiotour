@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="../../manifest.json">
+<meta name="theme-color" content="#0078d4">
+<link rel="apple-touch-icon" href="../../media/images/DMFlogo.png">
+<link rel="stylesheet" href="../../offline-download.css">
+
     <link rel="icon" href="../../static/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="../../static/audiotour/css/components/tour-list.css">
@@ -147,6 +152,20 @@ if (!isModernDevice()) {
 }
 </script>
 
+
+<section class="offline-download" aria-label="Audiotour offline opslaan">
+  <button
+    id="offline-download-button"
+    class="offline-download__button"
+    type="button"
+    data-label-start="Download tour voor offline gebruik"
+    data-label-downloading="Tour wordt gedownload..."
+  >
+    Download tour voor offline gebruik
+  </button>
+  <progress id="offline-download-progress" max="100" value="0" hidden></progress>
+  <p id="offline-download-status" role="status" aria-live="polite"></p>
+</section>
 
 <!---------------- audio_tour_index_page.html --------------------------
 
@@ -538,5 +557,6 @@ if (!isModernDevice()) {
         }
     });
     </script>
+<script src="../../offline-download.js" defer></script>
 </body>
 </html>

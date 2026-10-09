@@ -1,0 +1,35 @@
+.offline-download {
+  margin: 1rem auto;
+  max-width: 36rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.offline-download__button {
+  background: #0078d4;
+  border: 0;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+}
+
+.offline-download__button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+#offline-download-progress {
+  display: block;
+  height: 1rem;
+  margin: 0.75rem auto 0;
+  max-width: 24rem;
+  width: 100%;
+}
+
+#offline-download-status {
+  margin: 0.5rem 0 0;
+}
