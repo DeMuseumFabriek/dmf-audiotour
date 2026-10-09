@@ -33,3 +33,17 @@
 #offline-download-status {
   margin: 0.5rem 0 0;
 }
+
+.offline-download__instructions {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  text-align: left;
+}
+
+.offline-download__instructions p {
+  text-align: center;
+}
+
+.offline-download__instructions li {
+  margin: 0.4rem 0;
+}

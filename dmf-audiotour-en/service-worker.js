@@ -1,6 +1,7 @@
-const BUILD_VERSION = "1791561136408826200";
+const BUILD_VERSION = "1791562310997897600";
 const SHELL_CACHE = `dmf-audiotour-shell-${BUILD_VERSION}`;
 const TOUR_CACHE = "dmf-audiotour-offline";
+const DOWNLOAD_CONCURRENCY = 6;
 const SCOPE_URL = self.registration.scope;
 const ASSET_LIST_URL = new URL("offline-assets.json", SCOPE_URL);
 const ENABLED_URL = new URL("offline-enabled.json", SCOPE_URL);
@@ -141,22 +142,44 @@ async function downloadAssets(cache, assetPaths, onProgress) {
   }
   await cache.put(ASSET_LIST_URL, listResponse.clone());
 
+  let nextIndex = 0;
   let completed = 0;
-  for (const path of assetPaths) {
-    const url = new URL(path, SCOPE_URL);
-    if (url.origin !== self.location.origin || !url.href.startsWith(SCOPE_URL)) {
-      throw new Error(`Ongeldig bestandspad in offline-assetlijst: ${path}`);
+  let failure;
+
+  async function downloadNext() {
+    while (nextIndex < assetPaths.length && !failure) {
+      const path = assetPaths[nextIndex];
+      nextIndex += 1;
+      try {
+        const url = new URL(path, SCOPE_URL);
+        if (
+          url.origin !== self.location.origin ||
+          !url.href.startsWith(SCOPE_URL)
+        ) {
+          throw new Error(`Ongeldig bestandspad in offline-assetlijst: ${path}`);
+        }
+        const response = await fetch(url, { cache: "reload" });
+        if (!response.ok) {
+          throw new Error(`${path} downloaden mislukt (HTTP ${response.status}).`);
+        }
+        await cache.put(url, response);
+        desiredUrls.add(url.href);
+        completed += 1;
+        if (onProgress) {
+          onProgress(completed, path);
+        }
+      } catch (error) {
+        if (!failure) {
+          failure = error;
+        }
+      }
     }
-    const response = await fetch(url, { cache: "reload" });
-    if (!response.ok) {
-      throw new Error(`${path} downloaden mislukt (HTTP ${response.status}).`);
-    }
-    await cache.put(url, response);
-    desiredUrls.add(url.href);
-    completed += 1;
-    if (onProgress) {
-      onProgress(completed, path);
-    }
+  }
+
+  const workerCount = Math.min(DOWNLOAD_CONCURRENCY, assetPaths.length);
+  await Promise.all(Array.from({ length: workerCount }, () => downloadNext()));
+  if (failure) {
+    throw failure;
   }
 
   const cachedRequests = await cache.keys();
